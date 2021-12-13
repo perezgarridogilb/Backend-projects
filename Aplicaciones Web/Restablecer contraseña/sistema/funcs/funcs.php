@@ -130,10 +130,10 @@
 		$mail->Host = 'smtp.gmail.com'; //Modificar
 		$mail->Port = 587; //Modificar
 		
-		$mail->Username = 'secarmesi@gmail.com'; //Modificar
-		$mail->Password = 'Well6999'; //Modificar
+		$mail->Username = 'gmail.com'; //Modificar
+		$mail->Password = ''; //Modificar
 		
-		$mail->setFrom('secarmesi@gmail.com', 'Sistema web de quejas'); //Modificar
+		$mail->setFrom('gmail.com', 'Sistema web de quejas'); //Modificar
 		$mail->addAddress($email, $nombre);
 		
 		$mail->Subject = $asunto;
