@@ -3,7 +3,9 @@
 .AppleDouble
 .LSOverride
 medias/
+__pycache__/
 .env/
+*.pdf
 
 # Icon must end with two \r
 Icon
