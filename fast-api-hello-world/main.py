@@ -31,23 +31,38 @@ class Person(BaseModel):
     firs_name: str = Field(
         ..., 
         min_lenght=1,
-        max_lenght=50
+        max_lenght=50,
+        example="Miguel"
         )
     last_name: str = Field(
         ..., 
         min_lenght=1,
-        max_lenght=50
+        max_lenght=50,
+        example="Torres"
         )
     age: int = Field(
         ...,
         gt=0,
-        le=115
+        le=115,
+        example=25
     )
 
     """Esto no es tan importante, por eso eso es opcional, en base de datos es null, en python es none"""
     """Hair color: definir lo que ya definimos"""
-    hair_color: Optional[HairColor] = Field(default=None)
-    is_married: Optional[bool] = Field(default=None)
+    hair_color: Optional[HairColor] = Field(default=None, example="black")
+    is_married: Optional[bool] = Field(default=None, example=False)
+
+#    class Config:
+#        schema_extra = {
+#            # Igual a Json / Diccionario | Swagger UI requiere que se llame "example".
+#            "example": {
+#                "first_name": "Facunado",
+#                "last_name": "Garcia Martoni",
+#                "age": 21,
+#                "hair_color": "blonde",
+#                "is_married": False
+#            }
+#        }
 
 @app.get("/")
 
@@ -103,8 +118,8 @@ def update_person(
         gt=0
     ),
     person: Person = Body(...),
-    location: Location = Body(...)
+    # location: Location = Body(...)
 ):
-    results = person.dict()
-    results.update(location.dict())
-    return results
+    # results = person.dict()
+    # results.update(location.dict())
+    return person
