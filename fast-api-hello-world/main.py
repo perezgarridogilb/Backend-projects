@@ -1,8 +1,10 @@
 #Python (Para el tipado estatico de este dato)
 from typing import Optional
+from enum import Enum
 
 #Pydantic
 from pydantic import BaseModel
+from pydantic import Field
 
 #FastAPI
 from fastapi import FastAPI
@@ -13,19 +15,39 @@ app = FastAPI()
 
 #Models (Hereda de BaseModel)
 
+class HairColor(Enum):
+    white = "white"
+    brown = "brown"
+    black = "black"
+    blonde = "blonde"
+    red = "red"
+
 class Location(BaseModel):
     city: str
     state: str
     country: str 
 
 class Person(BaseModel):
-    firs_name: str
-    last_name: str
-    age: int
+    firs_name: str = Field(
+        ..., 
+        min_lenght=1,
+        max_lenght=50
+        )
+    last_name: str = Field(
+        ..., 
+        min_lenght=1,
+        max_lenght=50
+        )
+    age: int = Field(
+        ...,
+        gt=0,
+        le=115
+    )
 
     """Esto no es tan importante, por eso eso es opcional, en base de datos es null, en python es none"""
-    hair_color: Optional[str] = None
-    is_married: Optional[bool] = None
+    """Hair color: definir lo que ya definimos"""
+    hair_color: Optional[HairColor] = Field(default=None)
+    is_married: Optional[bool] = Field(default=None)
 
 @app.get("/")
 
@@ -72,7 +94,7 @@ def show_person(
 # Validaciones: Request Body
 # Location: Queremos enviar (combinar ¿?) dos Json y lo hacemos de manera explícita
 
-@app.put("/person/{person_id")
+@app.put("/person/{person_id}")
 def update_person(
     person_id: int = Path(
         ...,
