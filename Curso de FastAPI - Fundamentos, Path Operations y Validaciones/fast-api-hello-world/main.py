@@ -84,12 +84,14 @@ def show_person(
     min_length=1, 
     max_length=50,
     title="Person Name",
-    description="This is the person name. It's between 1 and 50 characteres"
+    description="This is the person name. It's between 1 and 50 characteres",
+    example="Rocío"
     ),
     age: str = Query(
         ...,
         title="Person Age",
-        description="This is the person age. It's required"
+        description="This is the person age. It's required",
+        example=23
     )
 ): 
     return {name: age} 
@@ -101,7 +103,8 @@ def show_person(
     person_id: int = Path(..., 
     gt=0, 
     title="Person Id",
-    description="This is the person Id. It's between 0 and more characteres"
+    description="This is the person Id. It's between 0 and more characteres",
+    example=123
     )
 ):
     return{person_id: "It exists!"}
