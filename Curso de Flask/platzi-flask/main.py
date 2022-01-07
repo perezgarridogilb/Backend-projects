@@ -4,6 +4,11 @@ app = Flask(__name__)
 
 todos = ['Comprar café', 'Enviar solicitud de compra', 'Entregar video a productor']
 
+@app.errorhandler(404)
+def not_found(error):
+    # Le pasamos en el contexto el error para poderlo desplegar
+    return render_template('404.html', error=error)
+
 @app.route('/')
 def index():
     user_ip = request.remote_addr
