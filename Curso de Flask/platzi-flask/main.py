@@ -54,6 +54,8 @@ def hello():
         # Vamos a guardar este username en la sesión
         session['username'] = username
         
+        flash('Nombre de usuario registrado con éxito!')
+        
         return redirect(url_for('index'))
 
     # Expandir variables automáticamente
