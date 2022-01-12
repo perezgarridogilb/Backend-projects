@@ -41,3 +41,19 @@ class MainTest(TestCase):
         
         self.assertRedirects(response, url_for('index'))
         
+    def test_auth_blueprint_exists(self):
+        # Buscamos que auth se encuentra en self.app.blueprints: Registrados
+        self.assertIn('auth', self.app.blueprints)
+        
+    def test_auth_login_get(self):
+        # Queremos que regrese 200 login
+        response = self.client.get(url_for('auth.login'))
+        
+        self.assert200(response)
+        
+    def test_auth_login_template(self):
+        # Queremos que regrese 200 login
+        self.client.get(url_for('auth.login'))
+
+        self.assertTemplateUsed('login.html')
+        
