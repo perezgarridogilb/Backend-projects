@@ -22,3 +22,8 @@ Utilizamos colecciones, documentos y adentro de los documentos tenemos coleccion
 """
 def get_todos(user_id):
     return db.collection('users').document(user_id).collection('todos').get()
+
+def user_put(user_data):
+    user_reference = db.collection('users').document(user_data.username)
+    # Este recibe un diccionario que solamente va a tener el password
+    user_reference.set({'password': user_data.password})
