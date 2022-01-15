@@ -34,4 +34,9 @@ def put_todo(user_id, description):
     Vamos a decirle a la base de datos que en esta referencia de la colección
     agregue un nuevo documento con un random id
     """
-    todos_collection_reference.add({'description': description})
+    todos_collection_reference.add({'description': description, 'done':False })
+    
+def delete_todo(user_id, todo_id):
+    todo_reference = db.document('users/{}/todos/{}'.format(user_id, todo_id))
+    todo_reference.delete()
+    # todo_reference = db.collection('users').document(user_id).collection('todos').document(todo_id)
