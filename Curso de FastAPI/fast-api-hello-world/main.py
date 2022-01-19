@@ -8,6 +8,9 @@ from pydantic import Field
 
 #FastAPI
 from fastapi import FastAPI
+# El modulo status nos permite acceder a los diferentes estados HTTP
+# Para poder indicarlos en nuestras Path Operations
+from fastapi import status
 #Decir explícitamente que un parámetro que me esta llegando es del tipo Body
 from fastapi import Body, Query, Path
 
@@ -73,20 +76,29 @@ class Person(PersonBase):
 class PersonOut(PersonBase):
     pass
 
-@app.get("/")
+@app.get(
+    path="/", 
+    status_code=status.HTTP_200_OK)
 def home():
     return {"Hello": "World"}
 
 # Request and Response Body
 
-@app.post("/person/new", response_model=PersonOut)
+@app.post(
+    path="/person/new", 
+    response_model=PersonOut,
+    status_code=status.HTTP_201_CREATED
+    )
 # El triple punto significa que el parámetro Request Body es obligatorio
 def create_person(person: Person = Body(...)):
     return person
 
 # Validaciones: Query Parameters
 
-@app.get("/person/detail")
+@app.get(
+    path="/person/detail",
+    status_code=status.HTTP_200_OK
+    )
 def show_person(
     name: Optional[str] = Query(None, 
     min_length=1, 
