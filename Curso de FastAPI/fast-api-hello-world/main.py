@@ -26,8 +26,8 @@ class Location(BaseModel):
     city: str
     state: str
     country: str 
-
-class Person(BaseModel):
+    
+class PersonBase(BaseModel):
     firs_name: str = Field(
         ..., 
         min_lenght=1,
@@ -51,6 +51,9 @@ class Person(BaseModel):
     """Hair color: definir lo que ya definimos"""
     hair_color: Optional[HairColor] = Field(default=None, example="black")
     is_married: Optional[bool] = Field(default=None, example=False)
+
+class Person(PersonBase):
+
     password: str = Field(..., min_length=8)
 
 #    class Config:
@@ -67,30 +70,8 @@ class Person(BaseModel):
 
 # Hereda de base model por que es un modelo de Pydantic
 
-class PersonOut(BaseModel):
-    firs_name: str = Field(
-        ..., 
-        min_lenght=1,
-        max_lenght=50,
-        example="Miguel"
-        )
-    last_name: str = Field(
-        ..., 
-        min_lenght=1,
-        max_lenght=50,
-        example="Torres"
-        )
-    age: int = Field(
-        ...,
-        gt=0,
-        le=115,
-        example=25
-    )
-
-    """Esto no es tan importante, por eso eso es opcional, en base de datos es null, en python es none"""
-    """Hair color: definir lo que ya definimos"""
-    hair_color: Optional[HairColor] = Field(default=None, example="black")
-    is_married: Optional[bool] = Field(default=None, example=False)
+class PersonOut(PersonBase):
+    pass
 
 @app.get("/")
 def home():
