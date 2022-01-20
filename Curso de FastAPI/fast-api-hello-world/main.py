@@ -1,6 +1,4 @@
 #Python (Para el tipado estatico de este dato)
-from email.header import Header
-from importlib.resources import path
 from typing import Optional
 from enum import Enum
 
@@ -15,8 +13,8 @@ from fastapi import FastAPI
 # Para poder indicarlos en nuestras Path Operations
 from fastapi import status
 #Decir explícitamente que un parámetro que me esta llegando es del tipo Body
+from fastapi import HTTPException
 from fastapi import Body, Query, Path, Form, Header, Cookie, UploadFile, File
-from starlette.types import Message
 
 app = FastAPI()
 
@@ -127,6 +125,8 @@ def show_person(
 
 # Validaciones: Path Parameters
 
+persons = [1, 2, 3, 4, 5]
+
 @app.get("/person/detail/{person_id}")
 def show_person(
     person_id: int = Path(..., 
@@ -136,6 +136,12 @@ def show_person(
     example=123
     )
 ):
+    
+    if person_id not in persons:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="This person doesn't' exists!"
+        )
     return{person_id: "It exists!"}
 
 # Validaciones: Request Body
