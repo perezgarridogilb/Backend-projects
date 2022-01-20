@@ -1,4 +1,5 @@
 #Python (Para el tipado estatico de este dato)
+from email.header import Header
 from importlib.resources import path
 from typing import Optional
 from enum import Enum
@@ -6,6 +7,7 @@ from enum import Enum
 #Pydantic
 from pydantic import BaseModel
 from pydantic import Field
+from pydantic import EmailStr
 
 #FastAPI
 from fastapi import FastAPI
@@ -13,7 +15,7 @@ from fastapi import FastAPI
 # Para poder indicarlos en nuestras Path Operations
 from fastapi import status
 #Decir explícitamente que un parámetro que me esta llegando es del tipo Body
-from fastapi import Body, Query, Path, Form
+from fastapi import Body, Query, Path, Form, Header, Cookie
 from starlette.types import Message
 
 app = FastAPI()
@@ -154,6 +156,8 @@ def update_person(
     # results.update(location.dict())
     return person
 
+# Forms
+
 @app.post(
     path="/login",
     response_model=LoginOut,
@@ -170,3 +174,33 @@ def login(username : str = Form(...), password: str = Form(...)):
     5.-Por lo tanto debería funcionar
     """ 
     return LoginOut(username=username)
+
+# Cookies and Headers Parameters
+
+@app.post(
+    path="/contact",
+    status_code=status.HTTP_200_OK
+)
+
+def contact(
+    first_name: str = Form(
+        ...,
+        max_length=20,
+        min_length=1
+        ),
+    last_name: str = Form(
+        ...,
+        max_length=20,
+        min_length=1
+        ),
+    email: EmailStr = Form(...),
+    message: str = Form(
+        ...,
+        min_length=20
+    ),
+    # Headers y cookies
+    user_agent: Optional[str] = Header(default=None),
+    ads: Optional[str] = Cookie(default=None)
+):
+    return user_agent
+    
