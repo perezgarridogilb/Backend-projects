@@ -1,4 +1,5 @@
 #Python (Para el tipado estatico de este dato)
+from importlib.resources import path
 from typing import Optional
 from enum import Enum
 
@@ -12,7 +13,8 @@ from fastapi import FastAPI
 # Para poder indicarlos en nuestras Path Operations
 from fastapi import status
 #Decir explícitamente que un parámetro que me esta llegando es del tipo Body
-from fastapi import Body, Query, Path
+from fastapi import Body, Query, Path, Form
+from starlette.types import Message
 
 app = FastAPI()
 
@@ -75,6 +77,11 @@ class Person(PersonBase):
 
 class PersonOut(PersonBase):
     pass
+
+class LoginOut(BaseModel):
+    username: str = Field(..., max_length=20, example="miguel2021")
+    message: str = Field(default="Login Succesfully!")
+
 
 @app.get(
     path="/", 
@@ -146,3 +153,20 @@ def update_person(
     # results = person.dict()
     # results.update(location.dict())
     return person
+
+@app.post(
+    path="/login",
+    response_model=LoginOut,
+    status_code=status.HTTP_200_OK
+)
+
+# Form nos permite indicar que un parámetro dentro de una path op. func. viene de un formulario
+def login(username : str = Form(...), password: str = Form(...)):
+    """
+    1.-Tomar esta clase
+    2.-Inicializar el objeto (que va a ser un modelo de pydantic)
+    3.-Ese modelo de pydantic si se puede convertir a diccionario
+    4.-Ese diccionario si se puede convertir a json
+    5.-Por lo tanto debería funcionar
+    """ 
+    return LoginOut(username=username)
