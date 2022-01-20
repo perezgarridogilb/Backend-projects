@@ -85,7 +85,9 @@ class LoginOut(BaseModel):
 
 @app.get(
     path="/", 
-    status_code=status.HTTP_200_OK)
+    status_code=status.HTTP_200_OK,
+    tags=["Home"]
+    )
 def home():
     return {"Hello": "World"}
 
@@ -94,7 +96,8 @@ def home():
 @app.post(
     path="/person/new", 
     response_model=PersonOut,
-    status_code=status.HTTP_201_CREATED
+    status_code=status.HTTP_201_CREATED,
+    tags=["Persons"]
     )
 # El triple punto significa que el parámetro Request Body es obligatorio
 def create_person(person: Person = Body(...)):
@@ -104,7 +107,8 @@ def create_person(person: Person = Body(...)):
 
 @app.get(
     path="/person/detail",
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    tags=["Persons"]
     )
 def show_person(
     name: Optional[str] = Query(None, 
@@ -127,7 +131,10 @@ def show_person(
 
 persons = [1, 2, 3, 4, 5]
 
-@app.get("/person/detail/{person_id}")
+@app.get(
+    path="/person/detail/{person_id}",
+    tags=["Persons"]
+    )
 def show_person(
     person_id: int = Path(..., 
     gt=0, 
@@ -147,7 +154,11 @@ def show_person(
 # Validaciones: Request Body
 # Location: Queremos enviar (combinar ¿?) dos Json y lo hacemos de manera explícita
 
-@app.put("/person/{person_id}")
+@app.put(
+    path="/person/{person_id}",
+    # El tag esta dentro de una lista
+    tags=["Persons"]
+    )
 def update_person(
     person_id: int = Path(
         ...,
@@ -167,7 +178,8 @@ def update_person(
 @app.post(
     path="/login",
     response_model=LoginOut,
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    tags=["Persons"]
 )
 
 # Form nos permite indicar que un parámetro dentro de una path op. func. viene de un formulario
@@ -185,7 +197,8 @@ def login(username : str = Form(...), password: str = Form(...)):
 
 @app.post(
     path="/contact",
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    tags=["Contact"]
 )
 
 def contact(
@@ -214,7 +227,8 @@ def contact(
 
 @app.post(
     # Siempre se usa guíon medio en los endpoits
-    path="/post-image"
+    path="/post-image",
+    tags=["Upload"]
 )
 def post_image(
     image: UploadFile = File(...)
