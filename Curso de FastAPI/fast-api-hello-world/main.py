@@ -89,6 +89,16 @@ class LoginOut(BaseModel):
     tags=["Home"]
     )
 def home():
+    """
+    Homepage
+    
+    This path operation will return a diccionary with the key "Hello" and the value "World"
+    
+    Parameters:
+    - None
+        
+    Hello World as diccionary
+    """
     return {"Hello": "World"}
 
 # Request and Response Body
@@ -97,10 +107,22 @@ def home():
     path="/person/new", 
     response_model=PersonOut,
     status_code=status.HTTP_201_CREATED,
-    tags=["Persons"]
+    tags=["Persons"],
+    summary="Create Person in the App"
     )
 # El triple punto significa que el parámetro Request Body es obligatorio
 def create_person(person: Person = Body(...)):
+    """
+    Create Person
+    
+    This path operation creates a person in the app and save the information in the database
+    
+    Parameters:
+    - Request body parameter:
+        - **person: Person** -> A person model with first name, last name, age, hair color and marital status
+        
+    Returns a person model with first name, last name, age, hair color and marital status
+    """
     return person
 
 # Validaciones: Query Parameters
@@ -111,6 +133,7 @@ def create_person(person: Person = Body(...)):
     tags=["Persons"]
     )
 def show_person(
+    
     name: Optional[str] = Query(None, 
     min_length=1, 
     max_length=50,
@@ -125,6 +148,19 @@ def show_person(
         example=23
     )
 ): 
+    """
+    Show person
+    
+    This path operation receives a person name and age and returns a diccionary with the person information
+    
+    Parameters:
+    - Query parameters:
+        - **name: str** (optional) -> Name of the person
+        - **age: str** (optional) -> Age of the person
+    
+    Returns:    
+    - Diccionary with the person information (name: age)
+    """
     return {name: age} 
 
 # Validaciones: Path Parameters
