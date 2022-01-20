@@ -15,7 +15,7 @@ from fastapi import FastAPI
 # Para poder indicarlos en nuestras Path Operations
 from fastapi import status
 #Decir explícitamente que un parámetro que me esta llegando es del tipo Body
-from fastapi import Body, Query, Path, Form, Header, Cookie
+from fastapi import Body, Query, Path, Form, Header, Cookie, UploadFile, File
 from starlette.types import Message
 
 app = FastAPI()
@@ -203,4 +203,32 @@ def contact(
     ads: Optional[str] = Cookie(default=None)
 ):
     return user_agent
+
+# Files
+
+@app.post(
+    # Siempre se usa guíon medio en los endpoits
+    path="/post-image"
+)
+def post_image(
+    image: UploadFile = File(...)
+):
+    
+    """
+    
+     info_images = [{
+        "filename": image.filename,
+        "Format": image.content_type,
+        "Size(kb)": round(len(image.file.read())/1024, ndigits=2)
+    } for image in images]
+    
+    return info_images
+    
+    """
+    return {
+        "Filename": image.filename,
+        "Format": image.content_type,
+        # Obtenemos la cantidad de bytes del archivo
+        "Size(kb)": round(len(image.file.read())/1024, ndigits=2)    
+    }
     
