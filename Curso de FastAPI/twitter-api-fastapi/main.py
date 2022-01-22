@@ -1,4 +1,5 @@
 #Python
+import json
 from uuid import UUID
 from datetime import date
 from datetime import datetime
@@ -12,6 +13,7 @@ from pydantic import Field
 # FastAPI
 from fastapi import FastAPI
 from fastapi import status
+from fastapi import Body
 
 app = FastAPI()
 
@@ -22,13 +24,6 @@ class UserBase(BaseModel):
     email: EmailStr = Field(...)
 
 class UserLogin(UserBase):
-    password: str = Field(
-        ...,
-        min_length=8,
-        max_length=64
-    )
-    
-class UserRegister(User):
     password: str = Field(
         ...,
         min_length=8,
@@ -47,6 +42,13 @@ class User(UserBase):
         max_length=50
         )
     birth_date: Optional[date] = Field(default=None)
+    
+class UserRegister(User):
+    password: str = Field(
+        ...,
+        min_length=8,
+        max_length=64
+    )
 
 class Tweet(BaseModel):
     tweet_id: UUID = Field(...)
@@ -71,7 +73,7 @@ class Tweet(BaseModel):
     summary="Register a User",
     tags=["Users"]
 )
-def signup():
+def signup(user: UserRegister = Body(...)):
     """
     This path operation register a user in the app
     
@@ -84,9 +86,22 @@ def signup():
         - email: Emailstr
         - fist_name: str
         - last_name: str
-        - birth_date: str
+        - birth_date: datetime
     """
-    pass
+    with open("users.json", "r+", encoding="utf-8") as f:
+        # results va a contener una lista de diccionarios
+        results = json.loads(f.read())
+        # crea un request body
+        user_dict = user.dict()
+        # hace casteo de la lista de diccionarios
+        user_dict["user_id"] = str(user_dict["user_id"])
+        user_dict["birth_date"] = str(user_dict["birth_date"])
+        # anade diccionario al json
+        results.append(user_dict)
+        # selecciona todo y empieza desde cero
+        f.seek(0)
+        f.write(json.dumps(results))
+        return user
 
 ### Login a user
 @app.post(
