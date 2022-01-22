@@ -1,5 +1,6 @@
 #Python
 import json
+from unittest import result
 from uuid import UUID
 from datetime import date
 from datetime import datetime
@@ -117,13 +118,28 @@ def login():
 ### Show all users
 @app.get(
     path="/users",
-    response_model=User,
+    response_model=List[User],
     status_code=status.HTTP_200_OK,
     summary="Show all users",
     tags=["Users"]
 )
-def show_a_user():
-    pass
+def show_all_users():
+    """
+    This path operation shows all users in the app
+    
+    Parameters:
+        -
+    
+    Returns a json list with all users in the app, with the following keys:
+        - user_id: UUD
+        - email: Emailstr
+        - fist_name: str
+        - last_name: str
+        - birth_date: datetime
+    """
+    with open("users.json", "r", encoding="utf-8") as f:
+        results = json.loads(f.read())
+        return results
 
 ### Show a user
 @app.get(
