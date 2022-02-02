@@ -48,3 +48,48 @@ Type "help" for help.
 
 postgres=#
 ```
+
+## Partitions in pgAdmin
+Fast consults in the databases
+```
+INSERT INTO public.bitacora_viaje(
+	 id_viaje, fecha)
+	VALUES (1, '2022-02-10');
+	
+CREATE TABLE bitacora_viaje202202 PARTITION OF bitacora_viaje
+FOR VALUES FROM ('2022-02-01') TO ('2023-02-01');
+
+SELECT * FROM bitacora_viaje;
+```
+
+## CREATE ROL
+Secure roles
+```
+\h CREATE ROL
+CREATE ROLE usuario_consulta;
+ALTER ROLE usuario_consulta WITH LOGIN;
+ALTER ROLE usuario_consulta WITH SUPERUSER;
+\dg
+DROP ROLE usuario_consulta;
+```
+
+## ROL ACCESS
+```
+# docker exec -it <container_name> bash
+# Before, to get in database, with the next command: 
+# psql -U <role> -d <database_name>  -W
+docker exec -it premiosplatziapp_postgres_1 bash
+psql -U usuario_consulta -d postgres -W
+```
+
+## FK in Query Editor: 
+```
+ALTER TABLE public.viaje 
+		ADD CONSTRAINT trayecto_pasajero_fkey FOREIGN KEY (id_pasajero)
+        REFERENCES public.pasajero (id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE;
+```
+
+## Massive data
+https://mockaroo.com/
