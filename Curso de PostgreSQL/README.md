@@ -49,6 +49,16 @@ Type "help" for help.
 postgres=#
 ```
 
+# Entity Relation Diagram
+
+## Manual
+
+![Entity Relation Diagram](https://user-images.githubusercontent.com/56992179/152597324-6e9f1525-6b78-420a-bc30-dc2ddce35d16.png)
+
+## Digital
+
+![diagrama_entidad_relacion_proyecto_styled](https://user-images.githubusercontent.com/56992179/152597517-70f1cb96-5545-423b-8795-1a85b8caf7b2.jpeg)
+
 ## Partitions in pgAdmin
 Fast consults in the databases
 ```
@@ -62,18 +72,19 @@ FOR VALUES FROM ('2022-02-01') TO ('2023-02-01');
 SELECT * FROM bitacora_viaje;
 ```
 
-## CREATE ROL
+## CREATE ROL:
 Secure roles
 ```
 \h CREATE ROL
 CREATE ROLE usuario_consulta;
 ALTER ROLE usuario_consulta WITH LOGIN;
 ALTER ROLE usuario_consulta WITH SUPERUSER;
+ALTER ROLE usuario_consulta WITH PASSWORD 'password';
 \dg
 DROP ROLE usuario_consulta;
 ```
 
-## ROL ACCESS
+## Rol Access:
 ```
 # docker exec -it <container_name> bash
 # Before, to get in database, with the next command: 
@@ -91,7 +102,7 @@ ALTER TABLE public.viaje
         ON DELETE CASCADE;
 ```
 
-## Massive data
+## Massive data:
 https://mockaroo.com/
 
 ## JOIN: 
@@ -130,7 +141,7 @@ SELECT * FROM public.tren
 WHERE modelo IS NULL;
 ```
 
-## Avanced special Functions: 
+## Avanced Special Functions: 
 ```
 -- Consulta con WHERE
 SELECT id, nombre, direccion_residencia, fecha_nacimiento
@@ -174,4 +185,86 @@ SELECT id, nombre, fecha_nacimiento,
 	ELSE 'Su nombre no inicia con A, E o I y ademas es un niño'
 	END
 FROM pasajero ORDER BY fecha_nacimiento;
+```
+
+## Views: 
+```
+-- Creamos la vista
+CREATE OR REPLACE VIEW public.rango_view
+AS
+    SELECT *,
+        CASE
+        WHEN fecha_nacimiento > '2015-01-01' THEN
+            'Mayor'
+        ELSE
+            'Menor'
+        END AS tipo
+    FROM pasajero ORDER BY tipo;
+ALTER TABLE public.range_view OWNER TO postgres;
+
+-- Mostramos la vista
+SELECT * FROM public.range_view;
+
+-- Vistas Materializada, no se cambia a menos que queramos que se cambie
+SELECT * FROM viaje WHERE inicio > '22:00:00';
+
+CREATE MATERIALIZED VIEW public.despues_noche_mview
+AS
+    SELECT * FROM viaje WHERE inicio > '22:00:00';
+WITH NO DATA;
+ALTER TABLE public.despues_noche_mview OWNER TO postgres;
+
+-- Mostramos la vista
+SELECT * FROM despues_noche_mview;
+
+-- Recomendada para consultar información que ya no va a cambiar
+-- Consultada una vez para quitarle peso a la base de datos
+-- Damos refresh
+REFRESH MATERIALIZED VIEW despues_noche_mview;
+
+-- Borramos una tupla de viaje cuando el id = 2, para observar que no se borro
+DELETE FROM viaje WHERE id = 2;
+```
+
+## PL/SQL: 
+```
+DROP FUNCTION IF EXISTS importantepl()
+CREATE OR REPLACE FUNCTION importantePL()
+RETURNS integer
+AS $$
+	DECLARE
+		rec record;
+		contador integer:=0;
+	BEGIN
+		FOR rec IN SELECT * from pasajero LOOP
+		RAISE NOTICE 'Un pasajero se llama %', rec.nombre;
+		contador:= contador +1;
+	END LOOP;
+	RAISE NOTICE 'Conteo es %', contador;
+	RETURN contador;
+	END
+$$
+LANGUAGE PLPGSQL;
+
+SELECT importantePL()
+```
+
+### PL/SQL: 
+Definition to create functions: Integer and PL/SQL
+```
+-- Funtion
+DECLARE
+	rec record;
+	contador integer:=0;
+	BEGIN
+		FOR rec IN SELECT * from pasajero LOOP
+		RAISE NOTICE 'Un pasajero se llama %', rec.nombre;
+		contador:= contador +1;
+	END LOOP;
+	RAISE NOTICE 'Conteo es %', contador;
+	RETURN contador;
+END
+
+--  If has uppercase, needs double quote
+SELECT public."importantPL"()
 ```
