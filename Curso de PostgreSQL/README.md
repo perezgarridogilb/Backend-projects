@@ -93,3 +93,85 @@ ALTER TABLE public.viaje
 
 ## Massive data
 https://mockaroo.com/
+
+## JOIN: 
+```
+SELECT * FROM pasajero JOIN viaje ON (viaje.id_pasajero = pasajero.id); 
+SELECT * FROM pasajero LEFT JOIN viaje ON (viaje.id_pasajero = pasajero.id) WHERE viaje.id IS NULL;
+```
+
+## Special Functions: 
+```
+-- Insercion de un dato que ya existe, no pasa nada
+INSERT INTO public.estacion(id, nombre, direccion)
+VALUES (1, 'Nombre', 'Dire')
+ON CONFLICT DO NOTHING;
+
+-- Insercion de un dato que ya existe, te cambia los campos de nombre y direccion
+INSERT INTO public.estacion(id, nombre, direccion)
+VALUES (1, 'Nombre', 'Dire')
+ON CONFLICT (id) DO UPDATE SET nombre = 'Nombre', direccion = 'Dire';
+
+-- Insertara una tupla y mostrara la tupla
+INSERT INTO public.estacion(nombre, direccion)
+VALUES ('RETU', 'RETDIE')
+RETURNING *;
+
+-- %: Uno o cualquier valor
+-- _: Un valor
+SELECT nombre FROM public.pasajero
+WHERE nombre LIKE 'o%';
+-- buscamos sin importar mayusculas o minusculas
+SELECT nombre FROM public.pasajero
+WHERE nombre ILIKE 'o%';
+
+-- si una estacion o tren tiene un valor nulo
+SELECT * FROM public.tren
+WHERE modelo IS NULL;
+```
+
+## Avanced special Functions: 
+```
+-- Consulta con WHERE
+SELECT id, nombre, direccion_residencia, fecha_nacimiento
+	FROM public.pasajero WHERE id = 1;
+
+-- Retorna el primer elemento que NO es nulo, dentro de todos los parametros que le pasas.
+-- (NULL, NULL , 1); // 1
+-- (NULL, 2 , 1); // 2
+-- Pueden haber mas parametros
+SELECT id, COALESCE(nombre, 'No aplica') nombre, direccion_residencia, fecha_nacimiento
+	FROM public.pasajero WHERE id = 1;
+
+-- Retorna null si son iguales
+SELECT NULLIF(0,0);
+
+-- Compara un arreglo y retorna el mayor
+SELECT GREATEST(1,2,4,1,7,2,4);
+
+-- Compara un arreglo de valores y retorna el menor
+SELECT LEAST(0,1,2,4,1,7,2,4);
+
+-- Ingresa condicionales dentro de una consulta de la Base de Datos
+SELECT id, nombre, direccion_residencia, fecha_nacimiento,
+CASE 
+WHEN fecha_nacimiento > '2015-01-01' THEN
+'Niño'
+ELSE
+'Mayor'
+END
+	FROM public.pasajero;
+```
+
+## Challenge: 
+```
+SELECT id, nombre, fecha_nacimiento,
+	CASE
+	WHEN nombre ILIKE 'a%' THEN 'Comienza con A' 
+	WHEN nombre ILIKE 'e%' THEN 'Comienza con E'
+	WHEN nombre ILIKE 'i%' THEN 'Comienza con I'
+	WHEN ( current_date - fecha_nacimiento) > 6570 Then 'Es mayor de 18 años'
+	ELSE 'Su nombre no inicia con A, E o I y ademas es un niño'
+	END
+FROM pasajero ORDER BY fecha_nacimiento;
+```
