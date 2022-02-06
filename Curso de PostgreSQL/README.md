@@ -249,7 +249,7 @@ LANGUAGE PLPGSQL;
 SELECT importantePL()
 ```
 
-### PL/SQL: 
+## PL/SQL Functions: 
 Definition to create functions: Integer and PL/SQL
 ```
 -- Funtion
@@ -267,4 +267,67 @@ END
 
 --  If has uppercase, needs double quote
 SELECT public."importantPL"()
+
+--  If hasn't uppercase
+SELECT impl()
 ```
+
+## TRIGGER/PL: 
+Trigger using PL when AFTER INSERT OR DELETE ON pasajero(s)
+```
+-- Trigger Functions->impl()->Create->Trigger function...
+-- Esto se convirtio de FUNCTION a TRIGGER, según el orden que despliega pgAdmin
+
+-- FUNCTION: public.impl()
+
+DROP FUNCTION IF EXISTS public.impl();
+
+CREATE OR REPLACE FUNCTION public.impl()
+    RETURNS trigger
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE NOT LEAKPROOF
+AS $BODY$
+DECLARE
+rec record;
+contador integer:=0;
+BEGIN
+FOR rec IN SELECT * from pasajero LOOP
+	contador:= contador +1;
+END LOOP;
+INSERT INTO cont_pasajero (total, tiempo)
+VALUES (contador, now());
+-- OLD: 
+-- En este caso OLD no sería nada
+-- NEW
+-- En este caso NEW tendría toda la información
+
+-- Yo: Parece que trabajan como si fueran los constructores de un objeto (OOP): 
+-- OLD.id, OLD.fecha, OLD.nombre así como NEW.id, etc.
+
+-- Profesor: Lo que aceptamos es lo que estamos insertando
+ RETURN NEW;
+ 
+-- Se hicieron estos cambios debido al error (RETURN NEW):
+-- ERROR:  control reached end of trigger procedure without RETURN
+-- CONTEXT:  PL/pgSQL function impl()
+-- SQL state: 2F005
+
+-- De insertar una instancia en la tabla pasajero(s)
+END
+$BODY$;
+
+-- Integración de un TRIGGER a una TABLA usando un impl ("PL")
+CREATE OR REPLACE TRIGGER mitrigger
+-- Qué se va a ejecutar después de un insert
+AFTER INSERT OR DELETE 
+-- En la tabla pasajero
+ON pasajero
+-- Ejecutarlo por fila
+FOR EACH ROW
+EXECUTE PROCEDURE impl();
+
+INSERT INTO pasajero (nombre, direccion_residencia, fecha_nacimiento) 
+VALUES ('Nombre Trigger1', 'Dir acá1', '2000-01-01');
+```
+
