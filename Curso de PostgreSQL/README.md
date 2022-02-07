@@ -331,3 +331,60 @@ INSERT INTO pasajero (nombre, direccion_residencia, fecha_nacimiento)
 VALUES ('Nombre Trigger1', 'Dir acá1', '2000-01-01');
 ```
 
+## Remotes Databases: 
+Remember: First create dblink extension in the database
+```
+-- CREATE EXTENSION dblink;
+
+SELECT * FROM
+dblink ('dbname=remota 
+		port=5432 
+		host=127.0.0.1 
+		user=usuario_consulta 
+		password=etc123', 
+	   'SELECT id, fecha FROM vip')
+	   AS datos_remotos (id integer, fecha date);
+	   
+SELECT * FROM pasajero
+JOIN 
+dblink ('dbname=remota 
+		port=5432 
+		host=127.0.0.1 
+		user=usuario_consulta 
+		password=etc123', 
+	   'SELECT id, fecha FROM vip')
+	   AS datos_remotos (id integer, fecha date)
+ 
+-- ON (pasajero.id = datos_remotos.id);	
+USING (id)	 	  
+```
+### Output(s): 
+
+![DBLINK](https://user-images.githubusercontent.com/56992179/152809754-18957b8a-9001-4e48-b01b-48737e872cc6.png)
+
+## Transactions: 
+Remember: Deactivate auto commit
+```
+BEGIN;
+INSERT INTO estacion(
+	nombre, direccion)
+	VALUES ('Estacion Transac', 'Dirsas');
+	
+INSERT INTO public.tren(
+	modelo, capacidad)
+	VALUES ('Modelo Trns', 123);
+--ROLLBACK;
+```
+
+## Extensions: 
+Comparing strings
+```
+CREATE EXTENSION fuzzystrmatch;
+
+-- Número de letras diferentes
+SELECT levenshtein('oswaldo', 'osvaldo');
+
+-- En caso de que suenen igual de 0 a 4 (a prácticamente lo mismo)
+SELECT difference('oswaldo', 'osvaldo');
+SELECT difference('beard', 'bird');  
+```
