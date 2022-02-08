@@ -49,6 +49,38 @@ Type "help" for help.
 postgres=#
 ```
 
+# Commands: 
+Some initial commands to start learning
+```
+-- 1. Entrar a la consola de postgres
+psql -U postgres -W
+-- 2. Ver los comandos \ de postgres
+\?
+-- 3. Listar todas las bases de datos
+\l
+-- 4. Ver las tablas de una base de datos
+\dt
+-- 5. Cambiar a otra bd
+\c nombre_BD
+-- 6. Describir una tabla
+\d nombre_tabla
+-- 7. Ver todos los comandos sql
+\h
+-- 8. Ver como se ejecuta un comando sql
+\h nombre_de_la_funcion
+-- 9. Cancelar todo lo que hay en pantalla
+Ctrl + C
+-- 10. Ver la version de PostgreSQL en instalada
+SELECT version();
+-- 11. Volver a ejecutar la función realizada anteriormente
+\g
+-- 12. Inicializar el contador para que la consola te diga el tiempo de ejecución
+\timing
+-- 13. Limpiar pantalla de la consola psql
+Ctrl + L
+
+```
+
 # Entity Relation Diagram
 
 ## Manual
