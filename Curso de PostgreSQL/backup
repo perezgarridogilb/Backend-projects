@@ -1,0 +1,1380 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.1 (Debian 14.1-1.pgdg110+1)
+-- Dumped by pg_dump version 14.1
+
+-- Started on 2022-02-08 17:31:45 UTC
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 2 (class 3079 OID 24720)
+-- Name: dblink; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS dblink WITH SCHEMA public;
+
+
+--
+-- TOC entry 3454 (class 0 OID 0)
+-- Dependencies: 2
+-- Name: EXTENSION dblink; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION dblink IS 'connect to other PostgreSQL databases from within a database';
+
+
+--
+-- TOC entry 282 (class 1255 OID 24714)
+-- Name: impl(); Type: FUNCTION; Schema: public; Owner: root
+--
+
+CREATE FUNCTION public.impl() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+rec record;
+contador integer:=0;
+BEGIN
+FOR rec IN SELECT * from pasajero LOOP
+	contador:= contador +1;
+END LOOP;
+INSERT INTO cont_pasajero (total, tiempo)
+VALUES (contador, now());
+-- OLD: 
+-- En este caso OLD no sería nada
+-- NEW
+-- En este caso NEW tendría toda la información
+
+-- Yo: Parece que trabajan como si fueran los constructores de un objeto (OOP): 
+-- OLD.id, OLD.fecha, OLD.nombre así como NEW.id, etc.
+
+-- Profesor: Lo que aceptamos es lo que estamos insertando
+ RETURN NEW;
+ 
+-- Se hicieron estos cambios debido al error (RETURN NEW):
+-- ERROR:  control reached end of trigger procedure without RETURN
+-- CONTEXT:  PL/pgSQL function impl()
+-- SQL state: 2F005
+
+-- De insertar una instancia en la tabla pasajero(s)
+END
+$$;
+
+
+ALTER FUNCTION public.impl() OWNER TO root;
+
+SET default_tablespace = '';
+
+--
+-- TOC entry 223 (class 1259 OID 16449)
+-- Name: bitacora_viaje; Type: TABLE; Schema: public; Owner: root
+--
+
+CREATE TABLE public.bitacora_viaje (
+    id integer NOT NULL,
+    id_viaje integer,
+    fecha date
+)
+PARTITION BY RANGE (fecha);
+
+
+ALTER TABLE public.bitacora_viaje OWNER TO root;
+
+--
+-- TOC entry 222 (class 1259 OID 16448)
+-- Name: bitacora_viaje_id_seq; Type: SEQUENCE; Schema: public; Owner: root
+--
+
+CREATE SEQUENCE public.bitacora_viaje_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.bitacora_viaje_id_seq OWNER TO root;
+
+--
+-- TOC entry 3456 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: bitacora_viaje_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
+--
+
+ALTER SEQUENCE public.bitacora_viaje_id_seq OWNED BY public.bitacora_viaje.id;
+
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 224 (class 1259 OID 16453)
+-- Name: bitacora_viaje202202; Type: TABLE; Schema: public; Owner: root
+--
+
+CREATE TABLE public.bitacora_viaje202202 (
+    id integer DEFAULT nextval('public.bitacora_viaje_id_seq'::regclass) NOT NULL,
+    id_viaje integer,
+    fecha date
+);
+
+
+ALTER TABLE public.bitacora_viaje202202 OWNER TO root;
+
+--
+-- TOC entry 228 (class 1259 OID 24697)
+-- Name: cont_pasajero; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cont_pasajero (
+    total integer,
+    tiempo time with time zone,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.cont_pasajero OWNER TO postgres;
+
+--
+-- TOC entry 227 (class 1259 OID 24696)
+-- Name: cont_pasajero_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cont_pasajero_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cont_pasajero_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3458 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: cont_pasajero_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cont_pasajero_id_seq OWNED BY public.cont_pasajero.id;
+
+
+--
+-- TOC entry 219 (class 1259 OID 16422)
+-- Name: viaje; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.viaje (
+    id integer NOT NULL,
+    id_pasajero integer,
+    id_trayecto integer,
+    inicio time without time zone,
+    fin time without time zone
+);
+
+
+ALTER TABLE public.viaje OWNER TO postgres;
+
+--
+-- TOC entry 226 (class 1259 OID 24673)
+-- Name: despues_noche_mview; Type: MATERIALIZED VIEW; Schema: public; Owner: postgres
+--
+
+CREATE MATERIALIZED VIEW public.despues_noche_mview AS
+ SELECT viaje.id,
+    viaje.id_pasajero,
+    viaje.id_trayecto,
+    viaje.inicio,
+    viaje.fin
+   FROM public.viaje
+  WHERE (viaje.inicio > '22:00:00'::time without time zone)
+  WITH NO DATA;
+
+
+ALTER TABLE public.despues_noche_mview OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 16407)
+-- Name: estacion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.estacion (
+    id integer NOT NULL,
+    nombre character varying(100),
+    direccion character varying(100)
+);
+
+
+ALTER TABLE public.estacion OWNER TO postgres;
+
+--
+-- TOC entry 212 (class 1259 OID 16406)
+-- Name: estacion_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.estacion_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.estacion_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3461 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: estacion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.estacion_id_seq OWNED BY public.estacion.id;
+
+
+--
+-- TOC entry 211 (class 1259 OID 16398)
+-- Name: pasajero; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pasajero (
+    id integer NOT NULL,
+    nombre character varying(100),
+    direccion_residencia character varying,
+    fecha_nacimiento date
+);
+
+
+ALTER TABLE public.pasajero OWNER TO postgres;
+
+--
+-- TOC entry 210 (class 1259 OID 16397)
+-- Name: pasajero_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.pasajero_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pasajero_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3463 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: pasajero_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.pasajero_id_seq OWNED BY public.pasajero.id;
+
+
+--
+-- TOC entry 215 (class 1259 OID 16412)
+-- Name: persona; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.persona (
+    id integer NOT NULL,
+    nombre character varying(100),
+    direccion character varying(100),
+    nacimiento date
+);
+
+
+ALTER TABLE public.persona OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 16411)
+-- Name: persona_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.persona_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.persona_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3465 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: persona_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.persona_id_seq OWNED BY public.persona.id;
+
+
+--
+-- TOC entry 225 (class 1259 OID 24661)
+-- Name: range_view; Type: VIEW; Schema: public; Owner: root
+--
+
+CREATE VIEW public.range_view AS
+ SELECT pasajero.id,
+    pasajero.nombre,
+    pasajero.direccion_residencia,
+    pasajero.fecha_nacimiento,
+        CASE
+            WHEN (pasajero.fecha_nacimiento > '2015-01-01'::date) THEN 'Niño'::text
+            ELSE 'Mayor'::text
+        END AS "case"
+   FROM public.pasajero;
+
+
+ALTER TABLE public.range_view OWNER TO root;
+
+--
+-- TOC entry 221 (class 1259 OID 16427)
+-- Name: trayecto; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.trayecto (
+    id integer NOT NULL,
+    id_tren integer,
+    id_estacion integer,
+    nombre character varying(100)
+);
+
+
+ALTER TABLE public.trayecto OWNER TO postgres;
+
+--
+-- TOC entry 220 (class 1259 OID 16426)
+-- Name: trayecto_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.trayecto_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.trayecto_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3467 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: trayecto_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.trayecto_id_seq OWNED BY public.trayecto.id;
+
+
+--
+-- TOC entry 217 (class 1259 OID 16417)
+-- Name: tren; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tren (
+    id integer NOT NULL,
+    modelo character varying(100),
+    capacidad integer
+);
+
+
+ALTER TABLE public.tren OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 16416)
+-- Name: tren_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.tren_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tren_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3469 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: tren_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.tren_id_seq OWNED BY public.tren.id;
+
+
+--
+-- TOC entry 218 (class 1259 OID 16421)
+-- Name: viaje_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.viaje_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.viaje_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3470 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: viaje_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.viaje_id_seq OWNED BY public.viaje.id;
+
+
+--
+-- TOC entry 3262 (class 0 OID 0)
+-- Name: bitacora_viaje202202; Type: TABLE ATTACH; Schema: public; Owner: root
+--
+
+ALTER TABLE ONLY public.bitacora_viaje ATTACH PARTITION public.bitacora_viaje202202 FOR VALUES FROM ('2022-02-01') TO ('2023-02-01');
+
+
+--
+-- TOC entry 3269 (class 2604 OID 16452)
+-- Name: bitacora_viaje id; Type: DEFAULT; Schema: public; Owner: root
+--
+
+ALTER TABLE ONLY public.bitacora_viaje ALTER COLUMN id SET DEFAULT nextval('public.bitacora_viaje_id_seq'::regclass);
+
+
+--
+-- TOC entry 3271 (class 2604 OID 24700)
+-- Name: cont_pasajero id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cont_pasajero ALTER COLUMN id SET DEFAULT nextval('public.cont_pasajero_id_seq'::regclass);
+
+
+--
+-- TOC entry 3264 (class 2604 OID 16410)
+-- Name: estacion id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.estacion ALTER COLUMN id SET DEFAULT nextval('public.estacion_id_seq'::regclass);
+
+
+--
+-- TOC entry 3263 (class 2604 OID 16401)
+-- Name: pasajero id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pasajero ALTER COLUMN id SET DEFAULT nextval('public.pasajero_id_seq'::regclass);
+
+
+--
+-- TOC entry 3265 (class 2604 OID 16415)
+-- Name: persona id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.persona ALTER COLUMN id SET DEFAULT nextval('public.persona_id_seq'::regclass);
+
+
+--
+-- TOC entry 3268 (class 2604 OID 16430)
+-- Name: trayecto id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.trayecto ALTER COLUMN id SET DEFAULT nextval('public.trayecto_id_seq'::regclass);
+
+
+--
+-- TOC entry 3266 (class 2604 OID 16420)
+-- Name: tren id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tren ALTER COLUMN id SET DEFAULT nextval('public.tren_id_seq'::regclass);
+
+
+--
+-- TOC entry 3267 (class 2604 OID 16425)
+-- Name: viaje id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.viaje ALTER COLUMN id SET DEFAULT nextval('public.viaje_id_seq'::regclass);
+
+
+--
+-- TOC entry 3445 (class 0 OID 16453)
+-- Dependencies: 224
+-- Data for Name: bitacora_viaje202202; Type: TABLE DATA; Schema: public; Owner: root
+--
+
+COPY public.bitacora_viaje202202 (id, id_viaje, fecha) FROM stdin;
+1	1	2022-02-10
+\.
+
+
+--
+-- TOC entry 3448 (class 0 OID 24697)
+-- Dependencies: 228
+-- Data for Name: cont_pasajero; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cont_pasajero (total, tiempo, id) FROM stdin;
+100	15:54:05.046372+00	1
+99	15:56:47.15033+00	2
+100	16:57:43.235571+00	4
+101	16:59:44.173907+00	5
+102	17:18:54.436394+00	6
+\.
+
+
+--
+-- TOC entry 3435 (class 0 OID 16407)
+-- Dependencies: 213
+-- Data for Name: estacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.estacion (id, nombre, direccion) FROM stdin;
+2	Estación Norte	St 100# 112
+3	Gusikowski, Nitzsche and Hayes	607 Steensland Hill
+4	Crooks, Toy and D'Amore	8 Jackson Pass
+5	Purdy, Boehm and Swift	726 Vernon Alley
+6	Hackett LLC	3286 Aberg Junction
+7	Witting Inc	57066 Delladonna Avenue
+8	Borer-Huels	6845 Park Meadow Drive
+9	Bartoletti-Leannon	11 Canary Plaza
+10	Douglas, Ortiz and Quitzon	265 Golf View Court
+11	Kautzer-Schaefer	358 Petterle Crossing
+12	Nitzsche, Schinner and Boyer	2 Sutteridge Road
+13	Pollich, Harris and Stiedemann	54877 Moulton Center
+14	Bode-Jacobson	699 Merchant Crossing
+15	King, Gleason and Fahey	8786 Meadow Ridge Terrace
+16	Gutkowski, Mertz and Kiehn	27992 Hooker Road
+17	Harber, Johns and Marks	68 Acker Trail
+18	Ebert-McLaughlin	53 Fisk Parkway
+19	Beatty-Armstrong	7829 Bay Park
+20	Romaguera-Boyer	609 Paget Avenue
+21	Moen-Boyer	6 Holy Cross Terrace
+22	Casper Group	19 Kensington Road
+23	Breitenberg, Wunsch and Kunze	43726 Paget Crossing
+24	Kohler, Hirthe and Fay	603 Brown Court
+25	Goyette, Stark and Mraz	7099 Summit Crossing
+26	O'Reilly, Keeling and Nitzsche	36 Huxley Alley
+27	Schinner-Beahan	89 Wayridge Trail
+28	Gaylord-Berge	11062 Pine View Junction
+29	Mraz-Beier	41 Loomis Court
+30	Gutmann Group	1725 Homewood Parkway
+31	Dooley-Hegmann	313 Express Avenue
+32	Hilll-McDermott	9620 Arrowood Alley
+33	Nicolas and Sons	03 Canary Drive
+34	Ryan-Bode	4 Shopko Trail
+35	Bahringer-Lehner	39 Jana Road
+36	Hoppe-Kshlerin	034 1st Circle
+37	Wyman-Ondricka	09075 Welch Crossing
+38	Rowe, Konopelski and Medhurst	131 Riverside Point
+39	Deckow Group	3 Bobwhite Hill
+40	Olson, Feil and Hayes	56 Beilfuss Trail
+41	Fahey-Schmeler	1255 Hayes Avenue
+42	Toy Group	068 Main Lane
+43	Nolan and Sons	838 Tennessee Terrace
+44	Konopelski, Harvey and Steuber	70704 Sunnyside Avenue
+45	Ryan Inc	19583 Crest Line Avenue
+46	Mitchell-Howe	2304 Moulton Circle
+47	Considine-Dach	881 Coleman Avenue
+48	Beahan, Feeney and Bradtke	04894 Golf Course Place
+49	Champlin Group	92605 Menomonie Plaza
+50	Tremblay, Rolfson and Prosacco	98555 Veith Road
+51	Schinner, Mraz and Rice	703 Thierer Pass
+52	Klocko-Fay	30480 Laurel Lane
+53	Ratke LLC	8 La Follette Crossing
+54	Thompson, Stiedemann and O'Kon	34059 Mallard Alley
+55	Muller-Lakin	934 Comanche Pass
+56	Schumm-Watsica	3 Kedzie Hill
+57	Kub-Armstrong	39 Corry Parkway
+58	Keebler LLC	524 Hollow Ridge Hill
+59	Gerhold and Sons	9 Texas Road
+60	Johnson, Dickens and Macejkovic	470 Merchant Junction
+61	Jast Inc	6431 Dahle Center
+62	Anderson and Sons	58 Manufacturers Hill
+63	Block-VonRueden	09853 Jenna Parkway
+64	Howe Group	77565 Brown Trail
+65	Purdy-Hintz	98599 Mandrake Way
+66	Sipes LLC	877 Pepper Wood Way
+67	Weimann, Fisher and Kihn	23503 Clyde Gallagher Point
+68	Hoeger-Jacobi	698 Green Ridge Crossing
+69	Kuhn-Sporer	2 Vidon Trail
+70	Gibson-Kuhn	06131 New Castle Hill
+71	Boyle, Volkman and Zieme	295 Menomonie Way
+72	Lebsack-Friesen	31152 Forster Hill
+73	Stamm, Franecki and Considine	342 Mariners Cove Circle
+74	Nitzsche, Mayert and Muller	98740 Esker Parkway
+75	O'Connell-Kub	53653 Troy Junction
+76	Kilback Group	2512 Eagle Crest Way
+77	Borer-Kemmer	10288 Huxley Court
+78	Schimmel and Sons	56787 Roth Trail
+79	Brown Group	99629 Logan Alley
+80	Macejkovic, Crooks and Feil	7 Mayfield Park
+81	Hayes-Stanton	8087 Westerfield Center
+82	O'Connell Group	1 Fair Oaks Way
+83	Parker LLC	907 Walton Alley
+84	Mante, McDermott and Larson	20 Morrow Plaza
+85	Reichel, Metz and Frami	645 Quincy Alley
+86	Rowe Group	9 Messerschmidt Court
+87	Graham, Johns and Will	51 Fulton Alley
+88	Murazik-Hagenes	42476 Delladonna Terrace
+89	Rolfson, Cruickshank and Rath	83 Declaration Place
+90	Roberts and Sons	9 Brown Lane
+91	Grant Group	4387 8th Junction
+92	Stanton, Lebsack and Botsford	9 Waxwing Point
+93	McCullough-Wisozk	28218 Continental Plaza
+94	Kshlerin Inc	6822 David Parkway
+95	Kunde, Johnson and Ferry	99054 Stephen Trail
+96	Welch, Connelly and Gulgowski	12 Namekagon Alley
+97	Smith, Bruen and Nolan	05 Fair Oaks Center
+98	Crona-Jaskolski	795 Eagan Avenue
+99	Rippin and Sons	8256 Oneill Lane
+100	Schmeler-Wolf	337 Scofield Place
+101	Lockman-Kiehn	53 Cordelia Road
+102	Brekke-Sawayn	0 Stone Corner Drive
+1	Nombre	Dire
+103	RETU	RETDRI
+\.
+
+
+--
+-- TOC entry 3433 (class 0 OID 16398)
+-- Dependencies: 211
+-- Data for Name: pasajero; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.pasajero (id, nombre, direccion_residencia, fecha_nacimiento) FROM stdin;
+2	Flori Brade	Kings	2006-04-18
+3	Ginnie Scrane	Morningstar	2011-11-28
+4	Lilyan Maps	Spenser	2010-11-05
+5	Mickie Ruffle	Coleman	2015-04-30
+6	Sherry Pinnijar	Magdeline	2002-03-11
+7	Romain Gromley	Gerald	1999-07-13
+8	Ruddy Feary	Artisan	2019-09-11
+9	Constantine Tottle	Kropf	2005-08-29
+11	Lyndell Smallcomb	Annamark	2005-04-11
+12	Charmine Maccari	Waywood	2014-04-07
+13	Mirabella Arkley	Annamark	2010-05-26
+14	Gerik Lockart	Lake View	2006-08-30
+15	Georgeanna Sineath	Reindahl	2009-08-24
+16	Henrieta Lamberto	Everett	2011-02-08
+17	Merl Gilroy	Graceland	2010-12-21
+18	Dulcie Gamlin	Duke	2001-07-14
+19	Lennard Carl	Farwell	2004-02-07
+20	Ambrosi Ghidetti	Iowa	2015-08-31
+21	Ambrosi Rankcom	Jana	2005-05-23
+22	Currie Matuschek	Sunbrook	2017-10-28
+23	Creighton McClarence	Lien	2019-10-16
+24	Lynda Gissing	Norway Maple	2020-06-10
+25	Elva Tompion	Eagan	2013-09-07
+26	Anissa Yuryev	Nova	2006-07-08
+27	Lorens Milnthorpe	Everett	2018-09-17
+28	Elizabeth Dashwood	Linden	2017-03-24
+29	Veronique Campbell	Surrey	2011-06-28
+30	Bone Golds	Grim	2021-06-23
+31	Maryl Giacobilio	Ramsey	2020-12-31
+32	Markus Ubee	Rutledge	2013-09-27
+33	Berta Woodman	Pawling	2020-04-27
+34	Francisca Beazer	Novick	2021-04-10
+35	Roanna Jeandon	Eggendart	1999-06-22
+36	Jeralee Todhunter	Alpine	2005-10-23
+37	Lyndy Youson	Texas	2021-10-13
+38	Bunnie Shewsmith	Independence	2010-01-29
+39	Alida Clubb	Merchant	2018-03-27
+40	Nita McCuaig	Northfield	2021-12-08
+41	Denice Pavelka	Waubesa	2010-11-29
+42	Elysha Back	Hollow Ridge	2019-06-30
+43	Mateo Morsey	Jana	2020-07-28
+44	Wade Maclean	Fairfield	2004-12-05
+45	Retha Beig	Kropf	2021-12-24
+46	Karleen Mill	Cody	1999-10-07
+47	Kaspar Randall	Grover	2012-05-22
+48	Barry Tilne	Portage	2018-04-16
+49	Madison Churn	Kings	2005-06-17
+50	Dwayne Castenda	Buena Vista	2005-02-07
+51	Danielle Duchasteau	Scott	2006-06-09
+52	Sascha Labrow	High Crossing	2015-08-30
+53	Ingaborg Geater	Graceland	2013-07-09
+54	Kynthia Bellew	Logan	2006-02-15
+55	Kaye Honnan	Oakridge	2020-06-21
+56	Curry Blaes	Kedzie	2001-05-26
+57	Emmit Stansall	Sauthoff	2017-10-25
+58	Gillian Guilford	Mcbride	2008-07-26
+59	Stephannie Tandy	Utah	2006-11-15
+60	Gradeigh Dresser	Pennsylvania	2004-10-17
+61	Anita Ambrogetti	Oak Valley	2011-08-26
+62	Berty Menichillo	Fulton	2008-10-02
+63	Derwin MacPike	Manufacturers	2000-05-29
+64	Daniela Wassung	Miller	2005-09-07
+65	Bendick Presnail	Colorado	2003-08-06
+66	Malory Janicki	Hanson	2006-10-20
+67	Angelica Wyatt	Dottie	2003-07-01
+68	Sonni Emblem	Hudson	2008-04-11
+69	Melly Meiklem	Grim	1999-05-07
+70	Itch Chapleo	Anthes	2003-07-18
+71	Filippa Bellord	Buhler	2005-03-19
+72	Val MacKeogh	Loeprich	2013-05-17
+73	Flem De Roberto	Monterey	2009-08-22
+74	Karia Foss	Mcbride	2010-04-27
+75	Salem Sikorsky	Kropf	2020-08-28
+76	Kenon Rushworth	Roxbury	2001-07-28
+77	Mala Yewdell	Evergreen	2020-05-29
+78	Denice Edyson	Delladonna	2008-03-20
+79	Cathee Fancott	Prairieview	2002-05-30
+80	Kiley Brokenshire	Arizona	2008-05-24
+81	Dominic Jakovijevic	Darwin	2001-09-27
+82	Jamima Skoughman	Muir	2009-06-18
+83	Jolie Maloney	Grayhawk	2015-03-21
+84	Merl McCarle	Eastwood	2002-02-25
+85	Peyter Vertey	Warner	2013-09-18
+86	Gabie Hallett	Dunning	2006-08-09
+87	Rene Maleck	Dawn	2009-01-27
+88	Libbey Sykes	Bay	2005-04-05
+89	Pancho Robard	Blue Bill Park	2002-04-27
+90	Anatola Kemer	Southridge	2008-05-31
+91	Symon Halso	Summer Ridge	2010-07-21
+92	Ricky Taphouse	Lakeland	2010-09-23
+93	Drake Popplewell	Sutteridge	2005-04-12
+94	Teddy Jaray	Village	2009-06-19
+95	Nicoline Meneyer	Roth	2018-09-05
+96	Tabbie Jzhakov	Ramsey	2011-04-18
+97	Lynsey Polak	Kensington	2018-03-17
+98	Jaymee Cubbini	Little Fleur	2013-06-18
+99	Sylvester Crossgrove	Farwell	2011-05-04
+100	Jo Brumpton	Katie	2018-09-05
+1	\N	4th	2008-05-04
+102	Nombre Trigger	Dir acá	2000-01-01
+103	Nombre Trigger	Dir acá	2000-01-01
+104	Nombre Trigger1	Dir acá1	2000-01-01
+\.
+
+
+--
+-- TOC entry 3437 (class 0 OID 16412)
+-- Dependencies: 215
+-- Data for Name: persona; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.persona (id, nombre, direccion, nacimiento) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3443 (class 0 OID 16427)
+-- Dependencies: 221
+-- Data for Name: trayecto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.trayecto (id, id_tren, id_estacion, nombre) FROM stdin;
+3	1	1	Ruta 2
+4	72	44	Konklux
+5	81	74	Subin
+6	22	60	Lotstring
+7	19	74	Toughjoyfax
+8	56	9	Otcom
+9	40	62	Sub-Ex
+10	3	75	Pannier
+11	33	44	Pannier
+12	90	88	Keylex
+13	40	38	Wrapsafe
+14	31	35	Span
+15	10	78	Tres-Zap
+16	78	19	Voltsillam
+17	86	34	Mat Lam Tam
+18	44	18	Zathin
+19	60	64	Cardify
+20	59	4	Namfix
+21	21	29	Zamit
+22	30	25	Greenlam
+23	5	19	Y-find
+24	81	10	Solarbreeze
+25	32	38	Stim
+26	61	30	Namfix
+27	11	9	Alphazap
+28	13	22	Span
+29	35	20	Sonsing
+30	20	42	Fix San
+31	30	61	Veribet
+32	30	6	Veribet
+33	80	98	Alpha
+34	40	20	Hatity
+35	7	49	Gembucket
+36	65	40	Vagram
+37	70	48	Job
+38	36	29	Holdlamis
+39	53	34	Redhold
+40	62	56	Zaam-Dox
+41	25	61	Regrant
+42	11	68	Ventosanzap
+43	36	74	Y-find
+44	19	7	Span
+45	21	47	Alphazap
+46	25	19	Treeflex
+47	94	60	Opela
+48	53	9	Zoolab
+49	60	84	Tresom
+50	96	10	Andalax
+51	30	80	Tres-Zap
+52	75	68	Cardify
+53	92	85	Stronghold
+54	3	38	Kanlam
+55	77	90	Greenlam
+56	44	67	Stringtough
+57	8	20	Stronghold
+58	84	90	Ronstring
+59	6	57	Sonsing
+60	37	43	Matsoft
+61	56	84	Bytecard
+62	72	7	Trippledex
+63	63	14	Duobam
+64	24	34	Voyatouch
+65	7	82	Sub-Ex
+66	65	6	Toughjoyfax
+67	11	69	Trippledex
+68	35	53	Tres-Zap
+69	19	93	Mat Lam Tam
+70	61	25	Biodex
+71	11	60	It
+72	93	32	Daltfresh
+73	55	34	Cardify
+74	90	33	Holdlamis
+75	62	8	Regrant
+76	68	88	Stronghold
+77	96	37	Namfix
+78	98	23	Sonsing
+79	14	52	Quo Lux
+80	11	27	Mat Lam Tam
+81	64	45	Zathin
+82	49	9	Bytecard
+83	92	85	Hatity
+84	40	65	Sonair
+85	66	83	Bigtax
+86	74	25	Otcom
+87	6	14	Konklab
+88	29	56	Viva
+89	33	55	Asoka
+90	82	90	Greenlam
+91	43	51	Konklab
+92	40	40	Alpha
+93	74	48	Alphazap
+94	73	44	Andalax
+95	90	80	Biodex
+96	44	28	Vagram
+97	45	87	Mat Lam Tam
+98	26	35	Aerified
+99	94	81	Voltsillam
+100	42	95	Rank
+101	77	23	Alpha
+102	92	7	Lotlux
+103	38	64	Latlux
+\.
+
+
+--
+-- TOC entry 3439 (class 0 OID 16417)
+-- Dependencies: 217
+-- Data for Name: tren; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tren (id, modelo, capacidad) FROM stdin;
+1	Modelo 2	150
+3	S80	1
+4	M-Class	2
+5	Ranger	3
+6	Arnage	4
+7	SX4	5
+8	Tacoma	6
+9	Crossfire	7
+10	Element	8
+11	Fox	9
+12	Pathfinder Armada	10
+13	CX-9	11
+14	Bronco II	12
+15	Cordia	13
+16	Excel	14
+17	Mighty Max	15
+18	Contour	16
+19	Express 3500	17
+20	GS	18
+21	GTI	19
+22	Cavalier	20
+23	Continental Flying Spur	21
+24	S-Type	22
+25	Sprinter 2500	23
+26	Protege	24
+27	TL	25
+28	Park Avenue	26
+29	Neon	27
+30	Outlander	28
+31	W201	29
+32	CLK-Class	30
+33	Skylark	31
+34	Focus	32
+35	Suburban	33
+36	Vandura G3500	34
+37	Expedition EL	35
+38	3 Series	36
+39	7 Series	37
+40	Lucerne	38
+41	Avalon	39
+42	Sunbird	40
+43	Land Cruiser	41
+44	Maxima	42
+45	Viper	43
+46	Odyssey	44
+47	LeMans	45
+48	XF	46
+49	Silhouette	47
+50	Bronco II	48
+51	Maxima	49
+52	Endeavor	50
+53	Aurora	51
+54	Vitara	52
+55	Optima	53
+56	NV2500	54
+57	Murano	55
+58	Pathfinder	56
+59	Solara	57
+60	SX4	58
+61	LeMans	59
+62	Escort	60
+63	Sonata	61
+64	Monterey	62
+65	Montero	63
+66	A4	64
+67	Odyssey	65
+68	Swift	66
+69	Tacoma	67
+70	928	68
+71	Mazda6	69
+72	Sportvan G30	70
+73	Navigator	71
+74	RVR	72
+75	Cube	73
+76	Outlook	74
+77	Corolla	75
+78	Sierra 1500	76
+79	Grand Am	77
+80	Sonata	78
+81	Ranger	79
+82	H1	80
+83	QX	81
+84	X6 M	82
+85	Camaro	83
+86	CX-7	84
+87	Vibe	85
+88	X5	86
+89	GTI	87
+90	Legacy	88
+91	Continental GTC	89
+92	Mazda3	90
+93	Odyssey	91
+94	Prius	92
+95	Silverado 2500	93
+96	325	94
+97	Highlander	95
+98	Raider	96
+99	I	97
+100	Torino	98
+101	9000	99
+102	Frontier	100
+\.
+
+
+--
+-- TOC entry 3441 (class 0 OID 16422)
+-- Dependencies: 219
+-- Data for Name: viaje; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.viaje (id, id_pasajero, id_trayecto, inicio, fin) FROM stdin;
+2	1	\N	00:06:48	20:55:44
+3	2	\N	03:23:47	15:28:08
+4	3	\N	20:04:21	23:35:50
+5	4	\N	11:52:25	22:17:46
+6	5	\N	07:50:55	23:46:36
+7	6	\N	04:35:09	17:43:45
+8	7	\N	21:09:26	15:10:32
+9	8	\N	02:21:41	12:11:23
+10	9	\N	14:32:43	15:10:24
+12	11	\N	17:38:23	22:41:19
+13	12	\N	15:23:42	17:31:55
+14	13	\N	00:07:28	23:29:41
+15	14	\N	10:22:43	19:32:03
+16	15	\N	02:37:35	15:36:55
+17	16	\N	02:56:34	13:58:37
+18	17	\N	02:40:19	19:26:31
+19	18	\N	17:36:34	13:11:01
+20	19	\N	14:43:40	16:43:14
+21	20	\N	22:01:30	12:41:31
+22	21	\N	03:32:02	18:40:05
+23	22	\N	15:32:47	16:34:04
+24	23	\N	16:02:15	13:40:43
+25	24	\N	08:52:54	15:10:14
+26	25	\N	14:13:39	22:34:03
+27	26	\N	09:29:11	23:46:08
+28	27	\N	22:43:08	19:26:31
+29	28	\N	01:47:58	23:09:12
+30	29	\N	06:08:59	15:31:52
+31	30	\N	22:49:17	22:56:11
+32	31	\N	23:03:29	18:16:04
+33	32	\N	19:26:16	21:08:13
+34	33	\N	10:05:18	22:17:59
+35	34	\N	18:39:13	15:06:12
+36	35	\N	19:14:48	22:29:37
+37	36	\N	12:53:48	21:35:06
+38	37	\N	16:05:45	12:34:08
+39	38	\N	16:17:22	20:58:32
+40	39	\N	23:52:57	16:47:00
+41	40	\N	17:22:57	22:58:41
+42	41	\N	23:48:08	16:08:24
+43	42	\N	05:59:46	18:27:23
+44	43	\N	13:16:23	15:14:51
+45	44	\N	09:35:06	16:19:53
+46	45	\N	01:22:15	23:11:56
+47	46	\N	17:14:41	18:37:33
+48	47	\N	12:30:46	15:36:52
+49	48	\N	02:16:49	15:16:40
+50	49	\N	13:00:51	20:31:39
+51	50	\N	17:08:29	17:35:49
+52	51	\N	13:51:14	22:40:52
+53	52	\N	03:44:41	21:30:29
+54	53	\N	04:40:09	15:26:47
+55	54	\N	21:09:06	16:11:40
+56	55	\N	04:40:07	16:15:55
+57	56	\N	05:08:03	12:07:17
+58	57	\N	22:23:16	16:37:43
+59	58	\N	01:26:31	17:45:59
+60	59	\N	23:10:15	16:27:41
+61	60	\N	06:26:22	14:56:12
+62	61	\N	00:39:40	22:04:21
+63	62	\N	02:29:52	15:11:16
+64	63	\N	14:07:47	12:58:55
+65	64	\N	21:11:58	13:42:31
+66	65	\N	06:57:07	16:46:34
+67	66	\N	12:59:00	12:35:51
+68	67	\N	11:05:09	17:55:25
+69	68	\N	07:19:49	18:46:03
+70	69	\N	03:16:08	19:07:38
+71	70	\N	10:40:11	15:04:24
+72	71	\N	04:11:14	23:24:09
+73	72	\N	21:43:05	20:03:10
+74	73	\N	00:23:42	17:10:12
+75	74	\N	09:54:20	19:54:54
+76	75	\N	16:25:36	12:26:19
+77	76	\N	11:59:58	22:27:19
+78	77	\N	19:42:10	15:21:29
+79	78	\N	15:14:09	18:57:43
+80	79	\N	18:31:05	22:38:13
+81	80	\N	12:11:01	19:15:17
+82	81	\N	10:01:39	12:30:05
+83	82	\N	15:34:03	13:18:35
+84	83	\N	04:58:45	22:52:31
+85	84	\N	06:34:43	12:07:19
+86	85	\N	08:37:05	23:58:23
+87	86	\N	20:01:31	19:17:56
+88	87	\N	00:51:45	20:02:30
+89	88	\N	05:30:00	15:31:22
+90	89	\N	07:47:25	13:07:25
+91	90	\N	21:28:58	15:05:50
+92	91	\N	22:59:38	21:50:54
+93	92	\N	02:56:14	18:57:34
+94	93	\N	21:32:59	17:29:29
+95	94	\N	12:12:46	21:15:04
+96	95	\N	04:43:03	23:46:03
+97	96	\N	06:58:08	14:46:09
+98	97	\N	01:57:15	17:54:28
+99	98	\N	16:37:48	13:50:41
+100	99	\N	17:37:11	20:54:25
+101	100	\N	17:04:05	17:21:05
+\.
+
+
+--
+-- TOC entry 3471 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: bitacora_viaje_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
+--
+
+SELECT pg_catalog.setval('public.bitacora_viaje_id_seq', 1, true);
+
+
+--
+-- TOC entry 3472 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: cont_pasajero_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.cont_pasajero_id_seq', 6, true);
+
+
+--
+-- TOC entry 3473 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: estacion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.estacion_id_seq', 104, true);
+
+
+--
+-- TOC entry 3474 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: pasajero_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.pasajero_id_seq', 104, true);
+
+
+--
+-- TOC entry 3475 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: persona_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.persona_id_seq', 1, false);
+
+
+--
+-- TOC entry 3476 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: trayecto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.trayecto_id_seq', 103, true);
+
+
+--
+-- TOC entry 3477 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: tren_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.tren_id_seq', 103, true);
+
+
+--
+-- TOC entry 3478 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: viaje_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.viaje_id_seq', 101, true);
+
+
+--
+-- TOC entry 3285 (class 2606 OID 24702)
+-- Name: cont_pasajero cont_pasajero_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cont_pasajero
+    ADD CONSTRAINT cont_pasajero_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3275 (class 2606 OID 16432)
+-- Name: estacion estacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.estacion
+    ADD CONSTRAINT estacion_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3273 (class 2606 OID 16405)
+-- Name: pasajero pasajero_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pasajero
+    ADD CONSTRAINT pasajero_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3277 (class 2606 OID 16434)
+-- Name: persona persona_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.persona
+    ADD CONSTRAINT persona_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3283 (class 2606 OID 16440)
+-- Name: trayecto trayecto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.trayecto
+    ADD CONSTRAINT trayecto_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3279 (class 2606 OID 16436)
+-- Name: tren tren_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tren
+    ADD CONSTRAINT tren_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3281 (class 2606 OID 16438)
+-- Name: viaje viaje_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.viaje
+    ADD CONSTRAINT viaje_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3290 (class 2620 OID 24715)
+-- Name: pasajero mitrigger; Type: TRIGGER; Schema: public; Owner: postgres
+--
+
+CREATE TRIGGER mitrigger AFTER INSERT OR DELETE ON public.pasajero FOR EACH ROW EXECUTE FUNCTION public.impl();
+
+
+--
+-- TOC entry 3288 (class 2606 OID 16460)
+-- Name: trayecto trayecto_estacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.trayecto
+    ADD CONSTRAINT trayecto_estacion_fkey FOREIGN KEY (id_estacion) REFERENCES public.estacion(id) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3286 (class 2606 OID 24651)
+-- Name: viaje trayecto_pasajero_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.viaje
+    ADD CONSTRAINT trayecto_pasajero_fkey FOREIGN KEY (id_trayecto) REFERENCES public.trayecto(id) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3289 (class 2606 OID 16465)
+-- Name: trayecto trayecto_tren_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.trayecto
+    ADD CONSTRAINT trayecto_tren_fkey FOREIGN KEY (id_tren) REFERENCES public.tren(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 3287 (class 2606 OID 24656)
+-- Name: viaje viaje_trayecto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.viaje
+    ADD CONSTRAINT viaje_trayecto_fkey FOREIGN KEY (id_pasajero) REFERENCES public.pasajero(id) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3455 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: TABLE bitacora_viaje; Type: ACL; Schema: public; Owner: root
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE public.bitacora_viaje TO usuario_consulta;
+
+
+--
+-- TOC entry 3457 (class 0 OID 0)
+-- Dependencies: 224
+-- Name: TABLE bitacora_viaje202202; Type: ACL; Schema: public; Owner: root
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE public.bitacora_viaje202202 TO usuario_consulta;
+
+
+--
+-- TOC entry 3459 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: TABLE viaje; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE public.viaje TO usuario_consulta;
+
+
+--
+-- TOC entry 3460 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: TABLE estacion; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE public.estacion TO usuario_consulta;
+
+
+--
+-- TOC entry 3462 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: TABLE pasajero; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE public.pasajero TO usuario_consulta;
+
+
+--
+-- TOC entry 3464 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: TABLE persona; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE public.persona TO usuario_consulta;
+
+
+--
+-- TOC entry 3466 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: TABLE trayecto; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE public.trayecto TO usuario_consulta;
+
+
+--
+-- TOC entry 3468 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: TABLE tren; Type: ACL; Schema: public; Owner: postgres
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE public.tren TO usuario_consulta;
+
+
+--
+-- TOC entry 3446 (class 0 OID 24673)
+-- Dependencies: 226 3450
+-- Name: despues_noche_mview; Type: MATERIALIZED VIEW DATA; Schema: public; Owner: postgres
+--
+
+REFRESH MATERIALIZED VIEW public.despues_noche_mview;
+
+
+-- Completed on 2022-02-08 17:31:46 UTC
+
+--
+-- PostgreSQL database dump complete
+--
+
