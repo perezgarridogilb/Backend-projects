@@ -68,3 +68,64 @@ cc833220a9b4   dpage/pgadmin4   "/entrypoint.sh"         10 days ago      Exited
 # Borro todos lo contenedores que esten parados de un sarpazo
 docker container prune
 ```
+
+# Interactive mode
+```
+# Corre un ubuntu pero lo deja apagado
+docker run ubuntu
+# Lo corre y entro al shell de ubuntu
+# -i: interactivo
+# -t: abre la consola
+docker -it ubuntu
+# Veo la versión de Linux
+cat /etc/lsb-release 
+```
+
+# Container life cycle
+/dev/null: Es conocido como un agujero negro es decir "ese archivo es la nada".
+```
+# Mantiene el contenedor activo
+docker --name alwaysup -d ubuntu tail -f /dev/null
+
+# Entro al bash del contenedor
+docker exec -it alwaysup bash
+
+# Veo el main process del ubuntu
+docker inspect --format ‘{{.State.Pid}}’ alwaysup
+
+# Detener proceso en MacOS
+docker kill alwaysup
+
+# Detener proceso en Linux
+kill -9 <PID>
+
+# Output(s)
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
+
+# Exposing containers
+```
+# Ejecuto un nginx
+docker --name alwaysup -d ubuntu tail -f /dev/null
+
+# Apago el contenedor
+docker stop proxy
+
+# Borrando el contenedor
+docker rm proxy
+
+# Lo para y lo borra
+docker rm -f *
+
+# Ejecuto un nginx y expongo el puerto 80 del contenedor en el puerto 8080 de mi máquina
+docker run -d --name proxy -p 8080:80 nginx
+
+# Veo los logs
+docker logs proxy
+
+# Sigo los log (Ctrl + C ya no detiene el proceso)
+docker logs -f proxy
+
+# Veo y sigo solo las 10 últimas entradas del log
+docker logs --tail 10 -f proxy
+```
