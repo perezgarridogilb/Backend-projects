@@ -241,3 +241,56 @@ docker exec -it db mongo
 > db.users.find()
 { "_id" : ObjectId("62056745d665732dcd9dc167"), "nombre" : "guido" }
 ```
+
+# Pagination and infinite scroll
+Host: Donde Docker esta instalado.
+Bind Mount: Guarda los archivos en la maquina local persistiendo y visualizando estos datos (No seguro).
+Volume: Guarda los archivos en el area de Docker donde Docker los administra (Seguro).
+TMPFS Mount: Guarda los archivos temporalmente y persiste los datos en la memoria del contenedor, cuando muera sus datos mueren con el contenedor.
+```
+# Se crea un archivo en mi máquina
+touch prueba.txt
+
+# Ejecuto a un ubuntu y le agrego el tail para que quede activo
+docker run -d --name copytest ubuntu tail -f /dev/null
+# Se encuentra en ejecución
+docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS              PORTS                  NAMES
+0a4544e7d212   ubuntu    "tail -f /dev/null"      8 seconds ago        Up 7 seconds                               copytest
+
+# Ingreso al contenedor
+docker exec -it copytest bash
+
+# Se crea un directorio en el contenedor
+mkdir testing
+
+# Salir
+exit
+
+# Se copia el archivo dentro del contenedor
+# Con “docker cp” no hace falta que el contenedor esté corriendo
+docker cp prueba.txt copytest:/testing/test.txt
+
+# Ingreso al contenedor
+docker exec -it copytest bash
+
+# Observamos qué hay en el directorio testing y salimos
+cd testing/
+root@0a4544e7d212:/testing# ls -al
+total 8
+drwxr-xr-x 2 root root    4096 Feb 10 21:07 .
+drwxr-xr-x 1 root root    4096 Feb 10 21:07 ..
+-rw-r--r-- 1  501 dialout    0 Feb 10 21:02 test.txt
+exit
+
+# Se copia el directorio de un contenedor a mi máquina
+docker cp copytest:/testing localtesting
+
+# Observamos qué hay en el directorio localtesting
+cd localtesting/
+ls -al
+total 0
+drwxr-xr-x  3 MacBook  staff   96 Feb 10 15:07 .
+drwxr-xr-x  5 MacBook  staff  160 Feb 10 15:10 ..
+-rw-r--r--  1 MacBook  staff    0 Feb 10 15:02 test.txt
+```
