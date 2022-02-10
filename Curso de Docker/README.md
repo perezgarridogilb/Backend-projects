@@ -105,8 +105,8 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 # Exposing containers
 ```
-# Ejecuto un nginx
-docker --name alwaysup -d ubuntu tail -f /dev/null
+# Ejecuto un nginx del repositorio público de imágenes de Docker
+docker run -d --name proxy nginx
 
 # Apago el contenedor
 docker stop proxy
@@ -128,4 +128,77 @@ docker logs -f proxy
 
 # Veo y sigo solo las 10 últimas entradas del log
 docker logs --tail 10 -f proxy
+```
+
+# Exposing containers
+```
+# Creamos un directorio en la máquina anfitriona
+mkdir dockerdata
+
+# Ejecuto un mongodb del repositorio público de imágenes de Docker
+docker run -d --name db mongo
+
+# Activos
+docker ps
+
+# Se ingresa al bash del contenedor
+docker exec -it db bash
+
+```
+
+# Clients
+```
+# Cliente de la base de datos
+> mongo
+
+# Listo las Bases de Datos
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+# Se crea la Base de Datos
+> use platzi
+switched to db platzi
+
+# A users le entregamos un JSON como parámetros
+> db.users.insert({"nombre":"guido"})
+WriteResult({ "nInserted" : 1 })
+
+# Output(s) de los parámetros
+> db.users.find()
+{ "_id" : ObjectId("62056745d665732dcd9dc167"), "nombre" : "guido" }
+
+> exit
+ exit
+
+# Iniciamos otra vez
+docker rm -f db
+```
+
+# Bind mounts
+```
+# Asociamos el directorio del anfitrión, ":" y el directorio mongodb
+docker run -d --name db -v ~/mongodata:/data/db mongo
+
+docker exec -it db bash
+mongo
+> use platzi
+> db.users.insert({"nombre":"guido"})
+> db.users.find()
+{ "_id" : ObjectId("62056745d665732dcd9dc167"), "nombre" : "guido" }
+> exit
+ exit
+
+# Aquí ya no está
+docker rm -f db
+
+docker run -d --name db -v ~/mongodata:/data/db mongo
+docker exec -it db bash
+mongo
+> use platzi
+
+# Ahí sigue
+> db.users.find()
+{ "_id" : ObjectId("62056f13ea20b8ce2c54f420"), "nombre" : "guido" }
 ```
