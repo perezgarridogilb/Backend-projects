@@ -188,7 +188,7 @@ mongo
 > db.users.find()
 { "_id" : ObjectId("62056745d665732dcd9dc167"), "nombre" : "guido" }
 > exit
- exit
+exit
 
 # Aquí ya no está
 docker rm -f db
@@ -201,4 +201,43 @@ mongo
 # Ahí sigue
 > db.users.find()
 { "_id" : ObjectId("62056f13ea20b8ce2c54f420"), "nombre" : "guido" }
+```
+
+# Volumns
+```
+# Listo los volumes
+docker run -d --name db -v ~/mongodata:/data/db mongo
+
+# Creo un volume
+docker volume create dbdata
+
+# Ejecuto la Base de Datos y monto el volumen
+docker run -d --name db --mount src=dbdata,dst=/data/db mongo
+
+# Veo la información detallada del contenedor
+docker inspect db
+
+# Entramos a mongo
+docker exec -it db mongo
+
+> use platzi
+> db.users.insert({"nombre":"guido"})
+> db.users.find()
+{ "_id" : ObjectId("62056745d665732dcd9dc167"), "nombre" : "guido" }
+> exit
+exit
+
+# Aquí ya no está
+docker rm -f db
+
+# Ejecuto la Base de Datos y monto el volumen
+docker run -d --name db --mount src=dbdata,dst=/data/db mongo
+
+# Entramos a mongo
+docker exec -it db mongo
+
+# Ahí sigue
+> use platzi
+> db.users.find()
+{ "_id" : ObjectId("62056745d665732dcd9dc167"), "nombre" : "guido" }
 ```
