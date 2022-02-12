@@ -294,3 +294,62 @@ drwxr-xr-x  3 MacBook  staff   96 Feb 10 15:07 .
 drwxr-xr-x  5 MacBook  staff  160 Feb 10 15:10 ..
 -rw-r--r--  1 MacBook  staff    0 Feb 10 15:02 test.txt
 ```
+
+# Building your own image
+## Ubication
+Todo lo que un contenedor necesita para ejecutarse está dentro de una imagen (para la construcción y distribución). Una imagen sirve para ejecutar contenedores.
+Dockerfile: Describe lo que quiero que pase cuando se crea una imagen.
+- La imagen es la platilla a partir de la que se pueden generar nuevos contenedores
+- A partir de una imagen podemos generar infinitos contenedores
+- Si un contenedor es un objeto o una instancia, una imagen es una clase
+```
+# Se crea un directorio en mi máquina
+mkdir imagenes
+
+# Se crea un Dockerfile
+touch Dockerfile
+```
+## Contenido del Dockerfile
+```
+# Todo Dockerfile está basado en algo más
+# Basado "ubuntu" de su versión "latest"
+FROM ubuntu:latest
+
+# Comando a ejecutar en tiempo de build
+RUN touch /usr/src/hola-platzi.txt
+```
+## Building
+```
+# Se crea una imagen con el contexto de build en la raíz del directorio actual
+docker build -t ubuntu:platzi .
+
+# Outpu(s)
+docker image ls
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+ubuntu           platzi    57dec09fba76   37 seconds ago   72.8MB
+mongo            latest    5285cb69ea55   8 days ago       698MB
+ubuntu           latest    54c9d81cbb44   8 days ago       72.8MB
+postgres         14        da2cb49d7a8d   2 weeks ago      374MB
+nginx            latest    c316d5a335a5   2 weeks ago      142MB
+dpage/pgadmin4   latest    e52ca07eba62   4 weeks ago      272MB
+hello-world      latest    feb5d9fea6a5   4 months ago     13.3kB
+
+# Se ejecuta el contenedor con la nueva imagen
+docker run -it ubuntu:platzi
+
+# Ahí está
+ll /usr/src/
+total 12
+drwxr-xr-x 1 root root 4096 Feb 11 00:07 ./
+drwxr-xr-x 1 root root 4096 Jan 13 16:47 ../
+-rw-r--r-- 1 root root    0 Feb 11 00:07 hola-platzi.txt
+
+# me logueo en docker hub
+docker login
+
+# Se cambia el tag para poder subirla a mi docker hub
+docker tag ubuntu:platzi perezgarridogilb/ubuntu:platzi
+
+# Se publica la imagen a mi docker hub
+docker push perezgarridogilb/ubuntu:platzi
+```
