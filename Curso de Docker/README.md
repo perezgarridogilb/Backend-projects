@@ -309,7 +309,7 @@ mkdir imagenes
 # Se crea un Dockerfile
 touch Dockerfile
 ```
-## Contenido del Dockerfile
+## Dockerfile content
 ```
 # Todo Dockerfile está basado en algo más
 # Basado "ubuntu" de su versión "latest"
@@ -352,4 +352,60 @@ docker tag ubuntu:platzi perezgarridogilb/ubuntu:platzi
 
 # Se publica la imagen a mi docker hub
 docker push perezgarridogilb/ubuntu:platzi
+```
+
+# The layer system
+
+## Layer history
+```
+# Veo el detalle de como se construyó cada capa
+docker history ubuntu:platzi
+IMAGE          CREATED        CREATED BY                                      SIZE      COMMENT
+57dec09fba76   25 hours ago   RUN /bin/sh -c touch /usr/src/hola-platzi.tx…   0B        buildkit.dockerfile.v0
+<missing>      9 days ago     /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      9 days ago     /bin/sh -c #(nop) ADD file:3ccf747d646089ed7…   72.8MB
+```
+
+## Dockerfile
+```
+# Todo Dockerfile está basado en algo más
+# Basado "ubuntu" de su versión "latest"
+FROM ubuntu:latest
+
+# Comandos a ejecutar en tiempo de build
+RUN touch /usr/src/hola-platzi.txt
+
+RUN rm /usr/src/hola-platzi.txt
+```
+
+## Build
+```
+# Se vuelve a ejecutar Build
+docker build -t ubuntu:platzi .
+[+] Building 1.7s (7/7) FINISHED
+ => [internal] load build definition from Dockerfile                                                                0.1s
+ => => transferring dockerfile: 129B                                                                                0.0s
+ => [internal] load .dockerignore                                                                                   0.0s
+ => => transferring context: 2B                                                                                     0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                    0.0s
+ => [1/3] FROM docker.io/library/ubuntu:latest                                                                      0.0s
+ => CACHED [2/3] RUN touch /usr/src/hola-platzi.txt                                                                 0.0s
+ => [3/3] RUN rm /usr/src/hola-platzi.txt                                                                           1.3s
+ => exporting to image                                                                                              0.1s
+ => => exporting layers                                                                                             0.1s
+ => => writing image sha256:571c95d4f1e127339785dada3998cc07e166a92cdb29d683969536031e73b3c5                        0.0s
+ => => naming to docker.io/library/ubuntu:platzi                                                                    0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+
+# History actual
+docker history ubuntu:platzi
+IMAGE          CREATED         CREATED BY                                      SIZE      COMMENT
+571c95d4f1e1   9 minutes ago   RUN /bin/sh -c rm /usr/src/hola-platzi.txt #…   0B        buildkit.dockerfile.v0
+<missing>      25 hours ago    RUN /bin/sh -c touch /usr/src/hola-platzi.tx…   0B        buildkit.dockerfile.v0
+<missing>      9 days ago      /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      9 days ago      /bin/sh -c #(nop) ADD file:3ccf747d646089ed7…   72.8MB
+
+# Veo el detalle de la imagen con el programa dive (se instala aparte)
+dive ubuntu:platzi
 ```
