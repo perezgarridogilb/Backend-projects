@@ -206,7 +206,7 @@ mongo
 # Volumns
 ```
 # Listo los volumes
-docker run -d --name db -v ~/mongodata:/data/db mongo
+docker volume ls 
 
 # Creo un volume
 docker volume create dbdata
@@ -242,11 +242,11 @@ docker exec -it db mongo
 { "_id" : ObjectId("62056745d665732dcd9dc167"), "nombre" : "guido" }
 ```
 
-# Pagination and infinite scroll
-Host: Donde Docker esta instalado.
-Bind Mount: Guarda los archivos en la maquina local persistiendo y visualizando estos datos (No seguro).
-Volume: Guarda los archivos en el area de Docker donde Docker los administra (Seguro).
-TMPFS Mount: Guarda los archivos temporalmente y persiste los datos en la memoria del contenedor, cuando muera sus datos mueren con el contenedor.
+# Insert and extract files from a container
+- Host: Donde Docker esta instalado.
+- Bind Mount: Guarda los archivos en la maquina local persistiendo y visualizando estos datos (No seguro).
+- Volume: Guarda los archivos en el area de Docker donde Docker los administra (Seguro).
+- TMPFS Mount: Guarda los archivos temporalmente y persiste los datos en la memoria del contenedor, cuando muera sus datos mueren con el contenedor. Según el curso sólo funcionan el linux.
 ```
 # Se crea un archivo en mi máquina
 touch prueba.txt
@@ -409,3 +409,19 @@ IMAGE          CREATED         CREATED BY                                      S
 # Veo el detalle de la imagen con el programa dive (se instala aparte)
 dive ubuntu:platzi
 ```
+
+# Using Docker to develop applications
+```
+# Clonamos un proyecto
+git clone https://github.com/platzi/docker
+# Se crea la imagen local
+docker build platziapp .
+# Se listan las imagenes locales
+docker image ls 
+# Se crea el contenedor y cuando se detenga se borra, lo publica el puerto 3000 de los dos
+docker run --rm -p 3000:3000 platziapp 
+# Veo los contenedores activos
+$ docker ps 
+```
+## Results
+![Docker](https://user-images.githubusercontent.com/56992179/154339247-33f3f7ee-97dd-416e-9ce6-9bd09e90dceb.png)
