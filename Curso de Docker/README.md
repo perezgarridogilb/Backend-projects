@@ -415,13 +415,24 @@ dive ubuntu:platzi
 # Clonamos un proyecto
 git clone https://github.com/platzi/docker
 # Se crea la imagen local
-docker build platziapp .
+docker build -t platziapp .
 # Se listan las imagenes locales
 docker image ls 
 # Se crea el contenedor y cuando se detenga se borra, lo publica el puerto 3000 de los dos
 docker run --rm -p 3000:3000 platziapp 
 # Veo los contenedores activos
 $ docker ps 
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                    NAMES
+46c87a9aab6a   platziapp   "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   0.0.0.0:3000->3000/tcp   unruffled_khayyam
 ```
 ## Results
 ![Docker](https://user-images.githubusercontent.com/56992179/154339247-33f3f7ee-97dd-416e-9ce6-9bd09e90dceb.png)
+
+# Taking advantage of the layer cache to correctly structure your images
+```
+# Este comando ya no tarda lo mismo
+docker build -t platziapp .
+# Hicimos uso del concepto de bind mounts para realizar cambios en tiempo real sin que se rebuild
+# Monitoreando los cambios: se ejecuta un contenedor y se monta el archivo index.js para que se actualice dinámicamente con nodemon, el cual está declarado en mi Dockerfile y es una dependecia de Node.js
+docker run --rm -p 3000:3000 -v (pwd)/index.js:/usr/src/index.js platziapp
+```
