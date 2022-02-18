@@ -436,3 +436,76 @@ docker build -t platziapp .
 # Monitoreando los cambios: se ejecuta un contenedor y se monta el archivo index.js para que se actualice dinámicamente con nodemon, el cual está declarado en mi Dockerfile y es una dependecia de Node.js
 docker run --rm -p 3000:3000 -v (pwd)/index.js:/usr/src/index.js platziapp
 ```
+
+# Docker networking: collaboration between containers
+Comunicación entre el proyecto de Node.js y la Base de Datos MongoDB
+```
+# Listo las redes
+docker network ls
+# Se crea la red
+# attachable: Permitiendo que otros contenedores se conecten a la red
+docker network create --attachable platzinet
+# Se crea el contenedor MongoDB
+docker run -d --name db mongo
+# Se conecta a la network que creamos
+docker network connect platzinet db
+# Se crea el contenedor app de Node.js
+# --env: Referencia al uso de las variables de entorno instanciadas en index.js
+# El hostname es db debido a que están en la misma red
+# El parámetro que necesita MONGO_URL es mongodb
+# platziapp: Es el nombre de la imagen
+docker run -d --name app -p 3000:3000 --env MONGO_URL=mongodb://db:27017/test platziapp
+# Se conecta a la red 
+docker network connect platzinet app
+# Se inspecciona como cada una de las instancias en Docker
+docker inspect platzinet
+[
+    {
+        "Name": "plazinet",
+        "Id": "edfee3d0732d0b39d38912746a2f50e9e6bd15718a1cd6917786193aaf7494bb",
+        "Created": "2022-02-18T05:33:08.837035Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.31.0.0/16",
+                    "Gateway": "172.31.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": true,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "3a38fc22429f81223ae8871b56e571be8da5bed6a6d9f553abbd79aab6b46860": {
+                "Name": "app",
+                "EndpointID": "58ccefe317baa4f427592c226543657ec749d7fe271c0fa3ffae9994c34cae91",
+                "MacAddress": "02:42:ac:1f:00:03",
+                "IPv4Address": "172.31.0.3/16",
+                "IPv6Address": ""
+            },
+            "4690d809604df7d7c83fd44f66456bb49d1bc09e819482bd84908ec1f024e505": {
+                "Name": "db",
+                "EndpointID": "96f1ae686a479eb51a1a516418b0f965585e05d262e977cd2c3bf432130d567a",
+                "MacAddress": "02:42:ac:1f:00:02",
+                "IPv4Address": "172.31.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
+```
+
+## Results
+
+<img width="1392" alt="Networks" src="https://user-images.githubusercontent.com/56992179/154629961-11b7d117-4398-48cd-bca8-ebda429bc6c2.png">
