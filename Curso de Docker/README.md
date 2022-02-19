@@ -509,3 +509,43 @@ docker inspect platzinet
 ## Results
 
 <img width="1392" alt="Networks" src="https://user-images.githubusercontent.com/56992179/154629961-11b7d117-4398-48cd-bca8-ebda429bc6c2.png">
+
+# Docker Compose
+Comunicación entre el proyecto de Node.js y la Base de Datos MongoDB
+```
+# Levanta los servicios instanciados en el archivo docker-compose.yml
+docker-compose up
+
+# Sin atorarse
+docker-compose up -d
+docker ps -a
+CONTAINER ID   IMAGE                  COMMAND                  CREATED        STATUS                      PORTS                    NAMES
+3a38fc22429f   platziapp              "docker-entrypoint.s…"   18 hours ago   Up 18 hours                 0.0.0.0:3000->3000/tcp   app
+4690d809604d   mongo                  "docker-entrypoint.s…"   18 hours ago   Up 18 hours                 27017/tcp                db
+```
+# Docker Compose subcomands
+Comunicación entre el proyecto de Node.js y la Base de Datos MongoDB
+```
+# Levanta las networks
+docker network ls
+NETWORK ID     NAME                       DRIVER    SCOPE
+79621e94dcac   docker_default   bridge    local
+
+# Ver todos los logs
+docker-compose logs
+
+# Ver todos los logs de app
+docker-compose logs app
+
+# Se hace un follow del log de app
+docker-compose logs -f app
+
+# Se entra al shell del contenedor app
+docker-compose exec app bash
+
+# Vimos los contenedores generados por docker compose
+docker-compose ps 
+
+# Se borran los contenedores creados por docker compose
+docker-compose down 
+```
