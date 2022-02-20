@@ -558,7 +558,8 @@ Sirve para hacer pequeños cambios sobre el Compose original sin necesidad de al
 - Rango de puertos, forma práctica de probar problemas de concurrencia o escala (simular distintas peticiones a frontends o  a la base de datos).
 - Override: Sive para perderle el miedo de complicarle la vida a nuestros compañeros de trabajo
 
-Anterior docker-compose
+**Anterior docker-compose**
+
 ```
 version: "3.8"
 
@@ -583,6 +584,8 @@ services:
   db:
     image: mongo
 ```
+
+## Comands
 
 ```
 # Se crea el archivo override
@@ -629,4 +632,24 @@ CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O     BLO
 docker inspect app 
 # Muerto a falta de memoria en cuanto a la ram
 "OOMKilled" : true, 
+```
+
+# Managing your Docker environment
+Existen dos maneras de usar CMD y sus parámetros
+Exec: El comando es ejecutado como un proceso independiente, normalmente era el pid 1 y se escribe "[...]", las señales llegan directamente a los procesos.
+Shell: El comando es ejecutado como un proceso hijo del shell, el shell /bin/sh -c /loop.sh es el pid 1 y se escribe "..." (esto no se recomienda porque ocasiona errores de mantenimiento en futuras ocasiones).
+```
+Comandos:
+# Se construye la imagen loop
+docker build -t loop . 
+# Se ejecuta el contenedor en segundo plano looper
+docker run -d --name looper loop (corro el contenedor)
+Se le envía la señal SIGTERM al contenedor
+docker stop looper 
+# Se muestra el ps del último proceso
+docker ps -l 
+# Se envía la señal SIGKILL al contenedor
+docker kill looper 
+# Se ven los procesos del contenedor
+docker exec looper ps -ef 
 ```
