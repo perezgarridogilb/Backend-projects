@@ -634,7 +634,7 @@ docker inspect app
 "OOMKilled" : true, 
 ```
 
-# Managing your Docker environment
+# ENTRYPOINT vs CMD
 Existen dos maneras de usar CMD y sus parámetros
 Exec: El comando es ejecutado como un proceso independiente, normalmente era el pid 1 y se escribe "[...]", las señales llegan directamente a los procesos.
 Shell: El comando es ejecutado como un proceso hijo del shell, el shell /bin/sh -c /loop.sh es el pid 1 y se escribe "..." (esto no se recomienda porque ocasiona errores de mantenimiento en futuras ocasiones).
@@ -652,4 +652,14 @@ docker ps -l
 docker kill looper 
 # Se ven los procesos del contenedor
 docker exec looper ps -ef 
+```
+
+# ENTRYPOINT vs CMD'S
+ENTRYPOINT: Define lo que si o sí va a hacer el contenedor
+CMD: Si no recibe nada que haga algo, es decir, que va a servir como el parámetro.
+```
+# Se construye la imagen
+docker buils -t ping . 
+# Ahora se puede dar un parámetro, se tiene que agregar previamente el ENTRYPOINT en nuestro Dockerfile
+docker run --name pinger ping * 
 ```
