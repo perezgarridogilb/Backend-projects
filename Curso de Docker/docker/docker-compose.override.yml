@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  app:
+    image: platziapp
+    build: . 
+    environment:
+      UNA_VARIABLE: "Hola mundo"
