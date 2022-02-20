@@ -549,3 +549,84 @@ docker-compose ps
 # Se borran los contenedores creados por docker compose
 docker-compose down 
 ```
+
+# Team Compose: Override
+Sirve para hacer pequeños cambios sobre el Compose original sin necesidad de alterar ese archivo
+- En algunos de sus elementos va a tratar de hacer un merge, como sucede en los environment
+- Ports en uno de los dos, se procesan en etapas distintas y pueden generar un problema en casos contrarios
+- Gracias a Override le puso el nombre
+- Rango de puertos, forma práctica de probar problemas de concurrencia o escala (simular distintas peticiones a frontends o  a la base de datos).
+- Override: Sive para perderle el miedo de complicarle la vida a nuestros compañeros de trabajo
+
+Anterior docker-compose
+```
+version: "3.8"
+
+services:
+  app:
+    # image: platziapp
+    build: .
+    environment:
+      MONGO_URL: "mongodb://db:27017/test"
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    # Cada vez que cambio algo quiero que sus archivos estén montados con los archivos de mi disco
+    # Para no hacer rebuild
+    volumes:
+    # Quiero que se monte lo que esta en mi ruta actual
+      - .:/usr/src
+    # Quiero que si montas cosas no montes esto, conserva esto
+      - /usr/src/node_modules
+
+  db:
+    image: mongo
+```
+
+```
+# Se crea el archivo override
+touch docker-compose.override.yml
+# Se crean los servicios/contenedores
+docker-compose up -d 
+# Se ingresa al bash del contenedor app
+docker-compose exec app bash 
+docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS                    NAMES
+4c8a99aca53e   platziapp              "docker-entrypoint.s…"   4 minutes ago       Up 4 minutes       0.0.0.0:3000->3000/tcp   docker_app_1
+# Se ven los contenedores en ejecución
+docker-compose ps 
+# Se escalan dos instancias de app, previamente se tiene que definir un rango de puertos en el archivo compose
+docker-compose up -d --scale app=2 
+docker-compose ps
+    Name                  Command               State           Ports
+------------------------------------------------------------------------------
+docker_app_1   docker-entrypoint.sh npx n ...   Up      0.0.0.0:3000->3000/tcp
+docker_app_2   docker-entrypoint.sh npx n ...   Up      0.0.0.0:3001->3000/tcp
+docker_db_1    docker-entrypoint.sh mongod      Up      27017/tcp
+# Se borran los servicios creados con compose
+$ docker-compose down 
+```
+
+# Managing your Docker environment
+Anterior docker-compose
+```
+# Elimina todos los contenedores inactivos
+docker container prune 
+# Elimina todos los contenedores que estén corriendo o apagados
+docker rm -f $(docker ps -aq) 
+# Se listaron todas las redes, volumes e imágenes
+docker network ls && docker volume ls && docker image ls 
+Se eliminó todo lo que no se estaba usando
+docker system prune 
+# Se especifica el uso de memoria a un gigabyte
+docker run -d --name app --memory 1g platziapp 
+# Se detalló cuantos recursos consume docker en el sistema
+docker stats
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O     BLOCK I/O    PIDS
+60100040a027   app       0.00%     27.29MiB / 1GiB     2.66%     946B / 0B   0B / 4.1kB   18
+# Se detalla (4m: megabytes) que el proceso muere por falta de recursos
+docker inspect app 
+# Muerto a falta de memoria en cuanto a la ram
+"OOMKilled" : true, 
+```
