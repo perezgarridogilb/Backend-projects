@@ -705,8 +705,16 @@ README.md
 - Al final el segundo build es solo una extracción de lo que nos intereza del primer build.
 - Si el test falla, entonces el build dos no se corre, lo que significa que la imagen no se construye.
 ```
-# Ahora se le especifíca el Dockerfile
-$ docker build -t prodapp -f Dockerfile . 
-# Se construye el contenedor en base a la imagen prodapp 
-$ docker run -d --name prod prodapp
+$ docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock docker:19.03.12
+$ docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $(wich docker):/bin/docker wagoodman/dive:latest prodapp
+```
+
+# Docker-in-Docker
+Son contenedores que pueden tener control de la instalación de Docker y pueden ejecutar contenedores.
+
+Es peligroso darle un contenedor que no conocemos de una imagen que no entendemos acceso a nuestro sistema de Docker, ya que pueden ejecutar las cosas que quieran, levantar contenedores, tocar imágenes, borrar cosas.
+Ambiente controlado: Para cuando es seguro y nos sirve. Para cuando se quiera ejecutar algo dentro del contenedor manipulando otros contenedores, levantándolos, borrándolos, explorando las imágenes, haciendo build's. 
+```
+$ docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock docker:19.03.12
+$ docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $(wich docker):/bin/docker wagoodman/dive:latest prodapp
 ```
