@@ -663,3 +663,37 @@ docker buils -t ping .
 # Ahora se puede dar un parámetro, se tiene que agregar previamente el ENTRYPOINT en nuestro Dockerfile
 docker run --name pinger ping * 
 ```
+
+## Dockerfile
+```
+FROM ubuntu:trusty
+ENTRYPOINT ["/bin/ping", "-c", "3", "localhost"]
+CMD ["localhost"]
+```
+
+# The build context
+En el archivo (.dockerignore) se puede específicar todo lo que se quiere que se copie del contexto de build 
+```
+# Se crea la imagen
+docker build -t prueba . 
+# Se ejecuta en contenedor app en base a la imagen prueba
+docker run -d --rm --name app prueba 
+# Se ingresa al bash conteiner y se verifica que no se haya copiado lo que hayamos especificado previamente 
+docker exec -it app bash 
+```
+
+## dockerignore
+Tener en cuenta para optimizar nuestras imágenes
+```
+*.log
+.dockerignore
+.git
+.gitignore
+build/*
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+node_modules
+npm-debug.log*
+README.md
+```
