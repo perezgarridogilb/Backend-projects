@@ -697,3 +697,16 @@ node_modules
 npm-debug.log*
 README.md
 ```
+
+# Multi-stage build
+- El Dockerfile de producción contiene dos “fases de build” (docker/build) que se pueden pensar como hacer dos build seguidos, en donde al final la imagen construida contendrá lo especificado en el último de los build.
+- El primer build corre un test (docker/test) que verifica que todo funcione bien.
+- El segundo build construye la imagen final aprovechando el caché de las capas del primer build.
+- Al final el segundo build es solo una extracción de lo que nos intereza del primer build.
+- Si el test falla, entonces el build dos no se corre, lo que significa que la imagen no se construye.
+```
+# Ahora se le especifíca el Dockerfile
+$ docker build -t prodapp -f Dockerfile . 
+# Se construye el contenedor en base a la imagen prodapp 
+$ docker run -d --name prod prodapp
+```
