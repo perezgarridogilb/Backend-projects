@@ -63,3 +63,61 @@ chmod 600 platzi-prueba-llave.pem
 ```
 ssh -i platzi-prueba-llave.pem ec2-user@35.175.175.122
 ```
+
+# ¿Qué es Lambda y Serverless?
+
+Lambda es un proyecto de AWS muy relacionado con el concepto de Serverless, dejar la administración de tus servidores en manos de Amazon para solo encargarte de las funciones de código que ejecutara tu aplicación.
+
+## ¿Qué son?
+Imagina lambda como un lugar donde puedes ejecutar funciones de tu código.
+
+## Serverless
+No existe un servidor como vimos en EC2, es decir, solo está el código en lamba y AWS se encarga de ejecutarlo cuando necesites.
+
+## Lenguajes soportados
+Puedes programar funciones lamba en Nodejs (JavaScript), Python, Java (8), C# (.Net Core) y Go.
+
+Recuerda tener en cuenta los siguientes puntos:
+
+- Memoria: Mínima de 128MB, máxima 3000MB con incrementos de 64MB.
+- Límites de ejecución y espacio: Puedes correr tu aplicación hasta 300 segundos y tienes un /tmp limitado a 512MB.
+- Ejecución paralela: Esta limitada a 1000 ejecuciones concurrentes (a un mismo tiempo), no tiene límite en ejecuciones secuenciales (una detrás de otra).
+Ventajas de Lambda:
+
+- Seguridad: Al ser una infraestructura compartida, no tienes que preocuparte de seguridad: AWS maneja todo.
+- Performance: AWS está monitoreando constantemente la ejecución de tus funciones y se encarga de que siempre tenga el mejor performance.
+- Código aislado: Tu código, aún estando en una infraestructura compartida, corre en un ambiente virtual exclusivo, aislado de las demás ejecuciones lamba.
+Recuerda que AWS te regala 1 millón de peticiones lamba gratis el primer año.
+
+# Creating Lambda functions
+1. Configuración de las variables de entorno.
+2. Configuración de etiquetas.
+3. Dar un test o probar en código. (Antes de dar test, darle clic al botón color naranja que dice DEPLOY)
+
+- No había creado un rol por lo que seleccioné “Creación de un nuevo rol con permisos básicos de Lambda” y funcionó perfecto.
+
+<img width="1392" alt="Lmabda functions" src="https://user-images.githubusercontent.com/56992179/160213615-127c793f-b7d5-4443-9962-c004abcfe148.png">
+
+- AWS: AWS Lambda
+- Microsoft Azure: Azure Functions
+- Google Cloud: Cloud Functions 
+
+# Learning Elastic Beanstalk
+Elastic Beanstalk es una plataforma donde en pocos pasos, obtienes un balanceador de cargas y tantas instancias EC2 como tu quieras.
+
+Este ambiente puede escalar de manera dinámica de acuerdo al tiempo de respuesta a los usuarios, uso de CPU, uso de RAM, etc.
+
+Esta herramienta soporta los siguientes ambientes:
+
+Docker Image
+Go
+Java SE
+Java con Tomcat
+.NET + Windows Server + IIS
+Nodejs
+PHP
+Python
+Ruby
+
+- EC2: Son Maquinas virtuales.
+- Elastic Beanstalk: Es un arquitectura elástica de infraestructura.
