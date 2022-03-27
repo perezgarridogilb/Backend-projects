@@ -120,4 +120,10 @@ Python
 Ruby
 
 - EC2: Son Maquinas virtuales.
-- Elastic Beanstalk: Es un arquitectura elástica de infraestructura.
+- Elastic Beanstalk: Es un arquitectura elástica de infraestructura. 
+
+Aporte de la comunidad: 
+
+"Con Elastic Beanstalk, tenemos acceso a una plataforma como servicio (PaaS), en la que podemos gestionar algunos aspectos de la infraestructura. Se pueden crear, probar e implementar aplicaciones web o servicios en la plataforma desarrollados con Java, .NET, PHP, Node.js, Python, Ruby, Go y Docker sin tener que lidiar con el aprovisionamiento, el balanceo de carga o la escalabilidad. Además, Elastic Beanstalk soporta muchos entornos de servidor, incluyendo Apache HTTP Server, Nginx, Microsoft IIS y Apache Tomcat.
+
+Se puede utilizar tanto la línea de comandos como la consola de gestión de Elastic Beanstalk para configurar y gestionar los entornos y aplicaciones"
