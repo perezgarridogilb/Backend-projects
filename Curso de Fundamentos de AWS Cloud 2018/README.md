@@ -1,6 +1,112 @@
 # AWS Cloud 
 Curso de Fundamentos de AWS Cloud 
 
+# ¿Qué es el cómputo en la nube?
+En AWS el cómputo en la nube trata de los siguiente:
+- Sitios Web, una sola computadora corriendo un solo stack de programación cómo LAMP, XAMPP, entre otros.
+- Respaldos y recuperación, incluso de sistemas operativos completos.
+- Archivos Permanentes, también puedes guardar archivos estáticos como fotografías o documentos.
+- DevOps, no solo tenemos automatización en el release de los proyectos, también cuentas con alta disponibilidad o respaldos automatizados en diversos lugares del mundo.
+- Análisis Masivos
+- Cómputo Serverless, en lugar de preocuparte por la cantidad de computadoras o cómo y cuándo va a escalar tu servicio puedes programar tu aplicación con microservicios mientras que AWS se encarga de darte los elementos necesarios.
+- Cómputo de Alto Rendimiento, levanta tus servidores sólo cuando tu aplicación lo necesita.
+- Internet of Things.
+- Aplicaciones Empresariales.
+- Distribución de media.
+- Servicios móviles.
+- Cómputo científico.
+- E-commerce.
+- Ambientes Híbridos.
+- Blockchain.
+Ventajas de AWS:
+- Cero inversión inicial, muchos servicios son gratis el primer año
+- Usa lo que necesites, apaga lo que no
+- Crece tanto como sueñes
+- Velocidad cuando la necesitas
+- Si no lo usas, no lo pagas
+- Cobertura mundial
+
+![aws_a42899ad-91a0-4213-9bce-d79e5f557dbc1](https://user-images.githubusercontent.com/56992179/160355428-354ae2a7-b02b-47e7-b9e9-654b74992494.jpg)
+
+*Aportes de la comunidad*:
+
+
+Cómputo en la nube de AWS.
+
+- Sitios web: Principalmente, lo clásico, sitios web, que pueden ser desde una sola computadora con una arquitectura básica LAMP (Linux, Apache, MySQL & PHP) a construir grandes infraestructuras, soportar muchísimos usuarios sin ningún tipo de dificultad.
+- Respaldos y recuperación: AWS brinda la posibilidad de que en cualquier momento se pueda hacer respaldos y recuperar información, como puede ser recuperar una máquina completa, o tener respaldos de varias etapas del desarrollo de un proyecto.
+- Archivos permanentes: AWS permite almacenar archivos estáticos, como pueden ser imágenes o archivos de cualquier tipo o extensión.
+- DevOps: En este área, no solamente se cuenta con automatización en el release de los nuevos proyectos, sino también con una alta disponibilidad o respaldos automatizados en diversos lugares del mundo, que pueden ser diarios y pueden ser escalables, como por ejemplo, desde 5 usuarios hasta 3000 en dos minutos.
+Análisis masivos: AWS permite la realización de cálculos de analíticos de forma masiva; es decir, no sólo el procesamiento de los analíticos típicos y populares que implementan en los sitios web, sino también se pueden hacer mediciones de diversos datos y tipos de información. Por ejemplo, el análisis de la CPU y/o memoria RAM consumida por una aplicación en diversos servidores.
+Cómputo Serverless: Con este servicio, no es necesaria la preocupación por la cantidad de computadoras o cómo y cuándo se va a escalar el servicio. AWS permite realizar una partición del software; no a nivel de componentes, sino casi que a nivel de funciones; las cuales son expuestas a través de microservicios, los cuales pueden interactuar entre ellos. Amazon no cobra por el tamaño de estos microservicios, sino por la utilización o llamadas hacia éstos; y en caso de que dichas llamadas sean muy frecuentes, serán escalados los microservicios.
+Cómputo de alto rendimiento: Levanta los servidores necesarios para computar a un alto rendimiento sólo las veces que la aplicación lo requiera.
+- IOT: En este área, AWS no sólo brinda la parte del hardware, que sería tener acceso a hardware de una manera relativamente rápida y fácil, sino también todo lo que incluye interactuar con dichos dispositivos, el gateway para permitir el ingreso de la información, y además, puede escalar de manera automática cuando se necesite.
+Aplicaciones empresariales: AWS tiene aplicaciones empresariales tradicionales, como por ejemplo, correos empresariales, que, al igual que otros servicios, escala de manera automática y profesional.
+Distribución de media: Con este servicio, AWS te brinda mecanismos de transcoding. Por ejemplo, si se desea realizar un streaming, este servicio brinda todo lo necesario para poder llegar a la cantidad de personas que se quiera.
+Servicios móviles: Estos servicios son esenciales para lograr una correcta interacción entre una aplicación móviles con otros servicios, como con una base de datos, el backend, etc.
+Cómputo científico: AWS tiene máquinas especializadas (más memoria RAM, más CPU, más cores trabajando al mismo tiempo, etc.) para el cómputo enfocado a la parte científica, como pueden ser, simulaciones físicas, simulaciones financieras, etc.
+- E-commerce: Este servicio incluye todos los componentes necesarios para hacer una página de ventas virtual. Entre esos componentes, están la parte de seguridad, comunicación con la base de datos de manera segura, tantos servidores como sean necesarios; del lado de la base de datos incluye respaldos, optimizaciones para expandir o disminuir la base de datos de acuerdo al uso, etc.
+Ambientes híbridos: Este área de AWS brinda la posibilidad de poder trabajar con información en la nube, y al mismo tiempo con datos de manera local hosteados en un servidor propio.
+- Blockchain: Este sistema permite realizar acciones, como por ejemplo, minar, hacer análisis de la información para verificar que no esté siendo modificada o alterada en el camino, entre otras.
+Algunas de las ventajas de utilizar AWS:
+
+Usa lo que necesites, apaga lo que no: AWS brinda la posibilidad de encender los servicios cuando se vaya a hacer uso de ellos y de apagarlos cuando no se vayan a utilizar. De esta manera, AWS sólo cobra por el tiempo en el que utilicemos dichos servicios.
+Crece tanto como sueñes: AWS permite una escalabilidad a alta velocidad. Esto facilita la posibilidad de crecer o decrecer tanto como se necesite.
+Velocidad cuando la necesitas: AWS no sólo brinda la posibilidad de administrar y de escalar a nivel de hardware, también se puede hacer con la velocidad de cómputo los servidores.
+- Cobertura mundial: Amazon tiene diversos datacenters en distintos lugares del mundo, y no sólo en distintos lugares del mundo, sino que, por ejemplo, Amazon tiene un datacenter en Brasil, pero no es únicamente un datacenter; son tres o cuatro edificios llamados “zonas”, es decir, cuatro zonas en ese datacenter, cada una con electricidad autónoma, con datos autónomos, etc. de tal manera que se puede tener la confianza de que aunque fallase algún datacenter, hay otros dos o tres que van a responder por el que esté fallando. En ciertos lugares hay limitaciones, como por ejemplo, en los datacenters de China no se pueden almacenar cierto tipos de datos o de información. También es bueno tener en cuenta la ubicación de los datacenters; por ejemplo, en Latinoamérica, el más cercano es el de Brasil, por lo que ese datacenter va a ser mejor en términos de latencia y en temas por el estilo.
+
+![aws_a42899ad-91a0-4213-9bce-d79e5f557dbc1](https://user-images.githubusercontent.com/56992179/160355884-145263a6-6f45-4443-bbc7-a2b23346c8f9.jpg)
+
+![aws_a42899ad-91a0-4213-9bce-d79e5f557dbc1](https://user-images.githubusercontent.com/56992179/160356215-41f634af-6dcd-4314-b386-3cec54d4f708.jpg)
+- Nota: La primera instacia EC2 y la primera base de datos
+![aws_a42899ad-91a0-4213-9bce-d79e5f557dbc1](https://user-images.githubusercontent.com/56992179/160356394-b5969176-4a4a-41fa-aee9-2a9c99187114.jpg)
+
+# ¿Cómo puedo empezar a usar AWS?
+
+Para crear tu cuenta de AWS debes entrar a aws.amazon.com, recuerda que para crear tu contraseña puedes usar passwordsgenerator.net.
+
+AWS dispone de dos programas que permiten a los clientes trasladar sus enseñanzas y esfuerzos de investigación a la nube y de este modo innovar más rápidamente y con un menor costo. Para aplicar a las becas de AWS entra a aws.amazon.com/es/grants.
+
+Cuando tengas tu cuenta registrada, entra a console.aws.amazon.com y tendrás acceso a la consola de amazon con todos los servicios disponibles.
+
+# Introducción a la oferta de servicios de AWS y sus aplicaciones
+*Aportes de la comunidad*:
+
+Servicios de AWS:
+- Computo
+- Storage
+- Bases de Datos
+- Migración de servicios [Si ya tienes data en un data center, te ayuda a poder migrar]
+- Networking & Content Delivery [Registrar dominios, administrar certificados SSL]
+- Herramientas de desarrollador
+- Herramientas de administración
+[CloudWatch:Permite ver que esta sucediendo en tu infraestructura o en tus servidores
+CloudTrail: Permite llevar una auditoria de que hace que o de quien hace que]
+- Media Services:
+[Elastic Transcoder: Ejm: Si estas haciendo streaming de un partido podrías subir el dato que estas generando (vídeo) y ellos generaran todas las versiones que necesitas para diferentes tipos de dispositivos (Celulares, computadora, etc)]
+- Machine Learning:
+[Rekognition: Le puedes ir enviando imágenes y te puede reconocer que estas viendo ]
+- Analytics:
+[Cuanta RAM esta usando cada visitante, cuanto CPU, que actividad esta teniendo ese visitante en tu sitio ]
+Seguridad
+- [IAM: Manejar a que tienen acceso la cuenta de los colaboradores
+GuardDuty: Te permite hacer un recuento de los diferentes accesos de red que ha habido, entonces si es hubiese un ataque a un servidor te va ha permitir saber de donde viene el ataque y te va dar opciones ]
+- Servicios moviles:
+[Te permite generar tus propios servicios moviles de forma más sencilla]
+- AR & VR (Realidad virtual)
+[Ya viene con el software, puedes empezar a hacer identificación de algún patrón para empezar a enseñar alguna cosa en tu aplicación]
+- Integración de aplicaciones:
+[Simple Notification Service: Se puede hacer llamado a diferentes servicios, Ejm: Enviar notificaciones a través de correo electrónico, SMS]
+- Customer Engagement
+- Bussines Productivity
+- Desktop & App Streaming [
+WorkSpaces: Ejm: Tal vez si necesitas compartirle a alguien alguna maquina virtual,de,cierta,manera, que tenga un escritorio como Windows y que esa maquina tenga un navegador y que solo se pueda conectar al sitio de la empresa,escuela,etc]
+- Internet of Things:
+Puede proveeer de hardware y te permite crear servicios para que fácilmente puedas administrarlos, como conectarlos con datos o aplicaciones web.
+- Game Development: [Motor de juegos]
+Puedes generar un juego con el software que te proporcionan. Crear escenas, interacción.
+
+
 # Ejemplo de arquitectura con Elastic Beanstalk
 Hay muchas formas de desarrollar un sistema en AWS, una de ellas es la arquitectura Elastic Beanstalk.
 
