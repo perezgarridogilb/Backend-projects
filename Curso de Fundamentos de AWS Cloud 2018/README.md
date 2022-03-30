@@ -145,10 +145,10 @@ EC2 es un conjunto de máquinas virtuales en AWS (Amazon Web Services) que puede
 Recuerda que puedes consultar la documentación oficial de EC2 AWS en: https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/concepts.html
 
 
-*Aporte de la comunidad: *
+*Aporte de la comunidad*: 
 Para ambientes de desarrollo y pruebas es recomendable utilizar los servidores de Amazon lightsail, y EC2 para el ambiente de producción
 
-*Cálculo de costos: *
+*Cálculo de costos*: 
 https://calculator.s3.amazonaws.com/index.html
 
 ### Connecting to our instance
@@ -230,6 +230,6 @@ Ruby
 
 Aporte de la comunidad: 
 
-"Con Elastic Beanstalk, tenemos acceso a una plataforma como servicio (PaaS), en la que podemos gestionar algunos aspectos de la infraestructura. Se pueden crear, probar e implementar aplicaciones web o servicios en la plataforma desarrollados con Java, .NET, PHP, Node.js, Python, Ruby, Go y Docker sin tener que lidiar con el aprovisionamiento, el balanceo de carga o la escalabilidad. Además, Elastic Beanstalk soporta muchos entornos de servidor, incluyendo Apache HTTP Server, Nginx, Microsoft IIS y Apache Tomcat.
+Con Elastic Beanstalk, tenemos acceso a una plataforma como servicio (PaaS), en la que podemos gestionar algunos aspectos de la infraestructura. Se pueden crear, probar e implementar aplicaciones web o servicios en la plataforma desarrollados con Java, .NET, PHP, Node.js, Python, Ruby, Go y Docker sin tener que lidiar con el aprovisionamiento, el balanceo de carga o la escalabilidad. Además, Elastic Beanstalk soporta muchos entornos de servidor, incluyendo Apache HTTP Server, Nginx, Microsoft IIS y Apache Tomcat.
 
-Se puede utilizar tanto la línea de comandos como la consola de gestión de Elastic Beanstalk para configurar y gestionar los entornos y aplicaciones"
+Se puede utilizar tanto la línea de comandos como la consola de gestión de Elastic Beanstalk para configurar y gestionar los entornos y aplicaciones

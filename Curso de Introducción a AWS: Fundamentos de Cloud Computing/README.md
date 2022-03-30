@@ -90,8 +90,8 @@ Alta disponibilidad y tolerancia a fallos, crecer en todos los centros de datos
 
 ### Tipos de cómputo en la nube
 
-*laaS*: Infraestructura como Servicio. Proporciona componentes básicos para las tecnologías de información en la nube: redes, computadores, espacio de almacenamiento de datos, con un máximo nivel de flexibilidad y fácil paralelo de las tecnologías de la información tradicional en las instalaciones
-*PaaS*: Plataforma como Servicio. Elimina la necesidad de que nuestra organización administre la infraestructura y nos vamos a centrar en la implementación y la gestión de las aplicaciones
+*laaS*: Infraestructura como Servicio. Proporciona componentes básicos para las tecnologías de información en la nube: redes, computadores, espacio de almacenamiento de datos, con un máximo nivel de flexibilidad y fácil paralelo de las tecnologías de la información tradicional en las instalaciones.
+*PaaS*: Plataforma como Servicio. Elimina la necesidad de que nuestra organización administre la infraestructura y nos vamos a centrar en la implementación y la gestión de las aplicaciones.
 *SaaS*: Software como Servicio. Producto terminado y que es ejecutado y administrado por el proveedor del servicio.
 
 <img width="632" alt="AWS Control" src="https://user-images.githubusercontent.com/56992179/160515525-180b562b-451b-4991-ae0b-b562256e2c2d.png">
@@ -120,3 +120,53 @@ Alta disponibilidad y tolerancia a fallos, crecer en todos los centros de datos
 La información que entra en la nube es gratis
 
 - Resuelve muchos de los problemas de IT tradicional relacionados con el costo
+
+# Una pequeña historia de AWS
+Autores de AWS:
+- Benjamin Black
+- Chris Pinkham
+
+## Linea de tiempo
+Acontecimientos importantes
+<img width="634" alt="Captura de Pantalla 2022-03-29 a la(s) 4 07 08 p m" src="https://user-images.githubusercontent.com/56992179/160715931-e7b4777d-0153-4104-8aad-a22a6551ec2a.png">
+
+## Mercado
+Posición en el mercado
+<img width="634" alt="Captura de Pantalla 2022-03-29 a la(s) 4 08 22 p m" src="https://user-images.githubusercontent.com/56992179/160715968-0c883283-6378-4a4b-b411-409d2f7acd6c.png">
+
+# Una visión global: regiones y zonas de disponibilidad
+
+## Regiones
+Los características varían según la región
+<img width="633" alt="Regiones" src="https://user-images.githubusercontent.com/56992179/160716566-93e1ddd7-d123-4932-ac7f-b78b5710da2f.png">
+
+## Escogiendo regiones
+Características a tomar en cuenta
+<img width="633" alt="Escogiendo regiones" src="https://user-images.githubusercontent.com/56992179/160716819-8fb24fb9-5439-4d2b-9936-f6272768c5d7.png">
+
+##Una zona de disponibilidad es un data center
+- Un data center está lleno de servidores
+- Una zona de disponibilidad puede ser de varios data center.
+- Cada zona de disponibilidad es uno o mas centro de datos discretos con energía, redes y conectividad redundante, están separados de unos a otros y están conectados entre sí con un gran ancho de banda, redes de latencia ultrabaja
+
+### Infraestructura global
+- AWS Regiones
+- AWS Zonas de disponibilidad
+- AWS Centro de datos
+- Ubicaciones de AWS Edge / puntos de presencia
+
+
+### Servicios Globales
+- IAM
+- Route 53
+- Cloudfront
+- WAF
+
+### Servicios Regionales
+- EC2
+- Beanstalk
+- Lambda
+- Rekognition
+
+## Diagrama del modelo de responsabilidad compartida
+<img width="633" alt="Diagrama del modelo de responsabilidad compartida" src="https://user-images.githubusercontent.com/56992179/160718003-19e79f29-a43e-4800-ad82-1e824b4b4f6f.png">
