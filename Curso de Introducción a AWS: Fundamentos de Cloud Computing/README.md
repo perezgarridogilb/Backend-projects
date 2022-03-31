@@ -137,14 +137,14 @@ Posición en el mercado
 # Una visión global: regiones y zonas de disponibilidad
 
 ## Regiones
-Los características varían según la región
 <img width="633" alt="Regiones" src="https://user-images.githubusercontent.com/56992179/160716566-93e1ddd7-d123-4932-ac7f-b78b5710da2f.png">
+- Los características varían según la región
 
 ## Escogiendo regiones
-Características a tomar en cuenta
 <img width="633" alt="Escogiendo regiones" src="https://user-images.githubusercontent.com/56992179/160716819-8fb24fb9-5439-4d2b-9936-f6272768c5d7.png">
+- Características a tomar en cuenta
 
-##Una zona de disponibilidad es un data center
+## Una zona de disponibilidad es un data center
 - Un data center está lleno de servidores
 - Una zona de disponibilidad puede ser de varios data center.
 - Cada zona de disponibilidad es uno o mas centro de datos discretos con energía, redes y conectividad redundante, están separados de unos a otros y están conectados entre sí con un gran ancho de banda, redes de latencia ultrabaja
@@ -170,3 +170,123 @@ Características a tomar en cuenta
 
 ## Diagrama del modelo de responsabilidad compartida
 <img width="633" alt="Diagrama del modelo de responsabilidad compartida" src="https://user-images.githubusercontent.com/56992179/160718003-19e79f29-a43e-4800-ad82-1e824b4b4f6f.png">
+
+# Seguridad e identidad
+## Protección a Datos
+- Amazon Macie: para descubrir y proteger sus datos sensibles
+- AWS Key Management Service: almacenar y administrar claves de cifrado
+- AWS CloudHSM: almacenamiento de claves basado en hardware y el cumplimiento normativo
+- AWS Certificate Manager: provisionar, administrar e implementar certificados de - seguridad TSL y TLS
+- AWS Secrets Manager: rotar, gestionar y recuperar secretos como contraseñas
+## Protección de la infraestructura
+AWS Shield: para la protección de denegación de servicio
+AWS Web Aplication Firewall (WAF): filtra el tráfico de sitios web maliciosos
+AWS Firewall Manager: administra las reglas del firewall de forma centralizada
+## Detección de amenazas
+Amazon GuarDuty: detecta amenazas automáticamente
+Amazon Inspector: ayuda a analizar la seguridad de la aplicación
+Amazon config: registra y evalúa configuraciones de nuestros recursos
+Amazon CloudTrail: rastrea la actividad del usuario y el uso de las API
+## Gestión de identidades
+- AWS Identity and Access Management (IAM): administra de forma segura el acceso a una cuenta, servicios y recursos
+- AWS Inicio de sesión único: Implemente el acceso de sesión único (single sign on)
+- Amazon Cognito: administra la identidad dentro de las aplicaciones, se puede hacer el inicio de sesiones web o móviles
+- AWS Servicio de Directorio: implementa y administra un Active Directory Service (que regularmente encontramos en servicios de microsoft)
+- AWS Organizaciones: para gobernar y administrar de forma centralizada varias cuentas de AWS en un mismo lugar
+
+# IAM ilustrado
+## IAM
+- Nos ayuda a administrar *quién puede acceder a qué* en los servicios y recursos de tu cuenta en AWS
+
+- Puedes crear usuarios y grupos
+
+- Establecer permisos *permitir o denegar el acceso* a los recursos de AWS mediante el uso de políticas
+
+## Usuarios IAM
+
+### Ejemplo de política de IAM: Usuario Administrador
+- Usuario Administrador con acceso a los servidores de desarrollo
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "*", 
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+### Ejemplo de política de IAM: Acceso a un bucket de S3
+- Permitir a usuarios almacenar archivos en servicio S3
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:53 ::: bucket-name"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3: GetObject",
+                "s3: PutObject",
+            ],
+            "Resource": "arn:aws:53 ::: bucket-name /*"
+        }
+    ]
+}
+```
+
+## IAM Roles
+- Permite delegar permisos a un usuario o servicio
+- Un usuario puede asumir un rol
+- Un servicio puede asumir un rol
+
+# Secrets Manager
+## Ejemplo de una conexión de MySQL hardcodeada
+- Problemas
+```
+import mysql.connector
+
+connection = mysql.connector.connect( 
+    host="localhost", 
+    database="mydb", 
+    user="root", 
+    password="root" 
+)
+```
+## Acerca del servicio
+- Protege los secretos que son necesarios para acceder a sus aplicaciones, servicios y recursos.
+
+- Rotarlos autimáticaticamente
+
+- Los secretos pueden ser contraseñas, claves y tokens
+
+## Ejemplo de una conexión de MySQL hardcodeada
+- Soluciones
+```
+import mysql.connector
+
+connection = mysql.connector.connect( 
+    host="localhost", 
+    database="mydb", 
+    user="root", 
+    password=get_secret_value['SecretString']
+)
+```
+# Demostración del servicio de directorio
+## Windows como principal S.O
+- Servicio Directorio Activo: Administrar el inicio de sesión de los usuarios dentro de las compañías
+## AWS Directory Service
+- Directorio Activo administrado (sin ejecutar servidores)
+- Opción de directorio activo simple
+- Conector AD (iniciar sesión con credenciales de usuario de directorio activo)
+- Servicio distribuido con error automático
+- Compatible con otros servicios de AWS (Chime, Connect, EC2)
