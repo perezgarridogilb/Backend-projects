@@ -12,16 +12,16 @@ Curso de Introducción a AWS: Fundamentos de Cloud Computing
 ## ¿De qué está compuesto un servidor?
 
 ### Un servidor está compuesto de un
-*Cómputo*: CPU
-*Memoria*: RAM
-*Almadenamiento*: datos
-*Base de datos*: información almacenada de forma estructurada
-*Redes*: routers, switch, servidor DNS
+**Cómputo**: CPU
+**Memoria**: RAM
+**Almadenamiento**: datos
+**Base de datos**: información almacenada de forma estructurada
+**Redes**: routers, switch, servidor DNS
 
 ### Terminología de IT
-*Redes*: cables, routers y servidores conectados unos a otros.
-*Router*: un dispositivo de red que reenvía paquetes de datos entre redes informáticas.
-*Switch*: toma un paquete y lo envía al servidor/cliente correcto en la red.
+**Redes**: cables, routers y servidores conectados unos a otros.
+**Router**: un dispositivo de red que reenvía paquetes de datos entre redes informáticas.
+**Switch**: toma un paquete y lo envía al servidor/cliente correcto en la red.
 
 ### Diseño de infraestructura tradicional (en orden)
 1. Garage, con un servidor, dos servidores 
@@ -39,17 +39,17 @@ Desastres naturales
 # ¿Qué es la computacion en la nube?
 > La computación en la nube es la entrega bajo demanda de computación, almacenamiento de bases de datos, aplicaciones y otros recursos de TI a través de una plataforma de servicios en la nube por medio de Internet con precios de pago por uso.
 
-- *Piensa en ello como simplemente alquilar la computadora de otra persona*
+- **Piensa en ello como simplemente alquilar la computadora de otra persona**
 
-- Suministras el *tipo y tamaño exactamente correctos* de
+- Suministras el **tipo y tamaño exactamente correctos** de
 los recursos informáticos que necesitas.
-- Puedes acceder *al instante* a todos los recursos que necesitas.
-- Una *forma sencilla de acceder* a servidores, almacenamiento, bases de datos y un conjunto de servicios de aplicaciones: poder de computo, almacenamiento y bases de datos.
+- Puedes acceder **al instante** a todos los recursos que necesitas.
+- Una **forma sencilla de acceder** a servidores, almacenamiento, bases de datos y un conjunto de servicios de aplicaciones: poder de computo, almacenamiento y bases de datos.
 
 ## Servicios que ya has usado en la nube
-- *Gmail* Servicio de email en la nube. Pagas solo por tus emails almacenados (no infraestructura)
-- *Dropbox* Servicio de almacenamiento en la nube. Originalmente se construyó en AWS
-- *Netflix* Servicio de video en demanda. Construido en AWS.
+- **Gmail** Servicio de email en la nube. Pagas solo por tus emails almacenados (no infraestructura)
+- **Dropbox** Servicio de almacenamiento en la nube. Originalmente se construyó en AWS
+- **Netflix** Servicio de video en demanda. Construido en AWS.
 
 ## Tipos de modelos de computación en la nube
 ### Nube Privada
@@ -73,7 +73,7 @@ Múltiples inquilinos y agrupación de recursos
 Elasticidad y escalabilidad
 Servicio medido
 ### 6 ventajas de la computación en la nube
-Gastos de capital comercial (*capex*) sobre gastos operativos (*opex*)
+Gastos de capital comercial (**capex**) sobre gastos operativos (**opex**)
 Economías de escala (reduce los precios a medida que AWS es más eficiente debido a la gran escala)
 Dejar de adivinar la capacidad (escalar sobre el uso medido real)
 Incrementar la velocidad y la agilidad
@@ -90,9 +90,9 @@ Alta disponibilidad y tolerancia a fallos, crecer en todos los centros de datos
 
 ### Tipos de cómputo en la nube
 
-*laaS*: Infraestructura como Servicio. Proporciona componentes básicos para las tecnologías de información en la nube: redes, computadores, espacio de almacenamiento de datos, con un máximo nivel de flexibilidad y fácil paralelo de las tecnologías de la información tradicional en las instalaciones.
-*PaaS*: Plataforma como Servicio. Elimina la necesidad de que nuestra organización administre la infraestructura y nos vamos a centrar en la implementación y la gestión de las aplicaciones.
-*SaaS*: Software como Servicio. Producto terminado y que es ejecutado y administrado por el proveedor del servicio.
+**laaS**: Infraestructura como Servicio. Proporciona componentes básicos para las tecnologías de información en la nube: redes, computadores, espacio de almacenamiento de datos, con un máximo nivel de flexibilidad y fácil paralelo de las tecnologías de la información tradicional en las instalaciones.
+**PaaS**: Plataforma como Servicio. Elimina la necesidad de que nuestra organización administre la infraestructura y nos vamos a centrar en la implementación y la gestión de las aplicaciones.
+**SaaS**: Software como Servicio. Producto terminado y que es ejecutado y administrado por el proveedor del servicio.
 
 <img width="632" alt="AWS Control" src="https://user-images.githubusercontent.com/56992179/160515525-180b562b-451b-4991-ae0b-b562256e2c2d.png">
 
@@ -196,13 +196,18 @@ Amazon CloudTrail: rastrea la actividad del usuario y el uso de las API
 
 # IAM ilustrado
 ## IAM
-- Nos ayuda a administrar *quién puede acceder a qué* en los servicios y recursos de tu cuenta en AWS
+- Nos ayuda a administrar **quién puede acceder a qué** en los servicios y recursos de tu cuenta en AWS
 
 - Puedes crear usuarios y grupos
 
-- Establecer permisos *permitir o denegar el acceso* a los recursos de AWS mediante el uso de políticas
+- Establecer permisos **permitir o denegar el acceso** a los recursos de AWS mediante el uso de políticas
 
 ## Usuarios IAM
+# Creando diferentes usuarios (propietario de la empresa)
+<img width="635" alt="Usuarios IAM" src="https://user-images.githubusercontent.com/56992179/161195017-5652a0b9-b1df-42ab-bca8-43064f074ce9.png">
+
+# Equipo de la empresa y su acceso
+<img width="634" alt="Equipo y accesos" src="https://user-images.githubusercontent.com/56992179/161195272-ff1af7e6-4e33-4196-a7d3-5aa55a70854e.png">
 
 ### Ejemplo de política de IAM: Usuario Administrador
 - Usuario Administrador con acceso a los servidores de desarrollo
@@ -238,13 +243,17 @@ Amazon CloudTrail: rastrea la actividad del usuario y el uso de las API
                 "s3: GetObject",
                 "s3: PutObject",
             ],
-            "Resource": "arn:aws:53 ::: bucket-name /*"
+            "Resource": "arn:aws:53 ::: bucket-name/*"
         }
     ]
 }
 ```
 
 ## IAM Roles
+<img width="636" alt="IAM" src="https://user-images.githubusercontent.com/56992179/161195635-40871a00-7ad1-4691-8b88-a8d45ae98088.png">
+
+## 
+
 - Permite delegar permisos a un usuario o servicio
 - Un usuario puede asumir un rol
 - Un servicio puede asumir un rol
