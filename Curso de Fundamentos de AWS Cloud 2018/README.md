@@ -28,7 +28,7 @@ Ventajas de AWS:
 
 ![aws_a42899ad-91a0-4213-9bce-d79e5f557dbc1](https://user-images.githubusercontent.com/56992179/160355428-354ae2a7-b02b-47e7-b9e9-654b74992494.jpg)
 
-*Aportes de la comunidad*:
+**Aportes de la comunidad**:
 
 
 Cómputo en la nube de AWS.
@@ -70,7 +70,7 @@ AWS dispone de dos programas que permiten a los clientes trasladar sus enseñanz
 Cuando tengas tu cuenta registrada, entra a console.aws.amazon.com y tendrás acceso a la consola de amazon con todos los servicios disponibles.
 
 # Introducción a la oferta de servicios de AWS y sus aplicaciones
-*Aportes de la comunidad*:
+**Aportes de la comunidad**:
 
 Servicios de AWS:
 - Computo
@@ -145,10 +145,10 @@ EC2 es un conjunto de máquinas virtuales en AWS (Amazon Web Services) que puede
 Recuerda que puedes consultar la documentación oficial de EC2 AWS en: https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/concepts.html
 
 
-*Aporte de la comunidad*: 
+**Aporte de la comunidad**: 
 Para ambientes de desarrollo y pruebas es recomendable utilizar los servidores de Amazon lightsail, y EC2 para el ambiente de producción
 
-*Cálculo de costos*: 
+**Cálculo de costos**: 
 https://calculator.s3.amazonaws.com/index.html
 
 ### Connecting to our instance

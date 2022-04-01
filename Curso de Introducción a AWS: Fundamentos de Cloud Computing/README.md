@@ -12,16 +12,16 @@ Curso de Introducción a AWS: Fundamentos de Cloud Computing
 ## ¿De qué está compuesto un servidor?
 
 ### Un servidor está compuesto de un
-**Cómputo**: CPU
-**Memoria**: RAM
-**Almadenamiento**: datos
-**Base de datos**: información almacenada de forma estructurada
-**Redes**: routers, switch, servidor DNS
+- **Cómputo**: CPU
+- **Memoria**: RAM
+- **Almadenamiento**: datos
+- **Base de datos**: información almacenada de forma estructurada
+- **Redes**: routers, switch, servidor DNS
 
 ### Terminología de IT
-**Redes**: cables, routers y servidores conectados unos a otros.
-**Router**: un dispositivo de red que reenvía paquetes de datos entre redes informáticas.
-**Switch**: toma un paquete y lo envía al servidor/cliente correcto en la red.
+- **Redes**: cables, routers y servidores conectados unos a otros.
+- **Router**: un dispositivo de red que reenvía paquetes de datos entre redes - informáticas.
+- **Switch**: toma un paquete y lo envía al servidor/cliente correcto en la red.
 
 ### Diseño de infraestructura tradicional (en orden)
 1. Garage, con un servidor, dos servidores 
@@ -67,18 +67,18 @@ Control total.
 - Flexibilidad y rentabilidad de la nube pública.
 
 ### 5 características de la computación en la nube
-Autoservicio en demanda
-Amplio acceso a la red
-Múltiples inquilinos y agrupación de recursos
-Elasticidad y escalabilidad
-Servicio medido
+- Autoservicio en demanda
+- Amplio acceso a la red
+- Múltiples inquilinos y agrupación de recursos
+- Elasticidad y escalabilidad
+- Servicio medido
 ### 6 ventajas de la computación en la nube
-Gastos de capital comercial (**capex**) sobre gastos operativos (**opex**)
-Economías de escala (reduce los precios a medida que AWS es más eficiente debido a la gran escala)
-Dejar de adivinar la capacidad (escalar sobre el uso medido real)
-Incrementar la velocidad y la agilidad
-Dejar de gastar dinero en la ejecución y mantenimiento de cretro de datos
-Globalizar en minutos
+- Gastos de capital comercial (**capex**) sobre gastos operativos (**opex**)
+- Economías de escala (reduce los precios a medida que AWS es más eficiente debido a la gran escala)
+- Dejar de adivinar la capacidad (escalar sobre el uso medido real)
+- Incrementar la velocidad y la agilidad
+- Dejar de gastar dinero en la ejecución y mantenimiento de cretro de datos
+- Globalizar en minutos
 
 ### Problemas resueltos por la nuble
 - Flexibilidad: cambia los tipos de recursos cuando sea necesario
@@ -90,9 +90,9 @@ Alta disponibilidad y tolerancia a fallos, crecer en todos los centros de datos
 
 ### Tipos de cómputo en la nube
 
-**laaS**: Infraestructura como Servicio. Proporciona componentes básicos para las tecnologías de información en la nube: redes, computadores, espacio de almacenamiento de datos, con un máximo nivel de flexibilidad y fácil paralelo de las tecnologías de la información tradicional en las instalaciones.
-**PaaS**: Plataforma como Servicio. Elimina la necesidad de que nuestra organización administre la infraestructura y nos vamos a centrar en la implementación y la gestión de las aplicaciones.
-**SaaS**: Software como Servicio. Producto terminado y que es ejecutado y administrado por el proveedor del servicio.
+- **laaS**: Infraestructura como Servicio. Proporciona componentes básicos para las tecnologías de información en la nube: redes, computadores, espacio de almacenamiento de datos, con un máximo nivel de flexibilidad y fácil paralelo de las tecnologías de la información tradicional en las instalaciones.
+- **PaaS**: Plataforma como Servicio. Elimina la necesidad de que nuestra organización administre la infraestructura y nos vamos a centrar en la implementación y la gestión de las aplicaciones.
+- **SaaS**: Software como Servicio. Producto terminado y que es ejecutado y administrado por el proveedor del servicio.
 
 <img width="632" alt="AWS Control" src="https://user-images.githubusercontent.com/56992179/160515525-180b562b-451b-4991-ae0b-b562256e2c2d.png">
 
@@ -128,21 +128,21 @@ Autores de AWS:
 
 ## Linea de tiempo
 Acontecimientos importantes
-<img width="634" alt="Captura de Pantalla 2022-03-29 a la(s) 4 07 08 p m" src="https://user-images.githubusercontent.com/56992179/160715931-e7b4777d-0153-4104-8aad-a22a6551ec2a.png">
+<img width="634" alt="Tiempo" src="https://user-images.githubusercontent.com/56992179/160715931-e7b4777d-0153-4104-8aad-a22a6551ec2a.png">
 
 ## Mercado
 Posición en el mercado
-<img width="634" alt="Captura de Pantalla 2022-03-29 a la(s) 4 08 22 p m" src="https://user-images.githubusercontent.com/56992179/160715968-0c883283-6378-4a4b-b411-409d2f7acd6c.png">
+<img width="634" alt="Mercado" src="https://user-images.githubusercontent.com/56992179/160715968-0c883283-6378-4a4b-b411-409d2f7acd6c.png">
 
 # Una visión global: regiones y zonas de disponibilidad
 
 ## Regiones
 <img width="633" alt="Regiones" src="https://user-images.githubusercontent.com/56992179/160716566-93e1ddd7-d123-4932-ac7f-b78b5710da2f.png">
-- Los características varían según la región
+Los características varían según la región
 
 ## Escogiendo regiones
 <img width="633" alt="Escogiendo regiones" src="https://user-images.githubusercontent.com/56992179/160716819-8fb24fb9-5439-4d2b-9936-f6272768c5d7.png">
-- Características a tomar en cuenta
+Características a tomar en cuenta
 
 ## Una zona de disponibilidad es un data center
 - Un data center está lleno de servidores
@@ -179,14 +179,14 @@ Posición en el mercado
 - AWS Certificate Manager: provisionar, administrar e implementar certificados de - seguridad TSL y TLS
 - AWS Secrets Manager: rotar, gestionar y recuperar secretos como contraseñas
 ## Protección de la infraestructura
-AWS Shield: para la protección de denegación de servicio
-AWS Web Aplication Firewall (WAF): filtra el tráfico de sitios web maliciosos
-AWS Firewall Manager: administra las reglas del firewall de forma centralizada
+- AWS Shield: para la protección de denegación de servicio
+- AWS Web Aplication Firewall (WAF): filtra el tráfico de sitios web maliciosos
+- AWS Firewall Manager: administra las reglas del firewall de forma centralizada
 ## Detección de amenazas
-Amazon GuarDuty: detecta amenazas automáticamente
-Amazon Inspector: ayuda a analizar la seguridad de la aplicación
-Amazon config: registra y evalúa configuraciones de nuestros recursos
-Amazon CloudTrail: rastrea la actividad del usuario y el uso de las API
+- Amazon GuarDuty: detecta amenazas automáticamente
+- Amazon Inspector: ayuda a analizar la seguridad de la aplicación
+- Amazon config: registra y evalúa configuraciones de nuestros recursos
+- Amazon CloudTrail: rastrea la actividad del usuario y el uso de las API
 ## Gestión de identidades
 - AWS Identity and Access Management (IAM): administra de forma segura el acceso a una cuenta, servicios y recursos
 - AWS Inicio de sesión único: Implemente el acceso de sesión único (single sign on)
@@ -203,10 +203,10 @@ Amazon CloudTrail: rastrea la actividad del usuario y el uso de las API
 - Establecer permisos **permitir o denegar el acceso** a los recursos de AWS mediante el uso de políticas
 
 ## Usuarios IAM
-# Creando diferentes usuarios (propietario de la empresa)
+### Creando diferentes usuarios (propietario de la empresa)
 <img width="635" alt="Usuarios IAM" src="https://user-images.githubusercontent.com/56992179/161195017-5652a0b9-b1df-42ab-bca8-43064f074ce9.png">
 
-# Equipo de la empresa y su acceso
+### Equipo de la empresa y su acceso
 <img width="634" alt="Equipo y accesos" src="https://user-images.githubusercontent.com/56992179/161195272-ff1af7e6-4e33-4196-a7d3-5aa55a70854e.png">
 
 ### Ejemplo de política de IAM: Usuario Administrador
