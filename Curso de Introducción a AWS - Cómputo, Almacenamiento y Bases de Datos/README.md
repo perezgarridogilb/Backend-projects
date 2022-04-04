@@ -120,8 +120,8 @@ El se refiere al uso de servicios de la nube para poner tus datos a la nube, lue
 ## Almacenamiento
 + **Amazon Elastic File System (EFS) / Amazon FSx for Window File Server**: Archivo (basado en archivos), organizado por carpetas y subcarpetas (sistema de ficheros)
 + **Amazon Elastic Block Store (EBS)**: Bloque (almancenamiento por bloques), los archivos se divididen en fragmentos de datos de igual tamaño para ser almacenados en volúmenes de almacenamiento sin procesar
-* Bases de datos
-* Servidor de correo electrónico
+    * Bases de datos
+    * Servidor de correo electrónico
 + **Amazon Simple Storage Service (S3)**: Objetos (almacenamiento como objeto), la información almacenada recibe un identificador único y se almacenan en un modelo de memoria plana (fácil de encontrar)
 
 <img width="636" alt="Almacenamientos" src="https://user-images.githubusercontent.com/56992179/161400746-e762bb59-951e-4363-9b76-610efc7b16d8.png">
@@ -154,12 +154,12 @@ El se refiere al uso de servicios de la nube para poner tus datos a la nube, lue
 
 Amazon Elastic File System (EFS) brinda un sistema de archivos elástico sencillo, sin servidor y práctico. Sin tarifa mínima ni cargo de contratación.
 
-Altamente disponible y duradero.
-EFS ha incorporado protección contra una interrupción de la zona de disponibilidad
-Tipos:brinda un sistema de archivos elástico sencillo, sin servidor y práctico. Sin tarifa mínima ni cargo de contratación.
+- Altamente disponible y duradero.
+- EFS ha incorporado protección contra una interrupción de la zona de disponibilidad
+- Tipos:brinda un sistema de archivos elástico sencillo, sin servidor y práctico. Sin tarifa mínima ni cargo de contratación.
 Standar
-Standar IA: Acceso poco frecuente
-Encriptación de forma predeterminada
+- Standar IA: Acceso poco frecuente
+- Encriptación de forma predeterminada
 
 # AWS Storage Gateway
 Tres puertas de acceso diferentes:
