@@ -28,7 +28,7 @@ Servicios de borde
 - **AWS Local Zones**: Ejecutar las aplicaciones a una latencia más cerca de los usuarios finales
 
 ## Explorando EC2
-- **EC2 Elastic Compute Cloud**
+**EC2 Elastic Compute Cloud**
 - Permite alquilar computadoras virtuales.
 - Diferentes tipos de EC2 con diferente CPU (para alto rendimiento), RAM y almacenamiento (para grandes cargas de trabajo).
 - Instancias optimizadas en computación (para la una lectura y escritura rápida)
@@ -152,14 +152,18 @@ El se refiere al uso de servicios de la nube para poner tus datos a la nube, lue
 - **S3 Intelligent-Tiering (intentará ahorrale dinero automáticamente)**: Es un nuevo tipo de almacenamiento de Amazon S3 diseñado para los clientes que deseen optimizar los costos de almacenamiento automáticamente cuando los patrones de acceso a los datos cambian, sin afectar el rendimiento o la sobrecarga operativa
 - Ahorrando dinero moviendo objetos entre los cuatro diferentes accesos que tenemos dependiendo los patrones de uso
 
-Amazon Elastic File System (EFS) brinda un sistema de archivos elástico sencillo, sin servidor y práctico. Sin tarifa mínima ni cargo de contratación.
+# Explicando EFS
+Amazon Elastic File System (EFS) brinda un sistema de archivos elástico sencillo, sin servidor y práctico.
+Permite conectarnos al sistema de archivos a través de la red con nuestros servidores EC2 de linux
+
+<img width="636" alt="EFS" src="https://user-images.githubusercontent.com/56992179/161477286-f165dad3-45af-4db5-b874-bad5315f4ca3.png">
 
 - Altamente disponible y duradero.
 - EFS ha incorporado protección contra una interrupción de la zona de disponibilidad
-- Tipos:brinda un sistema de archivos elástico sencillo, sin servidor y práctico. Sin tarifa mínima ni cargo de contratación.
-Standar
-- Standar IA: Acceso poco frecuente
-- Encriptación de forma predeterminada
+- Clases de almacenamiento:brinda un sistema de archivos elástico sencillo, sin servidor y práctico. Sin tarifa mínima ni cargo de contratación.
+    - Standar
+    - Standar Standard Infrequent Access (IA): Acceso poco frecuente
+- Encriptación de forma predeterminada: Permite cifrar archivos almacenados en nuestros volúmenes, manteniéndolos todos seguros y lejos de miradas indiscretas. Haces un resumen bantante rápido y simple para un servicio bastante simple
 
 # AWS Storage Gateway
 Tres puertas de acceso diferentes:
