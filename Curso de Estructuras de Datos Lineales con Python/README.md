@@ -108,6 +108,7 @@ Ejemplos:
 
 ## Jerárquicas
 <img width="631" alt="Captura de Pantalla 2022-04-04 a la(s) 7 14 22 p m" src="https://user-images.githubusercontent.com/56992179/161653892-51e87d8d-06f8-4050-a0ae-3d4e15eb1894.png">
+
 - Ordenadas como arbol invertido
 - Sólo el primer elemento no tiene predecesor
 - Padres e hijos

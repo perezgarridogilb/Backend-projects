@@ -171,3 +171,41 @@ Tres puertas de acceso diferentes:
 1. File Gateway: Te brinda interfaces SMB y NFS para amazon S3, tanto en windows como en linux
 2. Tape Gateway: Migrar copias de seguridad o respaldo
 3. Volume Gateway: en bloque iSCSI , tanto almacenado como en caché. Con baja latencia.
+
+
+# Bases de datos en AWS
+Colección ordenada de datos. Los datos se almacenan eletrónicamente y se acceden a ellos desde un sistema informático. **AWS cuenta con más de quince motores de bases de datos diferentes de todos los tipos**
+    - Seguros
+    - Altamente disponibles
+
+## Bases de datos relacionales
+- **Amazon Aurora**: Base de datos relacional compatible con MySQL y PostgreSQL creada para la nube.
+
+- **Amazon Relational Database Service (Amazon RDS)**: Es un servicio de bases de datos relacionales administrado para MySQL, PostgreSQL, MariaDB, Oracle BYOL o SQL Server.
+    - Facilita la configuración, el uso y el escalado de varios motores de bases de datos
+
+- **Amazon Redshift**: Utiliza SQL para analizar datos estructurados y semiestructurados en almacenamientos de datos, bases de datos operativas y lagos de datos, con hardware y machine learning diseñado por AWS para ofrecer rendimiento al mejor precio a cualquier escala
+
+## Bases de datos clave-valor
+- **Amazon DynamoDB**: Amazon DynamoDB es una base de datos de documentos y valores clave que ofrece un rendimiento de milisegundos de un solo dígito a cualquier escala. Es una base de datos duradera, multiregión, multimaestro y totalmente administrada con seguridad integrada, copia de seguridad y restauración, y almacenamiento en caché en memoria para aplicaciones a escala de Internet
+    - Dirigidas aplicaciones de web de alto tráfico, sistemas de comercio electrónico y aplicaciones de juego.
+    - Muy rápida y flexible para cualquier escala (NoSQL)
+
+## Bases de datos en memoria
+- **Amazon ElastiCahce**: Amazon ElastiCache es un servicio de almacenamiento de caché en memoria completamente administrado que admite casos de uso flexibles y en tiempo real. Se usa para almacenar en caché administración de sesiones, tablas de clasificación de juegos y aplicaciones Geo-Espaciales
+    - ElastiCache para Memcached
+    - ElastiCache para Redis
+
+## Bases de datos de documentos
+- **Amazon DocumentDB (compatibilidad con MongoDB)**: Amazon DocumentDB es un servicio de base de datos de larga duración, de alta disponibilidad, rápida, escalable y completamente administrado para operar cargas de trabajo de MongoDB esenciales
+- Gestión 
+   - Contenidos
+   - Catálogos
+   - Perfiles de usuarios 
+
+# Revisando RDS
+- Facilita la configuración
+- Servicio completamente administrado 
+- Altamente escalable
+- Copias de seguridad automáticas
+- Realmente rentable
