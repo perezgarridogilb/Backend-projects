@@ -154,3 +154,82 @@ Ejemplo:
 - Fast
 
 
+# Colecciones incorporadas en Python
+## Operaciones
+- Tamaño
+- Pertenencia
+- String
+- Igualdad
+
+- Concatenación
+- Conversión de tipo
+- Insertar
+- Remover
+- Reemplazar
+- Acceder
+
+## Listas/Lists
+- Propósito general
+- Estructura más utilizada
+- Tamaño dinámico
+- De tipo secuencial
+    - Definidos por un indice y aumentando de uno en uno
+- Ordenable
+
+## Tuplas/Tuples
+- Inmutable (no se pueden añadir o cambiar)
+    - No podemos añadir más elementos de los que tiene
+    - Útiles para datos constantes
+- Útiles para datos constantes
+- Más rápidas que las listas
+- Tipo secuencial
+    - Ordenados por un índice
+
+# Conjuntos/Sets 
+- Almacenan objetos no-duplicados
+- De acceso rápido
+- Aceptan operaciones lógicas
+- Son desordenadas
+
+# Diccionarios/Dictionaries
+- Pares de llave/valor
+- Arrays asociativos (hash maps)
+- Son desordenados
+    - Nombres de personas y edades
+
+# Arrays
+## ¿Qué es una estructura de datos?
+- Representación interna de una colección de información
+
+## Conceptos clave
+- **Elemento**: Valor almacenado en las posiciones del array
+- **Índice**: Referencia a la posición del elemento
+
+## Los array son restrictivos
+- No pueden
+    - Agregar posiciones
+    - Remover posiciones
+    - Modificar su tamaño
+    - Su capacidad se define al crearse
+
+
+- Altura, longitud y profundidad
+
+### ¿Dónde se utilizan?
+- Un videojuego con sprites 100*100 px
+- Opciones en un menú
+
+## Módulo 'array'
+- Sólo almacena números y caracteres
+- Basado en listas
+
+# Crear un array
+
+## Nuestro propio array
+- Métodos:
+    - Crearse
+    - Longitud
+    - Representación string
+    - Pertenencia
+    - Índice
+    - Remmplazo
