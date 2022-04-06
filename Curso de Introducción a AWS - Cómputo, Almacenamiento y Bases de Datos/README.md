@@ -210,4 +210,29 @@ Colección ordenada de datos. Los datos se almacenan eletrónicamente y se acced
 - Copias de seguridad automáticas
 - Realmente rentable
 
+- Nota: Similar a cómo funciona EC2
 
+# Discutiendo sobre DynamoDB
+- Completamente Administrado
+- Funciona en múltiples regiones
+- Seguridad, respaldo y restauración integrados
+- Admite picos de 20,000,000 de solicitudes por segundo
+- Realmente rentable
+
+## Casos de uso
+- Publicidad
+- Juegos
+- Comercio electrónico
+- Banca
+- Finanzas
+- Medios
+- Software
+- Internet
+
+<img width="634" alt="Casos de uso" src="https://user-images.githubusercontent.com/56992179/161893853-315c9df4-866a-48f9-b3f6-e6b6daba312e.png">
+
+# Evaluando ElastiCache
+
+## Motores
+- ElastiCache para Redis
+- ElastiCache para Memcached
