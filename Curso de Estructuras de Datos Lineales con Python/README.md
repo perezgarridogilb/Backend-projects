@@ -176,26 +176,38 @@ Ejemplo:
     - Definidos por un indice y aumentando de uno en uno
 - Ordenable
 
+<img width="629" alt="Listas" src="https://user-images.githubusercontent.com/56992179/162027684-0bac3a0c-c4d8-4807-8960-ce765ad1c1d0.png">
+
 ## Tuplas/Tuples
 - Inmutable (no se pueden añadir o cambiar)
     - No podemos añadir más elementos de los que tiene
-    - Útiles para datos constantes
 - Útiles para datos constantes
 - Más rápidas que las listas
 - Tipo secuencial
     - Ordenados por un índice
 
+<img width="628" alt="Tuplas" src="https://user-images.githubusercontent.com/56992179/162027703-188520cf-ddbb-40e6-907c-90336400f949.png">    
+
 # Conjuntos/Sets 
 - Almacenan objetos no-duplicados
+ - Si añadimos un elemento más de una vez, no se va a repetir
 - De acceso rápido
 - Aceptan operaciones lógicas
+    - Conjunción, disyunción y más
 - Son desordenadas
+    - Puede ser una receta de cocina
+
+<img width="629" alt="Conjuntos" src="https://user-images.githubusercontent.com/56992179/162027717-91989d4d-d2fd-459e-bc4e-11063d601282.png">
 
 # Diccionarios/Dictionaries
 - Pares de llave/valor
+ - Elementos que referencian a otros datos
 - Arrays asociativos (hash maps)
-- Son desordenados
     - Nombres de personas y edades
+- Son desordenados
+    - Rápidos para realizar consultas
+
+<img width="628" alt="Diccionarios" src="https://user-images.githubusercontent.com/56992179/162027732-d5ff5960-2300-4fcc-bbe0-e67f964d6992.png">    
 
 # Arrays
 ## ¿Qué es una estructura de datos?
@@ -205,15 +217,30 @@ Ejemplo:
 - **Elemento**: Valor almacenado en las posiciones del array
 - **Índice**: Referencia a la posición del elemento
 
+**Representación**
+<img width="631" alt="Memoria" src="https://user-images.githubusercontent.com/56992179/162032237-041aabb8-22fe-40ca-9691-5e96e050db22.png">
+
+**Ocupando cierto número de bits (1 byte)**
+<img width="628" alt="Byte" src="https://user-images.githubusercontent.com/56992179/162032426-d34f442b-91b2-4898-aa12-c3252402014f.png">
+
+<img width="628" alt="Hola" src="https://user-images.githubusercontent.com/56992179/162032462-2568fc6b-789b-4954-be2d-2e474c3c364d.png">
+
+**Esquema de arrays**
+<img width="629" alt="Arrays" src="https://user-images.githubusercontent.com/56992179/162028730-7e3ee773-812f-4fff-a139-5e64e92bda9c.png">
+
+- En Python se recomienda que no trabajemos con estructuras de datos de más de dos dimenciones, debido que aumenta la complejidad de computo para acceder a los datos y el código se vuelve más difícil de leer
+
+- ¿Los array son listas?
+**Si, sin embargo las listas no son arrays**
+
 ## Los array son restrictivos
 - No pueden
     - Agregar posiciones
     - Remover posiciones
     - Modificar su tamaño
     - Su capacidad se define al crearse
-
-
-- Altura, longitud y profundidad
+    
+- Cubo: Altura, longitud y profundidad
 
 ### ¿Dónde se utilizan?
 - Un videojuego con sprites 100*100 px
