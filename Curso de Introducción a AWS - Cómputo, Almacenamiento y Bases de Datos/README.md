@@ -212,6 +212,8 @@ Colección ordenada de datos. Los datos se almacenan eletrónicamente y se acced
 
 - Nota: Similar a cómo funciona EC2
 
+<img width="636" alt="Amazon Relational Database Service (Amazon RDS)" src="https://user-images.githubusercontent.com/56992179/162118197-217dc966-a1bf-46fa-b072-f125a2e953f0.png">
+
 # Discutiendo sobre DynamoDB
 - Completamente Administrado
 - Funciona en múltiples regiones
