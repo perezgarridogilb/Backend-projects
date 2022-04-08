@@ -217,15 +217,19 @@ Ejemplo:
 - **Elemento**: Valor almacenado en las posiciones del array
 - **Índice**: Referencia a la posición del elemento
 
-**Representación**
+### Representación
+
 <img width="631" alt="Memoria" src="https://user-images.githubusercontent.com/56992179/162032237-041aabb8-22fe-40ca-9691-5e96e050db22.png">
 
-**Ocupando cierto número de bits (1 byte)**
+### Ocupando cierto número de bits (1 byte)
+
 <img width="628" alt="Byte" src="https://user-images.githubusercontent.com/56992179/162032426-d34f442b-91b2-4898-aa12-c3252402014f.png">
 
+### Ocupando cierto número de bits para el string de un hola
 <img width="628" alt="Hola" src="https://user-images.githubusercontent.com/56992179/162032462-2568fc6b-789b-4954-be2d-2e474c3c364d.png">
 
-**Esquema de arrays**
+### Esquema de arrays
+
 <img width="629" alt="Arrays" src="https://user-images.githubusercontent.com/56992179/162028730-7e3ee773-812f-4fff-a139-5e64e92bda9c.png">
 
 - En Python se recomienda que no trabajemos con estructuras de datos de más de dos dimenciones, debido que aumenta la complejidad de computo para acceder a los datos y el código se vuelve más difícil de leer
@@ -260,3 +264,80 @@ Ejemplo:
     - Pertenencia
     - Índice
     - Remmplazo
+
+# Arrays de dos dimensiones
+## Estructura
+- Bi-dimensional array
+- Two-dimensional array
+- Grid
+- Rejilla
+- Malla
+- Tabla
+
+<img width="627" alt="ArrayDimention1" src="https://user-images.githubusercontent.com/56992179/162330816-601a217d-4f11-4953-9a07-9d9fb9f131d8.png">
+
+- **¿Qué hicimos?**
+Crear array de dos dimensiones sin reinventar la rueda, sino que utilizamos la clase array desarrollada anteriormente y la anidamos dentro de otro array incorporando nuevos métodos
+
+## Clase grid
+- Retomaba elementos de la clase array y creamos sus elementos propios de la clase grid
+<img width="627" alt="Array1" src="https://user-images.githubusercontent.com/56992179/162330761-7989a0e6-18d7-452c-902f-49ecfb3e17a5.png">
+
+- Referencia a cada uno de los datos en sus filas y columnas: usando loops anidados
+<img width="627" alt="Array2" src="https://user-images.githubusercontent.com/56992179/162330742-1d8f11c6-d2fe-4818-a512-b8488336906c.png">
+
+# Nodos y singly linked list
+- Consiste de nodos conectados a otros
+- Los más comunes son sencillos o dobles
+- No se accede por índice, sino por recorrido
+
+## Conceptos clave
+- **Data**: Valor almacenado en nodos.
+- **Next**: Referencia al siguiente nodo
+- **Previus**: Referencia al nodo anterior 
+- **Head**: Referencia al primer nodo
+- **Tail**: Referencia al último nodo
+
+### Los nodos están repartidos en la memoria
+<img width="629" alt="Captura de Pantalla 2022-04-07 a la(s) 5 55 58 p m" src="https://user-images.githubusercontent.com/56992179/162334246-31d02eb8-9bc8-4543-adf3-a27c749dc958.png">
+
+## Implementación
+- Implementar otras estructuras
+- Optimización
+
+<img width="629" alt="Captura de Pantalla 2022-04-07 a la(s) 5 57 52 p m" src="https://user-images.githubusercontent.com/56992179/162334515-5beeaaf5-a863-40eb-a23a-3b6c920c5c88.png">
+<img width="628" alt="Captura de Pantalla 2022-04-07 a la(s) 6 02 16 p m" src="https://user-images.githubusercontent.com/56992179/162334508-2bd2487f-4f66-4799-ac3d-38c28194f0ab.png">
+
+## Linked lists
+- Hacer/rehacer operaciones en un editor de texto
+- Historial de un navegador
+
+# Crear nodos
+## Singly linked list con nodos
+- Creamos una clase Node
+- Referimos valores
+- Unimos nodos iterando
+
+## ¿Qué hicimos?
+- Declaramos 3 variables n1(none), n2 y n3
+<img width="632" alt="Captura de Pantalla 2022-04-07 a la(s) 6 25 34 p m" src="https://user-images.githubusercontent.com/56992179/162335602-d7cec337-dda8-4e67-bce7-3d335cee0fe3.png">
+
+```
+# Creating 3 differents nodes 
+node1 = None
+node2 = Node("A", None)
+node3 = Node("B", node2)
+
+# This causes an Atribute Error
+# node1.next = node3
+
+node1 = Node("C", node3)
+```
+
+<img width="630" alt="Captura de Pantalla 2022-04-07 a la(s) 6 27 43 p m" src="https://user-images.githubusercontent.com/56992179/162335610-08102341-8702-4c7f-b3b5-4fd351b80b3b.png">
+<img width="630" alt="Captura de Pantalla 2022-04-07 a la(s) 6 28 05 p m" src="https://user-images.githubusercontent.com/56992179/162335624-f691ad09-84a7-4b76-b72b-1cabb3531ea1.png">
+
+## ¿Qué hicimos?
+<img width="631" alt="Captura de Pantalla 2022-04-07 a la(s) 6 28 26 p m" src="https://user-images.githubusercontent.com/56992179/162335676-dccdb703-2adc-4e70-878c-90c96cff7f5c.png">
+
+
