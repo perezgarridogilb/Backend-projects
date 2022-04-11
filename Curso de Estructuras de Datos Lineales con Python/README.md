@@ -276,7 +276,7 @@ Ejemplo:
 
 <img width="627" alt="ArrayDimention1" src="https://user-images.githubusercontent.com/56992179/162330816-601a217d-4f11-4953-9a07-9d9fb9f131d8.png">
 
-- **¿Qué hicimos?**
+**¿Qué hicimos?**
 Crear array de dos dimensiones sin reinventar la rueda, sino que utilizamos la clase array desarrollada anteriormente y la anidamos dentro de otro array incorporando nuevos métodos
 
 ## Clase grid
@@ -340,4 +340,70 @@ node1 = Node("C", node3)
 ## ¿Qué hicimos?
 <img width="631" alt="Captura de Pantalla 2022-04-07 a la(s) 6 28 26 p m" src="https://user-images.githubusercontent.com/56992179/162335676-dccdb703-2adc-4e70-878c-90c96cff7f5c.png">
 
+# Operaciones en single linked structures
+## El dilema
+- Los arrays usan índices
+- En linked structures debemos emularlos
+
+## Variable auxiliar probe
+- Puntero temporal
+- Recorre la lista consultando datos
+
+# Operaciones a detalle en single linked structures
+
+## Operaciones
+probe: Variable auxiliar para conocer qué había en cada uno de estos nodos
+- Los fue recorriendo con while
+- En una condición específica o bajo estas cincunstancias
+    - Se detenía
+    - Hacía modificaciones
+    - Etcétera
+    - En una sola vía
+<img width="631" alt="Captura de Pantalla 2022-04-10 a la(s) 11 43 48 p m" src="https://user-images.githubusercontent.com/56992179/162667066-43933337-dd01-487f-be10-d1ea71752b2d.png">
+
+## probe
+<img width="627" alt="Captura de Pantalla 2022-04-10 a la(s) 11 49 50 p m" src="https://user-images.githubusercontent.com/56992179/162667031-c406345d-3e33-49c1-b0bc-809f90718f9a.png">
+
+## Lista
+<img width="631" alt="Captura de Pantalla 2022-04-10 a la(s) 11 59 27 p m" src="https://user-images.githubusercontent.com/56992179/162667877-85bb402e-ddc5-4f6e-a5f9-a22a5c6b7b96.png">
+
+## Búsqueda
+<img width="629" alt="Captura de Pantalla 2022-04-11 a la(s) 12 02 25 a m" src="https://user-images.githubusercontent.com/56992179/162668193-1648b8d1-787a-4691-b073-6f4a841ce1d0.png">
+
+## Reemplazo
+Busca tres y sobreescribe a la letra R
+
+<img width="629" alt="Captura de Pantalla 2022-04-11 a la(s) 12 04 59 a m" src="https://user-images.githubusercontent.com/56992179/162668405-6f6a87ce-13ea-4a47-a7ae-76135eefd995.png">
+
+## Insertar al final
+<img width="628" alt="Captura de Pantalla 2022-04-11 a la(s) 12 09 57 a m" src="https://user-images.githubusercontent.com/56992179/162668918-af02b331-4a6d-4e5c-8172-407528a331de.png">
+
+## Eliminar primer nodo
+
+- Ubicar dónde esta ese nodo o mejor dicho, ese valor que queremos eliminar
+    - Documentar para saber cuántos nodos vamos a tener
+<img width="626" alt="Captura de Pantalla 2022-04-11 a la(s) 12 14 18 a m" src="https://user-images.githubusercontent.com/56992179/162669292-2bd70b75-048e-4127-bf27-318a3657a098.png">
+
+## Eliminar útlimo nodo 
+
+- Nota: Usar next/tail en caso de repetidos para ubicarlos
+
+<img width="629" alt="Captura de Pantalla 2022-04-11 a la(s) 12 23 26 a m" src="https://user-images.githubusercontent.com/56992179/162670271-3f0b79a2-6e1b-4e5a-b769-5dce63bd362e.png">
+
+- Aumentando la complejidad y dificultad de nuestras operaciones
+
+- **Eliminando nodo en particular**:
+
+<img width="632" alt="Captura de Pantalla 2022-04-11 a la(s) 5 47 05 p m" src="https://user-images.githubusercontent.com/56992179/162845703-8d2d13ee-59bf-4074-8551-f9da2dc94fce.png">
+
+## Insertar nodo en cualquier posición
+
+## Eliminar nodo en N posición
+
+# Circular linked list
+<img width="630" alt="Captura de Pantalla 2022-04-11 a la(s) 4 19 27 p m" src="https://user-images.githubusercontent.com/56992179/162835648-c1088045-b13d-4fb6-a36f-210a1dc09c32.png">
+
+## Nodo que se referencía a si mismo
+Con varios nodos, siempre el último apunta al primero
+<img width="630" alt="Captura de Pantalla 2022-04-11 a la(s) 5 29 40 p m" src="https://user-images.githubusercontent.com/56992179/162843847-9b95920d-6d6a-4f3e-8668-ddf287ff48fa.png">
 
