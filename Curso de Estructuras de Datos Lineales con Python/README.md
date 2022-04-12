@@ -390,20 +390,66 @@ Busca tres y sobreescribe a la letra R
 
 <img width="629" alt="Captura de Pantalla 2022-04-11 a la(s) 12 23 26 a m" src="https://user-images.githubusercontent.com/56992179/162670271-3f0b79a2-6e1b-4e5a-b769-5dce63bd362e.png">
 
-- Aumentando la complejidad y dificultad de nuestras operaciones
-
 - **Eliminando nodo en particular**:
 
 <img width="632" alt="Captura de Pantalla 2022-04-11 a la(s) 5 47 05 p m" src="https://user-images.githubusercontent.com/56992179/162845703-8d2d13ee-59bf-4074-8551-f9da2dc94fce.png">
 
 ## Insertar nodo en cualquier posición
 
-## Eliminar nodo en N posición
+- Si ya no trabajamos con el principio head y tail: Aumenta la dificultad y complejidad de nuestras operaciones
+- Trabajando con nodos intermedios: Si insertamos un nodo en N posición debemos saber donde lo vamos a ubicar
+    - A traves del valor, contando los nodos o con una variable iteradora
+
+<img width="629" alt="Captura de Pantalla 2022-04-11 a la(s) 5 55 51 p m" src="https://user-images.githubusercontent.com/56992179/162846526-baea61f3-6b5f-4471-aa63-54f6ece6b22b.png">
+
+## Eliminar nodo en N posición (En este caso intermedia)
+
+<img width="630" alt="Captura de Pantalla 2022-04-11 a la(s) 9 55 04 p m" src="https://user-images.githubusercontent.com/56992179/162870182-ac5340b6-1a13-4cc9-b417-b434921a98b0.png">
+
+- **Resultado**:
+
+<img width="629" alt="Captura de Pantalla 2022-04-11 a la(s) 9 56 46 p m" src="https://user-images.githubusercontent.com/56992179/162870343-4dc1d0ca-db50-4fbd-8aa9-f24da120d167.png">
 
 # Circular linked list
 <img width="630" alt="Captura de Pantalla 2022-04-11 a la(s) 4 19 27 p m" src="https://user-images.githubusercontent.com/56992179/162835648-c1088045-b13d-4fb6-a36f-210a1dc09c32.png">
 
 ## Nodo que se referencía a si mismo
 Con varios nodos, siempre el último apunta al primero
+
 <img width="630" alt="Captura de Pantalla 2022-04-11 a la(s) 5 29 40 p m" src="https://user-images.githubusercontent.com/56992179/162843847-9b95920d-6d6a-4f3e-8668-ddf287ff48fa.png">
 
+# Double linked list
+Clase con un nodo de doble vía que por defecto apunta a un nodo siguiente y a un valor anterior con el valor de none
+
+<img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 6 40 34 a m" src="https://user-images.githubusercontent.com/56992179/162952863-a1d152e1-8105-4def-9e89-6a3a2141eff2.png">
+
+# Stacks
+El principio fundamental de los stacks es LIFO, es decir que el ÚLTIMO elemento en entrar será el primero en salir.
+
+- Colección lineal
+- Basados en arrays o linked lists
+- LIFO (last-in-first-out)
+- Añadir: push
+- Top
+- Bottom
+
+<img width="630" alt="Captura de Pantalla 2022-04-12 a la(s) 7 24 42 a m" src="https://user-images.githubusercontent.com/56992179/162961872-a907f55e-9991-4220-abc7-c3da1512626b.png">
+
+### Aplicaciones
+
+<img width="631" alt="Captura de Pantalla 2022-04-12 a la(s) 8 31 29 a m" src="https://user-images.githubusercontent.com/56992179/162974118-5ab0cc98-79bf-424e-9d21-fb1cf585eb4b.png">
+
+<img width="628" alt="Captura de Pantalla 2022-04-12 a la(s) 8 32 12 a m" src="https://user-images.githubusercontent.com/56992179/162974148-fb3e2a2b-659a-450b-af6d-299c6625b9d5.png">
+
+<img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 8 35 12 a m" src="https://user-images.githubusercontent.com/56992179/162974658-ebcf4f63-f87e-4444-a913-af665829f623.png">
+
+<img width="630" alt="Captura de Pantalla 2022-04-12 a la(s) 7 15 16 a m" src="https://user-images.githubusercontent.com/56992179/162974691-cfe0e066-37fd-43bd-beb2-14a3344e051c.png">
+
+## ¿Qué hicimos?
+
+
+<img width="630" alt="Captura de Pantalla 2022-04-12 a la(s) 9 39 21 a m" src="https://user-images.githubusercontent.com/56992179/162988872-a598728c-bef3-499c-a548-e6ccad3d10f7.png">
+
+<img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 9 36 18 a m" src="https://user-images.githubusercontent.com/56992179/162987411-1cd414db-770e-419d-83d8-2091bcd5e183.png">
+
+<img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 9 39 55 a m" src="https://user-images.githubusercontent.com/56992179/162988944-333a3149-b9ce-46a8-9360-8719b99e25e5.png">
