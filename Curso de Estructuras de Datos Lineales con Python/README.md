@@ -453,3 +453,24 @@ El principio fundamental de los stacks es LIFO, es decir que el ÚLTIMO elemento
 <img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 9 36 18 a m" src="https://user-images.githubusercontent.com/56992179/162987411-1cd414db-770e-419d-83d8-2091bcd5e183.png">
 
 <img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 9 39 55 a m" src="https://user-images.githubusercontent.com/56992179/162988944-333a3149-b9ce-46a8-9360-8719b99e25e5.png">
+
+# Queues
+
+## Conceptos importantes
+
+- **FIFO**: First-In, First-Out
+- **Rear**: Último elemento
+- **Front**: Primer elemento
+
+## Queue basada en listas
+<img width="632" alt="Captura de Pantalla 2022-04-12 a la(s) 8 22 48 p m" src="https://user-images.githubusercontent.com/56992179/163080688-1e354a19-7878-4ffb-8a5c-539f9718bc55.png">
+
+<img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 8 23 32 p m" src="https://user-images.githubusercontent.com/56992179/163080706-988751af-fbc1-40d8-8f6d-a2876154b1df.png">
+
+<img width="630" alt="Captura de Pantalla 2022-04-12 a la(s) 8 23 46 p m" src="https://user-images.githubusercontent.com/56992179/163080729-994f8433-1a2c-4952-ac52-581e9ef93283.png">
+
+## Queue basada en dos stacks
+
+<img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 11 17 25 p m" src="https://user-images.githubusercontent.com/56992179/163099696-dfca9e68-ee2f-4bd8-a543-8843c9565a4f.png">
+
+<img width="630" alt="Captura de Pantalla 2022-04-12 a la(s) 11 17 47 p m" src="https://user-images.githubusercontent.com/56992179/163099706-c4c8b3c2-88be-4ac8-b12f-c75ed8c97aff.png">
