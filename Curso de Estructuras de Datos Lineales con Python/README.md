@@ -471,6 +471,25 @@ El principio fundamental de los stacks es LIFO, es decir que el ÚLTIMO elemento
 
 ## Queue basada en dos stacks
 
+<img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 8 26 58 p m" src="https://user-images.githubusercontent.com/56992179/163660299-8826abdb-5b78-4069-9dd7-5c1800c53730.png">
+
+- ¿Qué hicimos?
+
+1. Instanciar Queue y agregar
 <img width="629" alt="Captura de Pantalla 2022-04-12 a la(s) 11 17 25 p m" src="https://user-images.githubusercontent.com/56992179/163099696-dfca9e68-ee2f-4bd8-a543-8843c9565a4f.png">
 
+2. Hicimos pop()
 <img width="630" alt="Captura de Pantalla 2022-04-12 a la(s) 11 17 47 p m" src="https://user-images.githubusercontent.com/56992179/163099706-c4c8b3c2-88be-4ac8-b12f-c75ed8c97aff.png">
+
+<img width="630" alt="Captura de Pantalla 2022-04-15 a la(s) 10 55 08 p m" src="https://user-images.githubusercontent.com/56992179/163660560-0ab0aa9c-9655-47bf-9dfd-c0794958c180.png">
+
+<img width="629" alt="Captura de Pantalla 2022-04-15 a la(s) 10 56 28 p m" src="https://user-images.githubusercontent.com/56992179/163660561-22716835-6b32-4108-98d6-731a79128b84.png">
+
+# Curso de Estructuras de Datos Lineales con Python
+
+## ¿Por qué y cómo?
+- Agregar y eliminar eleminar elementos son O(1)
+
+- Usando doubly linked list
+
+
