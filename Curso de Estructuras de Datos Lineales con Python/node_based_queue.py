@@ -36,3 +36,19 @@ class Queue:
             self.count -= 1
             
         return current.data                            
+
+"""
+Code used in the shell
+
+x = Queue()
+
+x.enqueue('eggs')
+x.enqueue('ham')
+x.enqueue('spam')
+x.head.data
+x.head.next.data
+x.tail.data
+x.count
+x.dequeue()
+x.head
+"""
