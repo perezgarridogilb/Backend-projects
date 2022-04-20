@@ -81,7 +81,7 @@ Servicios de AWS:
 
 - **Computo**: Máquinas virtuales, serverless, infraestructura, etc.
 - **Storage**: Administrar archivos.
-- **Bases de Datos**: Opciones como Postgrade, MySQL, etc.
+- **Bases de Datos**: Opciones como PostgreSQL, MySQL, etc.
 - **Migración de Servicios**: Si ya tienes datos en una data center, te ayuda a poder migrarlos.
 - **Networking & Content Delivery**: Registrar dominios, administrar certificados SSL y más.
 - **Herramientas de Desarrollador**: Para facilitar la colaboración entre desarrolladores como xcode, commits, etc.
@@ -155,6 +155,7 @@ Recuerda que eres tienes las siguientes responsabilidades:
 - Respaldos: Nuestra instancia no se respaldará sola, tendremos que hacerlo nosotros.
 - Restauración snapshot: Podemos hacer respaldos antes de hacer grandes cambios para poder hacer rollback del Sistema en caso necesario.
 
+# Conectándonos a nuestra instancia desde OSX
 
 ```
 chmod 600 platzi-prueba-llave.pem
@@ -163,6 +164,46 @@ chmod 600 platzi-prueba-llave.pem
 ```
 ssh -i platzi-prueba-llave.pem ec2-user@35.175.175.122
 ```
+
+# Subiendo un proyecto: Clonando un repositorio de GitHub a nuestra Instancia de EC2
+
+Para clonar repositorios desde tu instancia de AWS necesitas instalar git:
+
+```
+# Permisos de super usuario
+sudo su
+# Instalación de git
+yum install git
+```
+
+Teniendo git instalado ya podemos clonar el repositorio que necesitemos:
+
+```
+git clone [URL_DEL_PROYECTO]
+```
+
+En el siguiente link vas a encontrar el repositorio con el que vamos a trabajar en la clase: https://github.com/mauropm/aws-platzi-python.
+
+# Subiendo un proyecto a nuestra instancia de EC2: Ejecutar nuestro proyecto
+
+Ahora que clonamos nuestro repositorio, vamos a instalar las dependencias necesarias para que funcione. El proyecto que trabajamos en clase sólo necesita una dependencia:
+
+```
+# Permisos de super usuario
+sudo su
+# Instalación de flask
+pip install flask
+```
+
+Con las dependencias instaladas podemos correr nuestro servidor, en el caso de nuestro proyecto es con el siguiente comando:
+
+```
+python app.py
+```
+
+Para acceder por internet a nuestro servidor tenemos que buscar nuestra instancia de EC2 y copiar la IP pública, pero no es suficiente. Debemos entrar a `Security Groups`, `Inbound` y añadir una regla `Custom TCP Rule`, escribe el puerto en el que corre tu servidor (que para nuestro proyecto es el 5000) y en la opción Source elije *Anywhere*.
+
+Recordar que para encontrar ña IP pública se puede entrar a whatismyip.com.
 
 ## EC2 terminal
 <img width="871" alt="Captura de Pantalla 2022-04-19 a la(s) 11 19 41 p m" src="https://user-images.githubusercontent.com/56992179/164149733-f5e820b9-53d8-4eff-8554-0122d7010d60.png">
@@ -216,22 +257,24 @@ Recordar que AWS regala 1 millón de peticiones lamba gratis el primer año.
 - Microsoft Azure: Azure Functions
 - Google Cloud: Cloud Functions 
 
-# Learning Elastic Beanstalk
+# Conociendo Elastic Beanstalk
 Elastic Beanstalk es una plataforma donde en pocos pasos, obtienes un balanceador de cargas y tantas instancias EC2 como tu quieras.
 
 Este ambiente puede escalar de manera dinámica de acuerdo al tiempo de respuesta a los usuarios, uso de CPU, uso de RAM, etc.
 
 Esta herramienta soporta los siguientes ambientes:
 
-Docker Image
-Go
-Java SE
-Java con Tomcat
-.NET + Windows Server + IIS
-Nodejs
-PHP
-Python
-Ruby
+- Docker Image
+- Go
+- Java SE
+- Java con Tomcat
+- .NET + Windows Server + IIS
+- Nodejs
+- PHP
+- Python
+- Ruby
+
+## 
 
 - EC2: Son Maquinas virtuales.
 - Elastic Beanstalk: Es un arquitectura elástica de infraestructura. 
