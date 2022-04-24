@@ -284,3 +284,23 @@ Aporte de la comunidad:
 Con Elastic Beanstalk, tenemos acceso a una plataforma como servicio (PaaS), en la que podemos gestionar algunos aspectos de la infraestructura. Se pueden crear, probar e implementar aplicaciones web o servicios en la plataforma desarrollados con Java, .NET, PHP, Node.js, Python, Ruby, Go y Docker sin tener que lidiar con el aprovisionamiento, el balanceo de carga o la escalabilidad. Además, Elastic Beanstalk soporta muchos entornos de servidor, incluyendo Apache HTTP Server, Nginx, Microsoft IIS y Apache Tomcat.
 
 Se puede utilizar tanto la línea de comandos como la consola de gestión de Elastic Beanstalk para configurar y gestionar los entornos y aplicaciones
+
+# Creando un ambiente en Elastic Beanstalk
+
+Se tiene que comprimir (*.zip):
+
+- La carpeta templates
+- application.py
+    - Linea dos: `application  = app = Flask(__name__)`
+- requirements.txt
+    - Sólo sirvió con: `Flask==2.0.3`
+
+<img width="1392" alt="Captura de Pantalla 2022-04-23 a la(s) 10 33 17 p m" src="https://user-images.githubusercontent.com/56992179/164955312-ebe5de7f-964e-4d3e-8d65-07e2a64d63ac.png">
+
+Nota: Hasta mil versiones disponibles por ambiente
+
+<img width="1392" alt="Captura de Pantalla 2022-04-23 a la(s) 10 42 26 p m" src="https://user-images.githubusercontent.com/56992179/164955560-98ed4a21-f085-4fab-94a6-5838d25eb1f6.png">
+
+## Load balanced is in default
+
+<img width="1392" alt="Captura de Pantalla 2022-04-23 a la(s) 10 48 58 p m" src="https://user-images.githubusercontent.com/56992179/164955701-762c37d5-bf6b-4adb-ab7e-57a7ca9e56ed.png">
