@@ -60,8 +60,7 @@ Velocidad cuando la necesitas: AWS no sólo brinda la posibilidad de administrar
 ![aws_a42899ad-91a0-4213-9bce-d79e5f557dbc1](https://user-images.githubusercontent.com/56992179/160355884-145263a6-6f45-4443-bbc7-a2b23346c8f9.jpg)
 
 ### Fun fact
-![aws_a42899ad-91a0-4213-9bce-d79e5f557dbc1](https://user-images.githubusercontent.com/56992179/160356215-41f634af-6dcd-4314-b386-3cec54d4f708.jpg)
-- Nota: La primera instacia EC2 y la primera base de datos
+Una instancia de AWS EC2 es gratis todo tu primer año. La primera instacia EC2 y la primera base de datos.
 
 ### Regiones de AWS
 ![aws_a42899ad-91a0-4213-9bce-d79e5f557dbc1](https://user-images.githubusercontent.com/56992179/160356394-b5969176-4a4a-41fa-aee9-2a9c99187114.jpg)
@@ -157,10 +156,12 @@ Recuerda que eres tienes las siguientes responsabilidades:
 
 # Conectándonos a nuestra instancia desde OSX
 
+Cambiando los permisos a nuestro usuario para hacer uso de la llave privada:
 ```
 chmod 600 platzi-prueba-llave.pem
 ``` 
 
+Haciendo uso de la instancia:
 ```
 ssh -i platzi-prueba-llave.pem ec2-user@35.175.175.122
 ```
@@ -241,7 +242,7 @@ Ventajas de Lambda:
 - **Performance**: AWS está monitoreando constantemente la ejecución de tus funciones y se encarga de que siempre tenga el mejor performance.
 - **Código aislado**: Tu código, aún estando en una infraestructura compartida, corre en un ambiente virtual exclusivo, aislado de las demás ejecuciones lamba.
 
-## Fun fact
+### Fun fact
 Recordar que AWS regala 1 millón de peticiones lamba gratis el primer año.
 
 # Creating Lambda functions
@@ -372,7 +373,7 @@ Nota: Útil para guardar los archivos fiscales, como por ejemplo los XML de las 
 
 Nota: Recordar que AWS te da 750 horas de servicio gratis de RDS, incluyendo cualquiera de los motores de bases de datos.
 
-## Fun fact
+### Fun fact
 Para que se experimente, Amazon da 750 horas de servicio gratis de RDS, incluyendo cualquiera de los motores de bases de datos.
 
 # Amazon Relational Database Service with PostgreSQL (RDS PG)
@@ -388,7 +389,7 @@ Otras ventajas de RDS PG son:
 - **Migración asistida**: Tiene mecanismos que te ayudan a migrar tu información en caso de que tu ya cuentes con una base de datos con otro proveedor.
 - **Alta disponibilidad**: Permite configurar fácilmente un ambiente de alta disponibilidad al ofrecerte diversas zonas para la base de datos.
 
-## Fun fact
+### Fun fact
 Amazon RDS provee de seguridad por omisión tan alta que en este caso no podrá conectarse a la Base de Datos hasta que explícitamente se permita
 
 # Creando una base de datos Platzi DB
@@ -457,3 +458,55 @@ Antes de migrar a Aurora PG debes considerar los siguientes puntos:
 - Respaldos diarios: Por omisión puedes tener respaldos automatizados
 
 - Replicar la base de datos: Es fácil poder replicar la información de tu base de datos en un data centes distinto de Amazon
+
+##
+
+Aporte de la comunidad:
+
+Algunas otras mejores practicas que son necesarias:
+
+- Verificar performance
+- Activar parametros claves a nivel de la base de datos para mejor recuperación de la data.
+- Probar los Backups frecuentemente.
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html
+
+# Redes - Route53
+
+- ¿Qué es?: Existen muchos servicios de redes en AWS. Uno de los más "interesantes" es Route 53.
+
+- Route 53: AWS te permite tener un DNS muy avanzado a tu disposición, con se podrá hacer subdominios asignados a instancias y verlos reflejados en segundos.
+
+- Alta disponibilidad: Route 53 está disponible en todas las regiones de AWS, por lo que funcionará exelente aún en caso de que alguna de las regiones se pierda.
+
+# Herramientas de administración - IAM
+
+- ¿Qué es?: Existen muchas herramientas útiles de administración en AWS. Revisamos tres:
+    - IAM
+    - CloudWatch
+    - Cloudtrail
+
+- IAM: IAM nos permite administrar todos los permisos de acceso de usuarios a máquinas, usuarios sobre usuarios y máquinas sobre máquinas.
+
+- CloudWatch nos mostrará diversos eventos relacionados con la infraestructura o servidores, para tener un lugar centralizado de logs e información.
+
+- CloudTrail: Es una herramienta de auditoria que permite ver quién o qué hizo qué actividad en tu cuenta de AWS.
+
+- Opcionales: Cada uno de los productos de AWS tienen diversas alternativas para acceder a los logs. Estas son opciones que además almacenan lo histórico.
+
+- Seguros: Como herramientas secundarias de seguridad hacen un gran trabajo de cómo tener la información para auditar actividades y deshabilitar usuarios.
+
+#
+<img width="1392" alt="Captura de Pantalla 2022-04-26 a la(s) 6 20 57 p m" src="https://user-images.githubusercontent.com/56992179/165409863-457b5408-5449-4974-a0ac-9dc1edb35087.png">
+
+# CloudTrail
+
+CloudTrail: Herramienta que te permite saber qué o quién hizo alguna actividad dentro de tu cuenta de AWS.
+
+# Certificate manager
+
+Existen varias herramientas de seguridad en AWS. Vamos a ver las más importantes:
+
+Certificate Manager: AWS te permite crear nuevos certificados cuando necesites (o importar alguno que ya tengas) y te sera fácil usarlos en balanceadores de cargas.
+
+GuardDuty: AWS permite que hagas una auditoria constante de todos los intentos de conexiones que tienen tus equipos de computo.
