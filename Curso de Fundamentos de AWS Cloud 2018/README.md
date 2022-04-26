@@ -393,3 +393,67 @@ Amazon RDS provee de seguridad por omisión tan alta que en este caso no podrá 
 
 # Creando una base de datos Platzi DB
 
+## Creando base de datos
+
+## Instrucciones
+
+1. Extraer sample-uk-zipcodes.sql
+```
+wget https://raw.githubusercontent.com/mauropm/aws-platzi-python/master/sample-uk-zipcodes.sql
+```
+
+2. Instalar PostgreSQL
+```
+sudo amazon-linux-extras install postgresql13
+```
+
+3. Verificar PostgreSQL
+```
+psql --version
+psql (PostgreSQL) 13.3
+# 
+which psql
+/bin/psql
+```
+
+4. Migrar
+```
+psql -h platzidb1.cemjx5fysw8h.us-east-1.rds.amazonaws.com -U postgres platzidb <sample-uk-zipcodes.sql
+Password for user postgres:
+```
+
+- Salida de la migración
+<img width="682" alt="Captura de Pantalla 2022-04-25 a la(s) 8 33 47 a m" src="https://user-images.githubusercontent.com/56992179/165103352-a2fa9a33-9780-48bd-8a59-1d2427967077.png">
+
+- PostgreSQL
+<img width="682" alt="Captura de Pantalla 2022-04-25 a la(s) 8 46 01 a m" src="https://user-images.githubusercontent.com/56992179/165103434-eb773558-bf23-4b61-9565-41997207c9bd.png">
+
+5. Conexión desde pgAdmin 4
+
+- Se ingresan las credenciales
+<img width="1136" alt="Captura de Pantalla 2022-04-25 a la(s) 8 57 19 a m" src="https://user-images.githubusercontent.com/56992179/165104577-7dc63724-a981-4cd3-a2ac-a29c0645d4fb.png">
+
+- Dashboard
+<img width="1136" alt="Captura de Pantalla 2022-04-25 a la(s) 8 58 52 a m" src="https://user-images.githubusercontent.com/56992179/165104564-28c504c2-cec0-4c55-8722-c0bce5c3fa66.png">
+
+# Conociendo Aurora PG (Postgres)
+
+- **¿Qué es?**: Existe una nueva propuesta en bases de datos por AWS, llamada Aurora
+
+- **Aurora PG**: AWS toma el motor de Postgres, instancias de nueva generación, optimizaciones variadas en el kernel/código y obtiene un Postgres 3x más rápido
+
+- Compatibilidad: Aurora PG es compatible con `Postgres 9.6.x`
+
+Antes de migrar a Aurora PG debes considerar los siguientes puntos:
+
+- **No es gratis**: Usar Aurora RDS PG **no es gratis** en ningún momento.
+- **Eficiente**: AWS RDS PG **es eficiente** por varias razones:
+    - Modificaciones al código mismo del motos de bases de datos.
+    - Instancias de última generación.
+**Alta disponibilidad**: Aurora PG estará por omisión en una configuración de alta disponibilidad con distintas zonas, es decir, en 3 centros de datos a un mismo tiempo.
+
+# Mejores prácticas de Bases de Datos y RDS
+
+- Respaldos diarios: Por omisión puedes tener respaldos automatizados
+
+- Replicar la base de datos: Es fácil poder replicar la información de tu base de datos en un data centes distinto de Amazon
