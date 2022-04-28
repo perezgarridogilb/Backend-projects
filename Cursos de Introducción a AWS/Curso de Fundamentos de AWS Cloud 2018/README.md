@@ -481,32 +481,35 @@ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html
 
 # Herramientas de administración - IAM
 
-- ¿Qué es?: Existen muchas herramientas útiles de administración en AWS. Revisamos tres:
+- **¿Qué es?**: Existen muchas herramientas útiles de administración en AWS. Revisamos tres:
     - IAM
     - CloudWatch
     - Cloudtrail
 
-- IAM: IAM nos permite administrar todos los permisos de acceso de usuarios a máquinas, usuarios sobre usuarios y máquinas sobre máquinas.
+- **IAM**: IAM nos permite administrar todos los permisos de acceso de usuarios a máquinas, usuarios sobre usuarios y máquinas sobre máquinas.
 
-- CloudWatch nos mostrará diversos eventos relacionados con la infraestructura o servidores, para tener un lugar centralizado de logs e información.
+- **CloudWatch**: Muestra diversos eventos relacionados con la infraestructura o servidores, para tener un lugar centralizado de logs e información.
 
-- CloudTrail: Es una herramienta de auditoria que permite ver quién o qué hizo qué actividad en tu cuenta de AWS.
+- **CloudTrail**: Es una herramienta de auditoria que permite ver quién o qué hizo qué actividad en tu cuenta de AWS.
 
-- Opcionales: Cada uno de los productos de AWS tienen diversas alternativas para acceder a los logs. Estas son opciones que además almacenan lo histórico.
+- **Opcionales**: Cada uno de los productos de AWS tienen diversas alternativas para acceder a los logs. Estas son opciones que además almacenan lo histórico.
 
-- Seguros: Como herramientas secundarias de seguridad hacen un gran trabajo de cómo tener la información para auditar actividades y deshabilitar usuarios.
+- **Seguros**: Como herramientas secundarias de seguridad hacen un gran trabajo de cómo tener la información para auditar actividades y deshabilitar usuarios.
 
 #
 <img width="1392" alt="Captura de Pantalla 2022-04-26 a la(s) 6 20 57 p m" src="https://user-images.githubusercontent.com/56992179/165409863-457b5408-5449-4974-a0ac-9dc1edb35087.png">
 
 # CloudTrail
 
-CloudTrail: Herramienta que te permite saber qué o quién hizo alguna actividad dentro de tu cuenta de AWS.
+**CloudTrail**: Herramienta que te permite saber qué o quién hizo alguna actividad dentro de tu cuenta de AWS.
 
 # Certificate manager
 
-Existen varias herramientas de seguridad en AWS. Vamos a ver las más importantes:
+- **¿Qué es?**: Existen varias herramientas de seguridad en AWS, nosotros vimos las más importantes.
 
-Certificate Manager: AWS te permite crear nuevos certificados cuando necesites (o importar alguno que ya tengas) y te sera fácil usarlos en balanceadores de cargas.
+- **Certificate Manager**: AWS nos permite crear nuevos certificados cuando requiramos (o importar alguno que ya tengamos) y son fácil de usar en cuanto a balanceadores de cargas.
 
-GuardDuty: AWS permite que hagas una auditoria constante de todos los intentos de conexiones que tienen tus equipos de computo.
+- **GuardDuty**: AWS permite que se haga una auditoria constante de todos los intentos de conexiones que tienen nuestros equipos de computo (sirve para verificar intentos de ataque).
+
+# AWS Rekognition
+
