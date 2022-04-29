@@ -50,7 +50,7 @@ Escalamientos:
 <img width="680" alt="i2" src="https://www.oscarblancarteblog.com/wp-content/uploads/2017/03/escalamiento-horizontal.png">
 
 - Schema less: Dentro de las colecciones (similar tablas) podremos guardar documentos donde no necesariamente tengan la misma estructura, esto nos ayuda a que la base de datos crezca con nuestra aplicación a medida que **vamos agregando nuevas funcionalidades**. Podremos cambiar la estructura de los documentos sin tener que intercambiar de conexión o ejecutar querys de balanceo como sucede en las Bases de Datos relacionales.
-- Queries (JavaScript), índices y agregaciones (Extraer información)
+- Queries (es prácticamente JavaScript), índices y agregaciones (extraer información)
 - Código abierto
 - Gratis
 
@@ -76,11 +76,17 @@ Mongodb charts -> Herramientas de Bi
 # MongoDB Atlas
 Tenemos varios proveedores que nos permiten utilizar o alquilar MongoDB como servicio y en este caso vamos a usar MongoDB Atlas por ser desarrollado por las mismas personas que desarrollan MongoDB.
 
-MongoDB Atlas tiene las siguientes características:
+## MongoDB Atlas (características):
 
-Aprovisionamiento automático de clusters con MongoDB
-Alta disponibilidad
-Altamente escalable
-Seguro
-Disponible en AWS, GCP y Microsoft Azure
-Fácil monitoreo y optimización
+- Aprovisionamiento automático de clusters con MongoDB
+- Alta disponibilidad
+- Altamente escalable
+- Seguro
+- Disponible en AWS, GCP y Microsoft Azure
+- Fácil monitoreo y optimización
+
+Overview:
+
+<img width="1392" alt="Captura de Pantalla 2022-04-28 a la(s) 10 59 18 p m" src="https://user-images.githubusercontent.com/56992179/165883623-cfb7b6f5-abb5-4d60-8ee0-3ea745355ae0.png">
+
+## MongoDB y Docker
