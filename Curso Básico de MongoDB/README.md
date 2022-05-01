@@ -147,9 +147,103 @@ usuarios
 
 # MongoDB + Drivers
 
+## Drivers
 <img width="681" alt="Captura de Pantalla 2022-04-29 a la(s) 7 40 54 p m" src="https://user-images.githubusercontent.com/56992179/166083765-85a569ee-f8d7-4f67-944b-54fcfb72eb6d.png">
 
+## Arquitectura
 <img width="678" alt="Captura de Pantalla 2022-04-29 a la(s) 7 44 07 p m" src="https://user-images.githubusercontent.com/56992179/166083898-ad599bc5-75d9-4ec9-b832-f2a2eff215db.png">
+
+## Agregar drivers
+<img width="680" alt="Captura de Pantalla 2022-04-29 a la(s) 7 48 08 p m" src="https://user-images.githubusercontent.com/56992179/166084167-36b8785e-a3c3-42b3-b348-dc05b2880cf9.png">
+
+## Lenguaje orientado a objetos
+<img width="681" alt="Captura de Pantalla 2022-04-29 a la(s) 7 49 15 p m" src="https://user-images.githubusercontent.com/56992179/166084171-2a859f4c-5fc8-4b7b-966c-5747403a6815.png">
+
+Aporte de la comunidad:
+
+- **¿Qué son los drivers en MongoDB?**
+Son las librerías que utilizamos para comunicar nuestra aplicación con nuestra base de datos.
+Sin nuestros drivers no podemos trabajar con nuestros cluster de base de datos.
+- **¿Cómo agregar los drivers dentro de nuestro proyecto?**
+Usamos un gestor de dependencias. Lo agregamos en nuestro gestor de dependencia; si usamos NodeJS, utilizamos: `npm install mongodb --save`.
+
+Python: `python -m pip install pymongo`
+
+Java con maven:
+```
+# build.gradle
+compile 'org.mongodb:mongo-java-driver:2.12.3'`
+```
+
+```
+<dependencies>
+    <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongo-java-driver</artifactId>
+        <version>2.12.3</version>
+    </dependency>
+</dependencies>
+```
 
 # Bases de datos, Colecciones y Documentos en MongoDB
 
+Las Bases de Datos son los contenedores físicos para nuestras colecciones. Cada base de datos tiene un archivo propio en el sistema de archivos de nuestra computadora o servidor y un Cluster puede tener múltiples bases de datos.
+
+- Contenedor físico de colecciones
+- Cada base de datos tiene su archivo propio en el sistema de archivos
+- Un cluster puede tener múltiples bases de datos
+
+Las Colecciones son agrupaciones de documentos. Son equivalentes a las tablas en bases de datos relacionales pero NO nos imponen un esquema o estructura rígida para guardar información.
+
+- Agrupación de documentos
+- Equivalente a una tabla en las bases de datos relacionales
+- No impone un esquema
+
+Los Documentos son registros dentro de las colecciones. Son la unidad básica de MongoDB y son análogos a los objetos JSON pero en realidad son BSON.
+
+- Un registro dentro de una colección
+- Es análogo a un objeto JSON (BSON)
+- La unidad básica dentro de MongoDB
+
+## Base de Datos
+
+- Dentro de una Base de Datos pueden haber múltiples colecciones y dentro de las múltiples colecciones pueden haber multiples documentos
+
+<img width="681" alt="Captura de Pantalla 2022-04-30 a la(s) 7 50 17 p m" src="https://user-images.githubusercontent.com/56992179/166127490-9457c3f5-19a2-4e07-8cf8-87ea87cf8dd3.png">
+
+### Conversión
+
+<img width="682" alt="Captura de Pantalla 2022-04-30 a la(s) 7 53 35 p m" src="https://user-images.githubusercontent.com/56992179/166127561-0358e0b8-2214-4a14-81db-458c08524b6d.png">
+
+# Operaciones CRUD desde Compass
+
+<img width="1392" alt="Captura de Pantalla 2022-04-30 a la(s) 9 16 01 p m" src="https://user-images.githubusercontent.com/56992179/166129708-388b6652-8c3d-4c53-a067-9694fab10920.png">
+
+# Tipos de datos
+- **Strings**: Nos sirven para guardar textos.
+- **Boolean**: Información cierta o falsa `(true y false)`.
+- **ObjectId**: Utilizan el tiempo exacto en el que generamos la consulta para siempre generan IDs únicos. Existen en BSON pero no en JSON.
+- **Date**: Nos sirven para guardar fechas y hacer operaciones de rangos entre ellas.
+- **Números**: **Doubles, Integers, Integers 64 bits y Decimals**.
+
+<img width="682" alt="Captura de Pantalla 2022-04-30 a la(s) 9 56 04 p m" src="https://user-images.githubusercontent.com/56992179/166130602-a2a03471-c7fc-43e9-b64f-68beb7678d81.png">
+
+- **Documentos Embebidos**: Documentos dentro de otros documentos `({})`.
+
+<img width="681" alt="Captura de Pantalla 2022-04-30 a la(s) 9 56 24 p m" src="https://user-images.githubusercontent.com/56992179/166130607-ef8430aa-c714-42a9-9baa-976489986029.png">
+
+- **Arrays**: Arreglos o listas de cualquier otro tipo de datos, incluso, de otras listas.
+
+<img width="679" alt="Captura de Pantalla 2022-04-30 a la(s) 9 57 19 p m" src="https://user-images.githubusercontent.com/56992179/166130614-5ea404b0-8bc9-44a9-be2e-df8d1dfff5e7.png">
+
+# ¿Qué son los esquemas y las relaciones?
+
+- Los esquemas son la forma en que organizamos nuestros documentos en nuestras colecciones. MongoDB no impone ningún esquema pero podemos seguir buenas prácticas y estructurar nuestros documentos de forma parecida (no igual) para aprovechar la flexibilidad y escalabilidad de la base de datos sin aumentar la complejidad de nuestras aplicaciones.
+
+- Las relaciones son la forma en que nuestras entidades o documentos sen encuentran enlazados unos con otros. Por ejemplo: Una carrera tiene multiples cursos y cada curso tiene multiples clases.
+
+# Relaciones entre documentos
+Las documentos embebidos nos ayudan a guardar la información en un solo documento y nos ahorra el tiempo que tardamos en consultar diferentes documentos a partir de referencias. Sin embargo, las referencias siguen siendo muy importantes cuando debemos actualizar información en diferentes lugares de forma continua.
+
+- **One to one**: Documentos embebidos
+- **One to many**: Documentos embebidos cuando la información no va a cambiar muy frecuentemente y referencias cuando si.
