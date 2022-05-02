@@ -175,6 +175,7 @@ Java con maven:
 compile 'org.mongodb:mongo-java-driver:2.12.3'`
 ```
 
+Dependencias:
 ```
 <dependencies>
     <dependency>
@@ -242,8 +243,114 @@ Los Documentos son registros dentro de las colecciones. Son la unidad básica de
 
 - Las relaciones son la forma en que nuestras entidades o documentos sen encuentran enlazados unos con otros. Por ejemplo: Una carrera tiene multiples cursos y cada curso tiene multiples clases.
 
+Caso uno:
+<img width="678" alt="Captura de Pantalla 2022-05-01 a la(s) 6 03 32 p m" src="https://user-images.githubusercontent.com/56992179/166168267-915d7643-a93c-406b-b8c6-7c81bd80c3b8.png">
+
+Caso dos:
+<img width="678" alt="Captura de Pantalla 2022-05-01 a la(s) 6 02 55 p m" src="https://user-images.githubusercontent.com/56992179/166168209-69f768e3-1a3c-4b4b-a504-787674effbc9.png">
+
+Caso tres:
+<img width="678" alt="Captura de Pantalla 2022-05-01 a la(s) 6 03 32 p m" src="https://user-images.githubusercontent.com/56992179/166168197-52922e5d-23cd-474c-be14-f70ea385506e.png">
+
+Aporte de la comunidad:
+
+## MongoDB vs SQL:
+
+- MongoDB tiene mucha flexibilidad y no nos impone seguir una estructura o esquema bien definido.
+- SQL nos impone una estructura bien definida a más no poder; es super no-flexible.
+- Con MongoDB es más fácil empezar y añadir nuevas funcionalidades.
+- Con SQL es más demorado de empezar porque debemos tener el orden super claro siempre. Todos los elementos deben tener los mismos elementos y todos deben ser del mismo tipo. Si queremos agregar un nuevo campo debemos añadirlo en todas partes con un valor pode defecto, aunque no lo necesitemos.
+- Si no seguimos buenas prácticas en MongoDB, vamos a necesitar queries ultra-complejas, demoradas y una visita diaria al psicólogo 😱.
+- El orden impuesto de SQL no es por nada. Las queries son fáciles de entender porque todo sigue su orden y tranquilidad. Aunque, implementar nuevas features toma su buen tiempo 🤔.
+- Para mi el ganador es MongoDB siempre y cuando sigamos buenas prácticas desde el principio. Un gran poder conlleva a una gran responsabilidad
+
 # Relaciones entre documentos
 Las documentos embebidos nos ayudan a guardar la información en un solo documento y nos ahorra el tiempo que tardamos en consultar diferentes documentos a partir de referencias. Sin embargo, las referencias siguen siendo muy importantes cuando debemos actualizar información en diferentes lugares de forma continua.
 
 - **One to one**: Documentos embebidos
 - **One to many**: Documentos embebidos cuando la información no va a cambiar muy frecuentemente y referencias cuando si.
+
+## Proyecto
+<img width="679" alt="Captura de Pantalla 2022-05-01 a la(s) 6 08 56 p m" src="https://user-images.githubusercontent.com/56992179/166169188-c21f2b59-94cb-4069-9efe-cee3cef8b585.png">
+
+Relaciones uno a muchos usando documendos embebidos
+
+# Operadores para realizar queries y proyecciones
+
+## Filtros
+<img width="678" alt="Captura de Pantalla 2022-05-01 a la(s) 6 42 40 p m" src="https://user-images.githubusercontent.com/56992179/166169408-b621f6e8-4185-4a1b-9619-d9d24b3ecf04.png">
+
+## Proyecciones
+<img width="679" alt="Captura de Pantalla 2022-05-01 a la(s) 6 42 04 p m" src="https://user-images.githubusercontent.com/56992179/166169404-f8f5c774-2093-4937-84a1-0d93b79240e1.png">
+
+## Operadores de comparación
+<img width="678" alt="Captura de Pantalla 2022-05-01 a la(s) 6 27 11 p m" src="https://user-images.githubusercontent.com/56992179/166169004-d0631265-3b05-4db3-8690-7938b28b190a.png">
+
+## Operadores lógicos
+<img width="675" alt="Captura de Pantalla 2022-05-01 a la(s) 6 27 56 p m" src="https://user-images.githubusercontent.com/56992179/166169012-51aa4dde-dda1-49c9-8874-d044890fc474.png">
+
+## Operadores por elemento
+<img width="677" alt="Captura de Pantalla 2022-05-01 a la(s) 6 28 34 p m" src="https://user-images.githubusercontent.com/56992179/166169022-47b68085-7f4e-4d92-bf9c-217681e655f9.png">
+
+## Operadores para arreglos
+<img width="677" alt="Captura de Pantalla 2022-05-01 a la(s) 6 30 06 p m" src="https://user-images.githubusercontent.com/56992179/166169033-04024e09-0c80-4f7e-94f9-312882517843.png">
+
+# Operaciones avanzadas con Agregaciones
+
+En este enlace se encuentran la referencia a todos los operadores que se encuentran en MongoDb, antes de emplear lógica adicional para realizar una operación vale la pena echar una ojeada a la lista de operadores que en algunos casos pueden facilitar mucho las cosas.
+
+Para realizar las relaciones entre carreras y cursos empleamos los operadores $addToSet y $pull estos operadores sirven para agregar $addToSet o retirar $pulldocumentos de un arreglo dependiendo del filtro que aplicamos.
+
+Así cuando ejecutamos db.carreras.update_one({'_id': ObjectId(json['id_carrera'])}, {'$addToSet': {'cursos': curso}}) $addToSet lo que hace es agregar el objeto curso al arreglo cursos, si el arreglo cursos no existe lo crea.
+
+Para retirar un curso de una carrera usamos $pull de la siguiente manera db.carreras.update_one({'_id': ObjectId(json['id_carrera'])}, {'$pull': {'cursos': {'_id': ObjectId(json['id_curso'])}}}) aquí $pull recibe un filtro y todos los elementos del arreglo cursos que cumplan con ese filtro serán borrados.
+
+skip() y limit()
+
+Si tenemos una consulta que retorna 100 documentos pero solamente necesitamos los documentos del número 20 al 30, la manera de hacerlo es usando skip() y limit().
+
+Si tenemos 100 carreras y solamente queremos las primeras 10 podemos ejecutar db.carreras.find({}).limit(10) esta nos traerá las primeras 10 carreras.
+
+Ahora si queremos las carreras ubicadas en los puestos 40 y 50 lo que debemos hacer es db.carreras.find({}).skip(40).limit(10)
+
+Como vemos skip() y limit() son muy útiles para realizar paginaciones, cuando tenemos consultas que retornan muchos documentos y que en algunos casos la totalidad de los documentos no es utilizada es buena práctica limitar el número de documentos que hacemos viajar entre nuestro cluster de base de datos y el código de nuestra aplicación. Esto puede ayudar a mejorar la velocidad con que las consultas son procesadas por la aplicación.
+
+## Ejercicios de práctica usando operadores
+
+```
+// Arreglo de ejemplo
+use test
+db.inventory.insertMany(
+
+[{ _id: 1, item: { name: "ab", code: "123" }, qty: 15, tags: [ "A", "B", "C" ] },
+{ _id: 2, item: { name: "cd", code: "123" }, qty: 20, tags: [ "B" ] },
+{ _id: 3, item: { name: "ij", code: "456" }, qty: 25, tags: [ "A", "B" ] },
+{ _id: 4, item: { name: "xy", code: "456" }, qty: 30, tags: [ "B", "A" ] },
+{ _id: 5, item: { name: "mn", code: "000" }, qty: 20, tags: [ [ "A", "B" ], "C" ] }]
+
+)
+
+// $or
+db.inventory.find({$or: [{qty: {$gt: 25}}, {qty: {$lte: 15}}]})
+
+// $gte
+db.inventory.find({qty: {$gte: 25}})
+
+// $size
+db.inventory.find({tags: {$size: 2}})
+
+// Insertemos estos documentos de ejemplo en la colección survey
+db.survey.insertMany([
+{ _id: 1, results: [ { product: "abc", score: 10 }, { product: "xyz", score: 5 } ] }
+{ _id: 2, results: [ { product: "abc", score: 8 }, { product: "xyz", score: 7 } ] }
+{ _id: 3, results: [ { product: "abc", score: 7 }, { product: "xyz", score: 8 } ] }
+])
+
+// $elemMatch
+db.survey.find(
+   { results: { $elemMatch: { product: "xyz", score: { $gte: 8 } } } }
+)
+
+db.survey.find(
+   { results: { $elemMatch: { product: "xyz" } } }
+```
