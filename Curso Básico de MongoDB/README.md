@@ -354,3 +354,7 @@ db.survey.find(
 db.survey.find(
    { results: { $elemMatch: { product: "xyz" } } }
 ```
+
+# Proyecto en Flask
+
+<img width="1372" alt="Captura de Pantalla 2022-05-03 a la(s) 8 26 29 p m" src="https://user-images.githubusercontent.com/56992179/166615753-89850bc5-bd29-4f19-8067-7ab1a6b57fd4.png">
