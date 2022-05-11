@@ -73,6 +73,67 @@ Sin embargo, independientemente de la implementación, generalmente de la implem
 
 Dados ciertos requerimientos de negocio, diseñar e implementar un sistema sobre el que ejecutaremos una suite de tests confirmando el correcto funcionamiento por medio de su API.
 
+## Definición y requerimientos del sistema desde la perspectiva de negocio
+
+# Proyecto de curso de Arquitectura de Backend
+
+## Objetivo
+
+La meta del estudiante consiste en aprender a desarrollar un sistema de Backend desde 0, llevando a cabo la interpretacion de "requerimientos de negocio" hasta la implementacion del mismo, y debera realizarse tomando en cuenta la planificacion de una arquitectura que detalle en alto nivel como el sistema propuesto cumple con los casos de uso derivados de los requerimientos.
+
+## Requerimientos del cliente
+
+La empresa "RandomCameraReviews" necesita un sistema que permita que fotografos profesionales suban "reviews" de Camaras fotograficas, para que cualquier persona desde cualquier parte del mundo pueda buscar los los reviews y comprarlas a travez de su portal.
+La empresa cuenta con un equipo de developers especializado en frontEnd que realizara un portal para que los editores suban los "reviews" y los usuarios puedan verlos, y han solicitado que tu como especista en Backend, les proporciones un sistema, incluyendo API que permita  realizar lo siguiente:
+
+- Subir reviews de Camaras fotograficas
+- Obtener el contenido de los reviews para mostrarlo en vistas del portal en sus versiones web y mobile.
+- Manejo de usuarios para editores (no incluye visitantes que leen los reviews)
+
+Tambien se sabe que la empresa "RandomCameraReviews" planea distribuir mayormente en America del Sur donde esta su mercado mas grande, pero tambien tienen ventas en norte america, Europa, y muy pocas en Asia.
+
+<img width="1280" alt="Captura de Pantalla 2022-05-08 a la(s) 1 17 12 a m" src="https://user-images.githubusercontent.com/56992179/167284426-0f42ad29-1e30-4abf-9230-cebb5e8e184f.png">
+
+## Documento de diseño
+
+Eplicando el diseño:
+
+## Revisión de diseño
+
+Cosas importantes a tener en cuenta:
+
+**¿Por qué?** Especifica por qué una alternativa es mejor que otra o por qué puede beneficiar más.
+**¿Cómo afecta la infraestructura?** Especifica cómo va a beneficiar en cuanto a infraestructura se refiere (recuerda que la infraestructura es toda esa distribución que tenemos planeada, desde las localizaciones de los sistemas, etc.)
+**¿Cómo ligarlo con los requerimientos originales del negocio?** Verifica si tus propuestas realmente satisfacen los requerimientos que tienes que resolver
+**¿Cómo mejoran los costos?** Mira si tus propuestas ayudan a disminuir costos en infraestructura
+
+Esto permite:
+
+- Iterar hasta llegar a la solución final
+- Tener alternativas
+- Mejorar en general (como en costos)
+
+<img width="1280" alt="Captura de Pantalla 2022-05-08 a la(s) 11 39 51 p m" src="https://user-images.githubusercontent.com/56992179/167341827-1de0c56a-f3f9-49c3-b6ae-0e7114316ea5.png">
+
+# Elaboración de la arquitectura del sistema
+
+1. Entender el problema resolver.
+2. Realizar las preguntar pertinentes.
+3. Evaluar los escenarios o casos de uso del problema.
+4. Bosquejar soluciones posibles.
+5. Pedir feedback.
+
+# Recap y tips de siguientes pasos
+Trade Off: Sacrificar una cosa por otra. Esto no es necesariamente malo, pero hay que tener en cuenta que cada decisión que tomamos puede afectar a otra cosa.
+
+- **Entender el negocio es la clave.**
+
+# Práctica: diseño de una “entidad”
+
+Prototipo de la entidad camara/producto:
+
+<img width="1280" alt="Captura de Pantalla 2022-05-10 a la(s) 7 44 41 p m" src="https://user-images.githubusercontent.com/56992179/167746999-632aabfa-5a54-4867-af4e-98caaf2c72b4.png">
+
 MongoDB es una base de datos gratis y de código abierto No Relacional basada en documentos que nos permite guardar una gran cantidad de documentos de forma distribuida. Mongo también es el nombre de la compañía que desarrolla el código de esta base de datos.
 
 Una de sus principales características es que nos permite guardar nuestras estructuras o documentos en formato JSON (no exactamente JSON, pero si algo muy parecido, lo veremos más adelante) para tener una gran flexibilidad a la hora de modelar situaciones de la vida real.

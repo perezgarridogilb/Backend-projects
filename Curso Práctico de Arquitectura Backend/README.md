@@ -123,6 +123,17 @@ Esto permite:
 4. Bosquejar soluciones posibles.
 5. Pedir feedback.
 
+# Recap y tips de siguientes pasos
+Trade Off: Sacrificar una cosa por otra. Esto no es necesariamente malo, pero hay que tener en cuenta que cada decisión que tomamos puede afectar a otra cosa.
+
+- **Entender el negocio es la clave.**
+
+# Práctica: diseño de una “entidad”
+
+Prototipo de la entidad camara/producto:
+
+<img width="1280" alt="Captura de Pantalla 2022-05-10 a la(s) 7 44 41 p m" src="https://user-images.githubusercontent.com/56992179/167746999-632aabfa-5a54-4867-af4e-98caaf2c72b4.png">
+
 MongoDB es una base de datos gratis y de código abierto No Relacional basada en documentos que nos permite guardar una gran cantidad de documentos de forma distribuida. Mongo también es el nombre de la compañía que desarrolla el código de esta base de datos.
 
 Una de sus principales características es que nos permite guardar nuestras estructuras o documentos en formato JSON (no exactamente JSON, pero si algo muy parecido, lo veremos más adelante) para tener una gran flexibilidad a la hora de modelar situaciones de la vida real.
