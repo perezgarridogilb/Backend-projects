@@ -118,23 +118,51 @@ Servicio de DNS de AWS
 
 ## DNS
 
-- Visitar: platzi.com
+1. Visitar: platzi.com
 
-- Convierte (DNS: Servicio de tipo de Base de Datos): 104.17.175.85
+2. Conviertir el dominio (DNS: Servicio de tipo Base de Datos): 104.17.175.85
 
-- Excelente servicio de alojamiento de DNS's por $50 centavos de dominio al mes
+- Route 53: Excelente servicio de alojamiento de DNS's por $0.50 centavos de dominio al mes.
 
+## Servicios
 
+### Ruteo simple
+
+- Responderá la dirección IP
+- Política de enrutamiento: Dirigue a un usuario cuando intenta acceder a nuestro dominio
 
 <img width="604" alt="Captura de Pantalla 2022-05-20 a la(s) 2 28 23 a m" src="https://user-images.githubusercontent.com/56992179/169642175-b4afb600-f8e3-4f13-b280-cc7c1d498fe5.png">
 
+### Política ponderada
+
+- Peso distribuido
+- Ajustar pesos
+
 <img width="603" alt="Captura de Pantalla 2022-05-20 a la(s) 2 29 02 a m" src="https://user-images.githubusercontent.com/56992179/169642184-2c3dcc01-f870-413e-bf20-ebd83f117246.png">
+
+### Política de geolocalización
+
+- Página según la ubicación
 
 <img width="602" alt="Captura de Pantalla 2022-05-20 a la(s) 2 29 31 a m" src="https://user-images.githubusercontent.com/56992179/169642187-a3955862-aad0-4421-b923-1236c7a3c9c3.png">
 
+### Política de latencia
+
+- Acceso más rápido al usuario
+
 <img width="602" alt="Captura de Pantalla 2022-05-20 a la(s) 2 30 27 a m" src="https://user-images.githubusercontent.com/56992179/169642189-eac6f22a-f470-402d-9004-1e50aa2cc4e7.png">
 
+### Política de conmutación por error
+
+- Apuntar el tráfico a determinada dirección IP "para cuando el servidor no está en línea".
+
 <img width="604" alt="Captura de Pantalla 2022-05-20 a la(s) 2 31 05 a m" src="https://user-images.githubusercontent.com/56992179/169642196-5d07c592-79c4-4772-b421-d7725e800cec.png">
+
+### Política de Respuesta de múltiples valores
+
+- Responde con múltiples direcciones saludables para el dominio que se consulta, se va a la siguiente IP.
+
+- Mantiene un sitio rápido y con alta disponibilidad (Ayuda a Load Balancer).
 
 <img width="603" alt="Captura de Pantalla 2022-05-20 a la(s) 2 31 44 a m" src="https://user-images.githubusercontent.com/56992179/169642203-d6f7f8bd-656c-4681-9ffc-99bfa0f0bac4.png">
 
