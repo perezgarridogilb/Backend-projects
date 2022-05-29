@@ -83,3 +83,13 @@ pm2 logs
 pm2 stop 0
 pm2 start 0
 ```
+
+# Módulos nativos en C++
+
+Se ejecutaron módulos nativos de C++ en JavaScript
+
+```
+npm i -g node-gyp
+node-gyp configure
+node-gyp build
+```
