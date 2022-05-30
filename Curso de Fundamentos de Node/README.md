@@ -93,3 +93,11 @@ npm i -g node-gyp
 node-gyp configure
 node-gyp build
 ```
+
+# Construyendo módulos: Require e Import
+
+es6 de manera experimental
+
+```
+node --experimental-modules index.mjs
+```
