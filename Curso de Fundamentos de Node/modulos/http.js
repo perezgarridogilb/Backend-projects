@@ -9,7 +9,7 @@ function router(req, res) {
     switch(req.url) {
         case '/hola':
             let saludo = hola();
-            res.write('Hola, qué tal'); 
+            res.write(saludo); 
             res.end();
             break;
 
