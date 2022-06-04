@@ -160,10 +160,53 @@ Servicio de DNS de AWS
 
 ### Política de Respuesta de múltiples valores
 
-- Responde con múltiples direcciones saludables para el dominio que se consulta, se va a la siguiente IP.
+- Responde con múltiples direcciones saludables para el dominio que se consulta, se va a la siguiente IP (si la actual no está respondiendo).
 
 - Mantiene un sitio rápido y con alta disponibilidad (Ayuda a Load Balancer).
 
 <img width="603" alt="Captura de Pantalla 2022-05-20 a la(s) 2 31 44 a m" src="https://user-images.githubusercontent.com/56992179/169642203-d6f7f8bd-656c-4681-9ffc-99bfa0f0bac4.png">
 
+# CloudFormation
 
+CloudFormation es un servicio de AWS que nos permite crear nuestra infraestructura como una máquina virtual de EC2, una VPC o incluso entrega de red de contenido de CloudFront, simplemente usando textos en un archivo.
+
+Básicamente es programación, hay una estructura específica que debes seguir de AWS que permite sintaxis, tanto JSON como yaml con CloudFormation.
+
+1. Se crea la sintaxis correcta.
+2. Se sube.
+3. Levanta la infraoestructura.
+
+Esta infraoestructura se llama pila o stack
+
+- La infraoestructura son placas apiladas, una sobre otras.
+ - Una base de datos
+ - Una instancia de EC2
+ - Un dominio en la ruta de Route 53
+
+ ## Control de versiones
+
+ Habre un nuevo mundo de probabilidades
+
+ Si puede definir el código de la organización en un archivo de texto eso significa que conbinado con el uso de sistemas de control de versiones (Git), ahora tendremos un historial completo de toda la infraoestructura de nuestra organización en un solo archivo, si algo se rompe, podemos ir inmediatamente a ver como era nuestra plantilla de CloudFormation, revisamos qué cambió y deberíamos saber qué causó el problema con bastante rapidez.
+
+Desarrolladores: Plantilla
+Redes: Infraoestructura
+
+<img width="604" alt="Captura de Pantalla 2022-06-03 a la(s) 9 02 27 p m" src="https://user-images.githubusercontent.com/56992179/171972469-960019d8-c36c-444f-9a37-10846d76bbcd.png">
+
+## Automation
+
+CloudFormation permite automatizar la creación de su infraoestructura
+
+- Plantilla: Si ya está escrita simplemente se necesitan pocos clicks para poder levantarla
+
+- Permite crear instancias de forma rápida y automática para probar estas funciones y luego eliminarla cuando ya hayamos terminado
+ - Ahorramos tiempo
+ - Ahorramos dinero porque la infraoestructura se elimina automáticamente e inmediatamente después de haber probado
+esta funcionalidad
+
+## Escala
+
+Duplicar la plantilla de CloudFormation, ponerla en marcha y poder subirla directamente en una región y en otra o en una cuenta diferente. 
+
+Hay algunos cambios qué hacer para que sea la región sea específica en su plantilla

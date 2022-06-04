@@ -1,4 +1,5 @@
 const express = require('express');
+const routerApi = require('./routes');
 /**
  * Constructor/ Método que nos va a crear esta aplicación
  */
@@ -12,19 +13,32 @@ app.get('/', (req, res) => {
 
 app.get('/nueva-ruta', (req, res) => {
   res.send('Hola, soy una nueva ruta');
-})
-
-app.get('/products', (req, res) => {
-  res.json([{
-    name: 'Product 1',
-    price: 1000
-  },
-  {
-    name: 'Product 2',
-    price: 2000
-  }
-  ]);
 });
+
+routerApi(app);
+
+// app.get('/users', (req, res) => {
+//   /**
+//    * Parámetros tipo query
+//    */
+//   const { limit, offset } = req.query;
+//   if (limit && offset) {
+//     res.json({
+//       limit,
+//       offset
+//     })
+//   } else {
+//     res.send('No hay parámetros');
+//   }
+// });
+
+// app.get('/categories/:categoryId/products/:productId', (req, res) => {
+//   const { categoryId, productId } = req.params;
+//   res.json({
+//     categoryId,
+//     productId,
+//   })
+// });
 
 app.listen(port, () => {
   console.log('Mi port' + port);
