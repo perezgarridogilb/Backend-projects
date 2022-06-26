@@ -1,4 +1,7 @@
 const express = require('express');
+/**
+ * Ya sabe que es index.js
+ */
 const routerApi = require('./routes');
 /**
  * Constructor/ Método que nos va a crear esta aplicación
