@@ -27,5 +27,27 @@ class TodosController extends Controller
 
         return redirect()->route('todos')->with('success', 'Tarea creada correctamente');
     }
+    public function index()
+    {
+        $todos = Todo::all();
+        return view('todos.index', ['todos' => $todos]);
+    }
 
+    public function show($id)
+    {
+        $todo = Todo::find($id);
+        return view('todos.show', ['todo' => $todo]);
+    }
+
+    public function update()
+    {
+        $todos = Todo::all();
+        return view('todos.index', ['todos' => $todos]);
+    }
+
+    public function destroy()
+    {
+        $todos = Todo::all();
+        return view('todos.index', ['todos' => $todos]);
+    }
 }
