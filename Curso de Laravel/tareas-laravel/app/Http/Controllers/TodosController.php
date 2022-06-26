@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
+use App\Models\Category;
 
 class TodosController extends Controller
 {
@@ -23,6 +24,7 @@ class TodosController extends Controller
 
         $todo = new Todo;
         $todo->title = $request->title;
+        $todo->category_id = $request->category_id;
         $todo->save();
 
         return redirect()->route('todos')->with('success', 'Tarea creada correctamente');
@@ -30,7 +32,8 @@ class TodosController extends Controller
     public function index()
     {
         $todos = Todo::all();
-        return view('todos.index', ['todos' => $todos]);
+        $categories = Category::all();
+        return view('todos.index', ['todos' => $todos, 'categories' => $categories]);
     }
 
     public function show($id)
@@ -39,15 +42,23 @@ class TodosController extends Controller
         return view('todos.show', ['todo' => $todo]);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
-        $todos = Todo::all();
-        return view('todos.index', ['todos' => $todos]);
+        $todo = Todo::find($id);
+        $todo->title = $request->title;
+        $todo->save();
+        /*
+        dd($todo);
+        dd($request);
+        return view('todos.index', ['success' => 'Tarea actualizada']);
+        */
+        return redirect()->route('todos')->with('success', 'Tarea actualizada');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        $todos = Todo::all();
-        return view('todos.index', ['todos' => $todos]);
+        $todo = Todo::find($id);
+        $todo->delete();
+        return redirect()->route('todos')->with('success', 'Tarea eliminado');
     }
 }

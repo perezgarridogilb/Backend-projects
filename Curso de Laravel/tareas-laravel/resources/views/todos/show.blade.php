@@ -3,6 +3,7 @@
 @section('content')
 <div class="container w-25 border p-4 mt-4">
     <form action="{{ route('todos-update', ['id' => $todo->id]) }}" method="POST">
+        @method('PATCH')
         @csrf
 
         @if (session('success'))
