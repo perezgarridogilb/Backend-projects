@@ -1,14 +1,19 @@
 # Curso Avanzado de Laravel
 
-## Model Factoy
+## Controladores en Laravel
 
-- Crear registros de prueba
 
-Información de prueba de Modelos.
+- Crear controlador
 
-- Faker
+```
+php artisan make:controller NameController
+```
 
-Librería Php para generar datos falsos
+- Levantar servidor
+
+```
+php artisan serve
+```
 
 ## Seeders
 
