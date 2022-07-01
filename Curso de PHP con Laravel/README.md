@@ -56,6 +56,45 @@ Estamos trabajando con Middlewares los cuales son muy usados en aplicaciones web
 
 Si no se desea usar la protección CSRF se puede directamente quitar el middleware desde el archivo kernel.php. De la misma manera se pueden crear middleware propios y agregarlos aquí.
 
+## Relaciones con eloquent
+
+- Si estamos hablando de un blogpost, es posible que éste esté relacionado con múltiples comentarios y a su vez con un solo creador. Existen muchas maneras para relacionar bases de datos y esto nos ayudará a tener una integridad y una referencia hacia lo que necesitamos.
+-m o –migration son exactamente lo mismo y se pueden usar indistintamente.
+- Haremos una relación de muchos a uno, es decir que un reporte puede tener muchos detalles.
+- PHP en sus últimas versiones nos ofrece que todas las clases contienen la propiedad estática que es el nombre de la clase y la regresa directamente.
+
+## 
+
+- Crear modelo
+
+```
+php artisan make:model ExpenseReport
+```
+
+- Consola interactiva
+
+```
+php artisan tinker
+
+Psy Shell v0.11.5 (PHP 7.3.33 — cli) by Justin Hileman
+>>> $report = new App\Models\ExpenseReport();
+=> App\Models\ExpenseReport {#3561}
+
+>>> $report->save();
+
+>>> App\Models\ExpenseReport::all();
+
+php artisan make:model -m Expense
+```
+
+## 
+
+- Crear modelo y migrar
+ 
+```
+php artisan make:model -m Expense
+```
+
 ## Seeders
 
 - Me permiten insertar registros en mi Base de Datos, pueden ser o no productivos.

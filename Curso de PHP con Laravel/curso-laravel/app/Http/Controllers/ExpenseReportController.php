@@ -42,7 +42,7 @@ class ExpenseReportController extends Controller
         ]);
 
         $report = new ExpenseReport();
-        $report->title = $request->get('title');
+        $report->title = $validaData['title'];
         $report->save();
 
         return redirect('/expense_reports');
@@ -53,10 +53,14 @@ class ExpenseReportController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * $id ≠ ExpenseReport $expenseReport
      */
-    public function show($id)
+    public function show(ExpenseReport $expenseReport)
     {
-        //
+        /**$report = ExpenseReport::findOrFail($expenseReport);*/
+        return view('expenseReport.show', [
+            'report' => $expenseReport
+        ]);
     }
 
     /**
@@ -67,7 +71,7 @@ class ExpenseReportController extends Controller
      */
     public function edit($id)
     {
-        $report = ExpenseReport::find($id);
+        $report = ExpenseReport::findOrFail($id);
         return view('expenseReport.edit', [
             'report' => $report
         ]);
