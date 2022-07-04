@@ -8,6 +8,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Mail;
 
 class SumaryReport extends Mailable
 {
@@ -18,11 +19,11 @@ class SumaryReport extends Mailable
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param ExpenseReport $expenseReport
      */
     public function __construct(ExpenseReport $expenseReport)
     {
-        $this->expenseReport = $expenseReport;
+         $this->expenseReport = $expenseReport;
     }
 
     /**
@@ -33,10 +34,7 @@ class SumaryReport extends Mailable
     public function build()
     {
         return $this->view('mail.expenseReport', [
-            /**
-             * Cuando se construya el correo electrónico se va a renderear esta vista
-             */
-            'report' => $this->esxpenseReport
+            'report' => $this->expenseReport
         ]);
     }
 }

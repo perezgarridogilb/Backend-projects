@@ -95,6 +95,12 @@ php artisan make:model -m Expense
 php artisan make:model -m Expense
 ```
 
+- Crear objeto Mail
+ 
+```
+php artisan make:mail SummaryReport
+```
+
 ## Seeders
 
 - Me permiten insertar registros en mi Base de Datos, pueden ser o no productivos.
