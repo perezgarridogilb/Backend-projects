@@ -63,6 +63,11 @@ Si no se desea usar la protección CSRF se puede directamente quitar el middlewa
 - Haremos una relación de muchos a uno, es decir que un reporte puede tener muchos detalles.
 - PHP en sus últimas versiones nos ofrece que todas las clases contienen la propiedad estática que es el nombre de la clase y la regresa directamente.
 
+1 a 1 —> $this->hasOne(‘App\Model’);
+1 a M —> $this->hasMany(‘App\Model’);
+M a 1 —> $this->belongsToMany(‘App\Model’);
+M a M —> $this->belongsToMany(‘App\Model’);
+
 ## 
 
 - Crear modelo
