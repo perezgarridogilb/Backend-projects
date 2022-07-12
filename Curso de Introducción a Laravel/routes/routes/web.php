@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/**
+ *  Se usaría en páginas estáticas, incluye parámetros
+ *  Route::view('vista','welcome', ['app' =>'hola']); 
+ * 
+ * Route::get('Prueba', function () {
+ *      return 'hola';
+ * });
+ * */
+
+Route::resource('pages', 'PageController'); // 7 rutas
