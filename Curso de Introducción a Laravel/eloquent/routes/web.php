@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use App\Post;
+
+Route::get('eloquent', function () {
+    $posts = Post::all();
+
+    foreach($posts as $posts) {
+        echo "$post->id $post->title <br>"
+    }
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

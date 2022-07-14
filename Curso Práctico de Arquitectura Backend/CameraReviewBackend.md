@@ -42,6 +42,7 @@ Ej.
 ---
 ## Costo
 Descripción/Análisis de costos
+Contemplando 1000 usuarios diarios, que visitan recurrentemente cada hora:
 Ejemplo:
 "Considerando N usuarios diarios, M llamadas a X servicio/baseDatos/etc"
 * 1000 llamadas diarias a serverless functions. $XX.XX

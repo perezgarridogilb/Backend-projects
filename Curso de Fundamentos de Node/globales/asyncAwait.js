@@ -38,7 +38,7 @@ console.log('Empezamos el proceso');
 main();
 console.log('Va a ser la segunda instrucción'); 
 
-/*
+/* 
 [nodemon] starting `node asyncAwait.js`
 Empezamos el proceso
 Va a ser la segunda instrucción
