@@ -19,6 +19,6 @@ Route::get('eloquent', function () {
     $posts = Post::all();
 
     foreach($posts as $posts) {
-        echo "$post->id $post->title <br>"
+        echo "$post->id $post->title <br>";
     }
 });
