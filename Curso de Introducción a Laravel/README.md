@@ -38,3 +38,42 @@ Filtro de peticiones HTTP en un sistema
 Registro y autenticación de un sistema Web en Laravel
 
 `$ composer require laravel/ui`
+
+## Eloquent: trabajando con este ORM
+
+Model, migrate y factory
+
+`php artisan make:model Post -m -f`
+
+Se crea en plural
+
+```
+# Creando datos falsos
+
+$factory->define(Post::class, function (Faker $faker) {
+    return [
+        'title' => $faker->sentence
+    ];
+});
+
+# tinker
+
+>>> factory(App\Post::class, 30)->create()
+```
+
+## Relaciones de tablas
+
+### Eloquent
+
+**Relaciones de Tablas**
+*Unir datos.*
+**Colecciones y Serialización**
+*Manipular la información*
+**Formatos de datos y presentación**
+*Formato de datos.*
+
+- Siempre que se ejecutaba borraba los datos
+`php artisan migrate:refresh`
+
+- semilla
+`php artisan migrate:refresh --seed`

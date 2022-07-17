@@ -15,10 +15,44 @@ use Illuminate\Support\Facades\Route;
 
 use App\Post;
 
+# Accediendo directamente a los datos a través del archivo que representa la tabla
 Route::get('eloquent', function () {
-    $posts = Post::all();
+    /* $posts = Post::all(); */
+    $posts = Post::where('id', '>=', '20')
+    /**
+     * Descendente y que sean 3
+     */
+    ->orderBy('id', 'desc')
+    ->take(3)
+    ->get();
 
-    foreach($posts as $posts) {
+    foreach($posts as $post) {
         echo "$post->id $post->title <br>";
+    }
+});
+
+Route::get('posts', function () {
+    
+    $posts = Post::get();
+
+    foreach($posts as $post) {
+        echo "
+        $post->id
+        <strong>{$post->user->name}</strong>
+        $post->title <br>";
+    }
+});
+
+use App\User;
+
+Route::get('users', function () {
+    
+    $users = User::all();
+
+    foreach($users as $user) {
+        echo "
+        $user->id
+        <strong>{$user->name}</strong>
+        {$user->posts->count()} posts<br>";
     }
 });
