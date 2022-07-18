@@ -56,3 +56,24 @@ Route::get('users', function () {
         {$user->posts->count()} posts<br>";
     }
 });
+
+
+Route::get('collections', function() {
+    $users = User::all();
+    /* dd($users) */
+    /* dd($users->contains(4)); */
+    /* dd($users->only(4)); */
+    /* dd($users->find(4)); */
+    /** Método posts */
+    dd($users->load('posts'));
+
+});
+
+Route::get('serializacion', function() {
+    $users = User::all();
+    
+    /* dd($users->toArray()); */
+    $user = $users->find(1);
+    dd($user->toJson());
+
+});

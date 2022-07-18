@@ -1,3 +1,35 @@
+# Xdebugger installation
+
+## php.ini
+
+- Location `/usr/local/etc/php/7.3/php.ini`
+
+```
+...
+; Local Variables:
+; tab-width: 4
+; End:
+xdebug.remote_enable = 1
+xdebug.remote_autostart = 1
+xdebug.remote_port = 9000
+```
+
+## 99-xdebug.ini
+
+- Location `/usr/local/etc/php/7.3/conf.d/99-xdebug.ini`
+
+```
+zend_extension = "/usr/lib/php/extensions/no-debug-non-zts-20180731/xdebug.so"
+xdebug.mode=debug
+xdebug.start_with_request = yes
+xdebug.remote_autostart = 1
+```
+
+## Visual Studio Code
+
+### settings.json
+
+```
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -20,3 +52,4 @@
         }
     ]
 }
+```
