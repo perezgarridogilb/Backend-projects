@@ -41,4 +41,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function getNameAttribute($name) 
+    {
+        return strtoupper($name);
+    }
+
+    /**
+     * Cuando se valla a guardar el nombre este
+     * tiene una transformación para convertirlo
+     * en minuscula
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
+    }
 }

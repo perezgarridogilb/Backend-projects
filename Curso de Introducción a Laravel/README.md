@@ -17,7 +17,7 @@ php artisan tinker
 
 - **Controller**: Nos permite agrupar lógia
 
-composer create-project --prefer-dist laravel/laravel routes "7.*
+`composer create-project --prefer-dist laravel/laravel routes "7.*`
 
 - **Podemos con un comando crear un controlador con diferentes rutas**
 
