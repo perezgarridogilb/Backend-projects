@@ -37,7 +37,7 @@ Filtro de peticiones HTTP en un sistema
 
 Registro y autenticación de un sistema Web en Laravel
 
-`$ composer require laravel/ui`
+`$ composer require laravel/ui:^2.4 --dev`
 
 ## Eloquent: trabajando con este ORM
 
