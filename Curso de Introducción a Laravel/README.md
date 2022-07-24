@@ -17,7 +17,7 @@ php artisan tinker
 
 - **Controller**: Nos permite agrupar lógia
 
-`composer create-project --prefer-dist laravel/laravel routes "7.*`
+`composer create-project --prefer-dist laravel/laravel name "7.*`
 
 - **Podemos con un comando crear un controlador con diferentes rutas**
 
@@ -77,3 +77,21 @@ $factory->define(Post::class, function (Faker $faker) {
 
 - semilla
 `php artisan migrate:refresh --seed`
+
+## Proyecto Blog: Presentación y configuración inicial
+
+### Migración, Factory, y el Controlador
+
+`php artisan make:model Post -mfc`
+
+### cviebrock/eloquent-sluggable
+
+`composer require cviebrock/eloquent-sluggable 7.00`
+
+Referencias: https://packagist.org/packages/cviebrock/eloquent-sluggable
+
+- Refrescar y usar nuestros datos semilla
+
+`php artisan migrate:refresh --seed`
+
+
