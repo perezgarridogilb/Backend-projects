@@ -33,6 +33,7 @@ class Post extends Model
 
     public function getGetExcerptAttribute($key)
     {
+        /** Substraer del body 140 caracteres */
         return substr($this->body, 0, 140);
     }
 }
