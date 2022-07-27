@@ -14,6 +14,12 @@ class Post extends Model
      *
      * @return array
      */
+    protected $fillable = [
+        /** Si estamos enviando datos en cantidad entonces que los filtre */
+        /** Ningún usuario podrá ingresar cualquier dato al azar */
+        'title', 'body', 'iframe', 'image', 'user_id'
+    ];
+
     public function sluggable(): array
     {
         return [
