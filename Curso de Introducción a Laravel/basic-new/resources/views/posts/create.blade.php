@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Image *</label>
+                        <label>Image</label>
                         <input type="file" name="file">
                     </div>
                     
