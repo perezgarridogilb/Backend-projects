@@ -42,4 +42,10 @@ class Post extends Model
         /** Substraer del body 140 caracteres */
         return substr($this->body, 0, 140);
     }
+
+    public function getGetImageAttribute($key)
+    {
+        if($this->image)
+        return url("storage/$this->image");
+    }
 }

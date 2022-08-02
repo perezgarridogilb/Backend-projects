@@ -94,4 +94,16 @@ Referencias: https://packagist.org/packages/cviebrock/eloquent-sluggable
 
 `php artisan migrate:refresh --seed`
 
+# Introducción al testing
 
+- Funcional (Por clase)
+
+`php artisan make:test UserTest`
+
+- Unitario (Sección de código)
+
+`php artisan make:test UserTest --unit`
+
+- Ejecutar Tests
+
+`vendor/bin/phpunit`
