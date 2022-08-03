@@ -94,7 +94,7 @@ Referencias: https://packagist.org/packages/cviebrock/eloquent-sluggable
 
 `php artisan migrate:refresh --seed`
 
-# Introducción al testing
+## Introducción al testing
 
 - Funcional (Por clase)
 
@@ -107,3 +107,10 @@ Referencias: https://packagist.org/packages/cviebrock/eloquent-sluggable
 - Ejecutar Tests
 
 `vendor/bin/phpunit`
+
+## Metodología TDD y testing HTTP
+
+Paso 1: Crear prueba, para obtener rojo
+Paso 2: Crear código para cumplir con esa prueba, para obtener verde
+Paso 3: Refactorización es una revisión posterior de revisar, organizar, crear métodos, para seguir consiguiendo verde sin alterar la prueba.
+
