@@ -110,7 +110,22 @@ Referencias: https://packagist.org/packages/cviebrock/eloquent-sluggable
 
 ## Metodología TDD y testing HTTP
 
+### Testing
+- **Testing HTTP**
+- **Metodología TDD**
+
 Paso 1: Crear prueba, para obtener rojo
 Paso 2: Crear código para cumplir con esa prueba, para obtener verde
 Paso 3: Refactorización es una revisión posterior de revisar, organizar, crear métodos, para seguir consiguiendo verde sin alterar la prueba.
 
+
+- Nombres personalizados `test_home()`
+
+### Factory y migración
+
+`php artisan make:model Post -fm`
+
+### Controlador
+
+Ordenando archivos
+`php artisan make:controller Api/Post`
