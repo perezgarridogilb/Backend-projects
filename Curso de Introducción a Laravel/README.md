@@ -129,3 +129,6 @@ Paso 3: Refactorización es una revisión posterior de revisar, organizar, crear
 
 Ordenando archivos
 `php artisan make:controller Api/Post`
+
+
+`php artisan make:test Http/Controllers/Api/PostControllerTest`

@@ -16,6 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-/** Refactorizando response 200 */
-Route::view('/about', 'welcome');
