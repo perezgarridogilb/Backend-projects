@@ -4,10 +4,24 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Post;
-use Illuminate\Http\Request;
+use App\Http\Requests\Post as PostRequests1;
 
 class PostController extends Controller
 {
+
+    protected $posts;
+
+    /**
+     * Refactorización (Código que no altera a mi test):
+     * 1. Creo la propiedad
+     * 2. Recibo la entidad
+     * 3. Asigno la entidad a la propiedad `$this->post = $post;`
+     */
+    public function __construct(Post $post)
+    {
+        $this->post = $post;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +29,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        /** Si no colocas doscientos asume que es doscientos */
+        return response()->json($this->post->paginate(), 200);
     }
 
     /**
@@ -24,7 +39,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequests1 $request)
     {
         $post = Post::create($request->all());
 
@@ -39,7 +54,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return response()->json($post);
     }
 
     /**
@@ -49,9 +64,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequests1 $request, Post $post)
     {
-        //
+        $post->update($request->all());
+
+        return response()->json($post);
     }
 
     /**
@@ -62,6 +79,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return response()->json(null, 204);
     }
 }
