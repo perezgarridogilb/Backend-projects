@@ -18,6 +18,7 @@
             <img src="{{ $course->user->avatar }}"
             class="h-10 w-10 rounded-full mr-2"
             >
+            
             <div>
                 <p class="text-gray-500 text-sm">{{ $course->user->name }}</p>
                 <p class="text-gray-300 text-xs">{{ $course->created_at->diffForHumans() }}</p>
