@@ -2,7 +2,7 @@
     @foreach ($courses as $course)
     <!-- Estamos haciendo uso de un componente, la consulta forma parte de este componente -->
     <div class="bg-white shadow-lg rounded-lg px-4 py-6 text-center">
-        <a href="#">
+        <a href="{{ route('course', $course) }}">
             <img src="{{ $course->image }}" class="rounded-md mb-2">
             <h2 class="text-lg text-gray-600 truncate uppercase">{{ $course->name }}</h2>
             <h3 class="text-md text-gray-500">{{ $course->excerpt }}</h3>
