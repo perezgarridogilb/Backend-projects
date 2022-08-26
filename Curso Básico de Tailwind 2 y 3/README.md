@@ -108,3 +108,12 @@ Nos permite acceder a todas las clases de tailwind
 
 - **@tailwind utilities**
 Agrega todas las utilidades al proyecto y nos permite acceder a ellas
+
+# Nueva paleta de colores extendida
+
+- Colores: https://v2.tailwindcss.com/docs/customizing-colors
+
+- Pruebas: https://play.tailwindcss.com/
+
+´<div class="w-64 h-64 bg-blue-600"></div>´
+´<div class="w-32 h-96 bg-red-500"></div>´
