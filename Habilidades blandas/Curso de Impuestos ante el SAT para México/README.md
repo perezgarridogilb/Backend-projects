@@ -212,6 +212,17 @@ Contribuir al gasto público.
 - Emprendedor por las tardes.
 - Inversionista.
 
+### 12. De los demás ingresos 
+- Ingresos que no estén ubicados en ninguno de los regímenes fiscales anteriores. 
+- Condonación de deudas, ganancia cambiaria, explotación del subsuelo, ingresos de planes personales para el retiro, etc.
+- Tratamiento fiscal diferente. 
+
+### 13. Régimen Simplificado de Confianza (2022) 
+- Actividades empresariales, servicios profesionales y arrendamiento.
+- Ingresos hasta 3.5 millones de pesos al año.
+- ISR de 1% a 2.5% sobre ingresos.
+- No pueden deducir gastos.
+
 ## Regímenes fiscales de Personas Morales
 
 1. Régimen General.
