@@ -12,16 +12,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Ruta home');
+    return view('home');
 });
+
+/* Route::get('blog', function () {
+    $posts = [
+        ['id' => 1, 'title' => 'PHP', 'slug' => 'php'],
+        ['id' => 2, 'Laravel' => 'PHP', 'slug' => 'laravel']
+];
+    return view('blog', ['posts' => $posts]);
+}); */
 
 Route::get('blog', function () {
-    return 'Listado de publicaciones';
+    // consulta en base de datos
+    $posts = [
+        ['id' => 1, 'title' => 'PHP',     'slug' => 'php'],
+        ['id' => 2, 'title' => 'Laravel', 'slug' => 'laravel']
+    ];
+
+    return view('blog', ['posts' => $posts]);
 });
 
+/* Route::get('blog/{slug}', function ($slug) {
+    /* Consulta a Base de Datos 
+    $post = $slug;
+
+    return view('post', ['post' => $post]);
+}); */
+
 Route::get('blog/{slug}', function ($slug) {
-    /* Consulta a Base de Datos */
-    return $slug;
+    // consulta en base de datos con el slug
+    $post = $slug;
+
+    return view('post', ['post' => $post]);
 });
 
 Route::get('buscar', function (Request $request) {
