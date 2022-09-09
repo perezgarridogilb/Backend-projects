@@ -1,5 +1,7 @@
 # Curso de Introducción a Laravel 8
 
+## Instalación
+
 ## Creación de Componente Livewire
 
 ```
