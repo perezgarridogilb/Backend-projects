@@ -117,3 +117,11 @@ Agrega todas las utilidades al proyecto y nos permite acceder a ellas
 
 ´<div class="w-64 h-64 bg-blue-600"></div>´
 ´<div class="w-32 h-96 bg-red-500"></div>´
+
+# ¿Qué es un breakpoint?
+
+- Un breakpoint es el salto en el que cambia la pantalla de Layout.
+
+- Podemos manipular los estilos de nuestro archivo en función al tipo de dispositivo.
+
+<img width="641" alt="Tamaños" src="https://user-images.githubusercontent.com/56992179/189812384-07c7a39f-45bf-43bd-95a1-cd5042175e71.png">
