@@ -1,13 +1,16 @@
 # Curso Práctico de Arquitectura Backend
-Curso Básico de MongoDB
 
-# Qué es el backend
+Tenemos que recordar que uno de los patrones arquitectónicos originales, o más tradicionales, viene siendo el de cliente-servidor, este consiste en que si tenemos una página web y nosotros abrimos esa página web como usuario en esa computadora, lo que estoy viendo en ese navegador es código en lenguajes como HTML, CSS y/o JavaScript que se están ejecutando en mi navegador de mi computador.
+Al mismo tiempo se entiende que eso viene de algún lugar en la nube a través de internet, de algún servidor, ese servidor puede ejecutar también código de algunos lenguajes populares, como por ejemplo, PHP, Java, C#, JavaScript, etc (ejecutados en ese servidor).
 
-- Tomando como base un modelo cliente servidor. Se suele usar el término "backend" para referirse a software ejecutado en el servidor
+## ¿Qué es el backend?
 
-- Una aplicación podría ser únicamente la "entrada" al Backend
+- Tomando como base un modelo cliente servidor. Se suele usar el término "backend" para referirse a software ejecutado en el servidor.
 
-- El Backend de un sistema puede expandirse mucho más allá de una arquitectura cliente-servidor
+- Una aplicación podría ser únicamente la "entrada" al Backend.
+ - La información viene de un servidor, en la nube, en algún lado, está "mandando" información hacia el celular, y ese proceso es ejecutado por servidores, en lo que llamamos el Backend, esa es la "distinción" del lado del servidor, y código del cliente en Mobile y/o Computadora que es el Frontend. 
+
+- El Backend de un sistema puede expandirse mucho más allá de una arquitectura cliente-servidor.
 
 <img width="636" alt="Captura de Pantalla 2022-05-07 a la(s) 3 11 49 p m" src="https://user-images.githubusercontent.com/56992179/167270372-bcccebed-ed3f-4fe2-961f-a8c2420517d3.png">
 
