@@ -1,7 +1,20 @@
 # Curso Práctico de Arquitectura Backend
 
-Tenemos que recordar que uno de los patrones arquitectónicos originales, o más tradicionales, viene siendo el de cliente-servidor, este consiste en que si tenemos una página web y nosotros abrimos esa página web como usuario en esa computadora, lo que estoy viendo en ese navegador es código en lenguajes como HTML, CSS y/o JavaScript que se están ejecutando en mi navegador de mi computador.
-Al mismo tiempo se entiende que eso viene de algún lugar en la nube a través de internet, de algún servidor, ese servidor puede ejecutar también código de algunos lenguajes populares, como por ejemplo, PHP, Java, C#, JavaScript, etc (ejecutados en ese servidor).
+## A quién va dirigido este curso
+
+**Personas interesadas en**:
+
+- Desarrollo y arquitectura de software en backend.
+ - Prefente conocer 2 lenguajes de programación orientados al Backend.
+- Entender cómo funciona un sistema distribuido en backend.
+ - Conocer conceptos acerca de cómo funcionan los sistemas en la nube.
+ - Utilizar al menos un provedor de sistemas en la nube como puede ser AWS, Azure o Google Cloud.
+ - Saber cómo utilizar Bases de Datos (al menos las relacionales), como MySQL, MariaDB o ProstgreSQL.
+ - Deseable saber utilizar alguna Base de Datos no relacional como MongoDB.
+- Aprendizaje a través de la práctica.
+
+Tenemos que recordar que uno de los patrones arquitectónicos originales, o más tradicionales, viene siendo el de cliente-servidor, este consiste en que si tenemos una página web y nosotros abrimos esa página web como usuario en esa computadora, lo que estoy viendo en ese navegador es código en lenguajes como **HTML, CSS y/o JavaScript** que se están ejecutando en mi navegador de mi computador.
+Al mismo tiempo se entiende que eso viene de algún lugar en la nube a través de internet, de algún servidor, ese servidor puede ejecutar también código de algunos lenguajes populares, como por ejemplo, PHP, Java, C#, JavaScript, etc. (ejecutados en ese servidor).
 
 ## ¿Qué es el backend?
 
@@ -10,19 +23,19 @@ Al mismo tiempo se entiende que eso viene de algún lugar en la nube a través d
 - Una aplicación podría ser únicamente la "entrada" al Backend.
  - La información viene de un servidor, en la nube, en algún lado, está "mandando" información hacia el celular, y ese proceso es ejecutado por servidores, en lo que llamamos el Backend, esa es la "distinción" del lado del servidor, y código del cliente en Mobile y/o Computadora que es el Frontend. 
 
-- El Backend de un sistema puede expandirse mucho más allá de una arquitectura cliente-servidor.
-
 <img width="636" alt="Captura de Pantalla 2022-05-07 a la(s) 3 11 49 p m" src="https://user-images.githubusercontent.com/56992179/167270372-bcccebed-ed3f-4fe2-961f-a8c2420517d3.png">
 
-# Visión general de las TI tradicionales
+- El Backend de un sistema puede expandirse mucho más allá de una arquitectura cliente-servidor (lo que sería un sistema distribuido).
 
 ## Qué son los sistemas distribuidos
 
-- **Sistema monolítico**: Es un sistema conformado por una sola "pieza"
+### De monolítico a distribuido
+
+- **Sistema Monolítico**: Es un sistema conformado por una sola "pieza".
 
 - **Sistema Distribuido**: Compuesto de múltiples componentes que se comunican entre sí usando redes.
 
-### Ejemplo sistema monolítico
+#### Ejemplo sistema monolítico
 
 Un único servidor que hospeda uno o más sitios web con LAMP stack
 
