@@ -48,9 +48,13 @@ Un único servidor que hospeda uno o más sitios web con LAMP stack
 
 Aunque sabemos que es un sistema conformado por muchos conectados por medio de redes, puede manifestarse en diferentes escalas e implementar múltiples patrones de arquitectura.
 
-<img width="636" alt="Captura de Pantalla 2022-05-07 a la(s) 3 11 49 p m" src="https://user-images.githubusercontent.com/56992179/167278885-d451cebb-6a96-4128-b572-0f94a95e09bb.png">>
+- Pueden ser múltiples servidores.
+- Para esto no es necesario que esté en la misma red.
+- Pueden ser múltiples redes.
 
-# Elementos de un sistema distribuido en la nube
+<img width="636" alt="Ejemplo de backend de un sistema distribuido" src="https://user-images.githubusercontent.com/56992179/167278885-d451cebb-6a96-4128-b572-0f94a95e09bb.png">>
+
+# Elementos de un sistema distribuido en la nube (comunmente)
 
 - Load Balancers
 - Máquinas Virtuales
@@ -65,7 +69,7 @@ Aunque sabemos que es un sistema conformado por muchos conectados por medio de r
 
 ### Backend Sistema 2
 
-Observar el frontend donde tenemos una aplicación, navegador web, que se comunican a través de internet utilizando la nube para acceder a servicios como red social, otro sistema de página de ventas, puede tener servicios múltiples para implementar toda esa funcionalidad repartidos en diferentes regiones a través del planeta (servidores en varias partes del mundo), podemos tener servicios repartidos en continentes, países, etc. Idealmente sería conectarse a una región cercana (podemos globalizar, escalar nuestro sistema a que esté repartido en diferentes partes del mundo)
+Observar el frontend donde tenemos una aplicación, navegador web, que se comunican a través de internet utilizando la nube para acceder a servicios como red social, otro sistema de página de ventas, puede tener servicios múltiples para implementar toda esa funcionalidad repartidos en diferentes regiones a través del planeta (servidores en varias partes del mundo), podemos tener servicios repartidos en continentes, países, etc. Lo ideal sería conectarse a una región cercana (podemos globalizar, escalar nuestro sistema a que esté repartido en diferentes partes del mundo).
 
 <img width="639" alt="Captura de Pantalla 2022-05-07 a la(s) 11 19 33 p m" src="https://user-images.githubusercontent.com/56992179/167281574-337411e4-a601-41b0-983a-ae159942be48.png">
 
