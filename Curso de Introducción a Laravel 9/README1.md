@@ -28,3 +28,7 @@ sudo chmod 777 /dev/disk2s1
 Ejemplo: `sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/UNTITLED`
 - **Dar formato al disco: Mapa de particiones GUID**
 - **Instalar**
+
+Referencias:
+https://www.geekytidbits.com/mount-sd-card-virtualbox-from-mac-osx/
+https://kellner.io/sdcard-virtualbox-on-maco.html
