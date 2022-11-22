@@ -1,5 +1,5 @@
 user_option = input('piedra, papel o tijera: ').lower()
-computer_option = 'papel'
+computer_option = 'piedra'
 
 if user_option == computer_option:
     print('Empate!')
