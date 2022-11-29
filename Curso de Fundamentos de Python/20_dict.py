@@ -14,5 +14,17 @@ person['age'] -= 50
 person['langs'].append('rust') 
 print(person)
 
+# eliminamos el par clave - valor del diccionario
 del person['las_name']
+person.pop('age')
 print(person)
+
+# Estructura en tuplas para ser recorrida
+print('items')
+print(person.items())
+
+print('keys')
+print(person.keys())
+
+print('values')
+print(person.values())
