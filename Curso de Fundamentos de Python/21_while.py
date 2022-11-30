@@ -24,3 +24,4 @@ while counter < 20:
         # lo que iba a continuación no lo hace y pasa al siguiente a iterar
         continue    
     print(counter)    
+    
