@@ -99,17 +99,20 @@ Todo lo anterior nos hace preguntarnos: ¿Qué es la calidad?
 
 La calidad es una percepción entre lo deseado, analizado y lo que vamos a entregar. La calidad la define el cliente, si esa persona esta satisfecha con lo entregado hasta ahí llega la calidad.
 
-<img width="684" alt="¿Qué es la calidad?" src="https://user-images.githubusercontent.com/56992179/206592343-bff9627e-3e41-4abd-811f-c5d60ae2fb02.png">
+<img width="686" alt="Captura de Pantalla 2022-12-08 a la(s) 6 04 38 p m" src="https://user-images.githubusercontent.com/56992179/206592347-d1c509cf-6612-4a70-b79b-247b972fefe5.png">
 
 ####
 
-*El grado con el que un sistema, competente o proceso cumple con los requisitos especificados y la necesidades o expectativas del cliente o usuario.*
+*El grado con el que un sistema, competente o proceso cumple con los requisitos especificados y la necesidades o expectativas del cliente o usuario.* **Es como la define la IEEE**
 
-- Los estándares de la IEEE forman parte de la documentación, y si la documentación, no tiene claro y especificado que es lo que quiere el cliente, es ahí donde comienza la cadena de la falta de comunicación, y la falta de entendimiento del producto.
 
-<img width="686" alt="Captura de Pantalla 2022-12-08 a la(s) 6 04 38 p m" src="https://user-images.githubusercontent.com/56992179/206592347-d1c509cf-6612-4a70-b79b-247b972fefe5.png">
+<img width="684" alt="¿Qué es la calidad?" src="https://user-images.githubusercontent.com/56992179/206592343-bff9627e-3e41-4abd-811f-c5d60ae2fb02.png">
+
+- Los estándares de la IEEE forman parte de la documentación, y si la documentación, no tiene claro y especificado qué es lo que quiere el cliente, es ahí donde comienza la cadena de la falta de comunicación, y la falta de entendimiento del producto.
 
 #### Proceso de pruebas de software (Ciclo de vida del software)
+
+<img width="683" alt="Captura de Pantalla 2022-12-08 a la(s) 6 12 18 p m" src="https://user-images.githubusercontent.com/56992179/206593211-7c0df995-a03d-41d9-a554-e5d979543ede.png">
 
 - Si durante el Análisis, Diseño, Codificación, Pruebas, Validación, Mantenimiento o la liberación del software se sigue **sin entender qué quiere el cliente**, en cada una de las fases va a empezar a haber defectos.
 
@@ -117,20 +120,20 @@ La calidad es una percepción entre lo deseado, analizado y lo que vamos a entre
 
 #### Planificación estándar
 
-<img width="683" alt="Captura de Pantalla 2022-12-08 a la(s) 6 12 18 p m" src="https://user-images.githubusercontent.com/56992179/206593211-7c0df995-a03d-41d9-a554-e5d979543ede.png">
+<img width="684" alt="Captura de Pantalla 2022-12-08 a la(s) 6 11 54 p m" src="https://user-images.githubusercontent.com/56992179/206593233-d4d62855-d5a6-425d-82be-fe186ad3d0f2.png">
 
 #### Verificación y Validación
+
+<img width="683" alt="Verificación y Validación" src="https://user-images.githubusercontent.com/56992179/210323787-a343f799-1d2d-4259-99e0-15357c05d3ed.png">
 
 - Cuando uno va a través de estas etapas, se va revisando que la documentación cumpla para todos los del equipo, alguién se tiene que dar a la tarea para revisar cada uno de estos puntos. 
 
 - También hay reglas de negocio: Hay que hacer las pruebas para revisar esos requerimientos, también entonces hay que hacer pruebas a la documentación.
  - Para que esta documentación sea específica, sea clara, sea concreta para todos los demás.
 
-**Verificación**: Es ir en cada una de las etapas revisando que se cumpla que es lo que el cliente pidió.
+**Verificación**: Es ir en cada una de las etapas revisando que se cumpla que es lo que el cliente pidió (en el momento que ocurre).
 
-**Validación**: Es al final, antes de entregar al cliente, se valida que en el conjunto de todos los requerimientos, lo que se entrega, cumple.
-
-<img width="684" alt="Captura de Pantalla 2022-12-08 a la(s) 6 11 54 p m" src="https://user-images.githubusercontent.com/56992179/206593233-d4d62855-d5a6-425d-82be-fe186ad3d0f2.png">
+**Validación**: Es al final, antes de entregar al cliente, se valida que en el conjunto de todos los requerimientos, lo que se entrega, cumple (al final de todo el proceso).
 
 ####
 
