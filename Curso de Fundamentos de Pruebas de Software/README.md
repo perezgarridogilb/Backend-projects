@@ -159,3 +159,15 @@ Dificultad o incertidumbre experimentada por una o más personas, como resultado
  - Empezar a creer que los defectos no es la primera tarea, lo que hay que resolver realmente es el error humano, el error humano se da por falta de mejores practicas, por distracciones, por que la gente no está bien preparada, y bueno, así es, somos humanos, no somos perfectos.
 
 *Ya entendimos que es necesario definir un proceso que asegure un buen desarrollo del producto, que los estándares o herramientas implementadas deben ayudar a cubrir las métricas definidas para entonces evaluar si el producto tiene el porcentaje o grado de calidad esperado.*
+
+## Principios del testing moderno
+### 7 Principios del testing moderno
+*Los testers podemos comenzar a pasar de ser los dueños de las pruebas o la calidad, a ser los embajadores de la calidad del producto.*
+### 1. Nuestro prioridad es mejorar el negocio
+
+### 2. Nosotros aceleramos al equipo, usamos modelos como Lean Thinking y Teoría de las Restricciones para ayudar a identificar, priorizar y mitigar cuellos de botella en el sistema.
+
+### 3. Somos la fuerza para la mejora continua, ayudando al equipo a adaptarse y optimizar para tener éxito, en lugar de proporcionar una red de seguridad para detectar fallas.
+- Tener una distribución que nos permita manejar el riesgo del software
+
+
