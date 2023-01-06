@@ -108,7 +108,7 @@ La calidad es una percepción entre lo deseado, analizado y lo que vamos a entre
 
 <img width="684" alt="¿Qué es la calidad?" src="https://user-images.githubusercontent.com/56992179/206592343-bff9627e-3e41-4abd-811f-c5d60ae2fb02.png">
 
-- Los estándares de la IEEE forman parte de la documentación, y si la documentación, no tiene claro y especificado qué es lo que quiere el cliente, es ahí donde comienza la cadena de la falta de comunicación, y la falta de entendimiento del producto.
+- Los estándares de la IEEE forman parte de la documentación, y si la documentación, no tiene claro y especificado qué es lo que quiere el cliente, es de ahí donde comienza la cadena de la falta de comunicación, y la falta de entendimiento del producto.
 
 #### Proceso de pruebas de software (Ciclo de vida del software)
 
@@ -119,6 +119,11 @@ La calidad es una percepción entre lo deseado, analizado y lo que vamos a entre
 - Las pruebas no sólo están enfocadas a la parte de programar, (muchos esperan, hasta que yo ya tenga algo hecho tú puedes probar), no es así, la fase de análisis, aún sin la información del cliente, pero entendiendo qué es lo que quiere, uno puede hacer un benchmarking con otras empresas o con otros productos, y entonces permitan ir definiendo el producto deseado.
 
 #### Planificación estándar
+
+- Hay un momento para tener los requisitos, para hacer el diseño (ya sea de alto nivel como el login a grandes razgos o detallado como la infraestructura, cómo viajan los datos, lo cual es bajo nivel).
+
+- Codificación, Integración, y Pruebas.
+ - Hablaremos cuánto tiempo toma cada una de estas etapas (el tiempo que se extiende cada una de estas etapas).
 
 <img width="684" alt="Captura de Pantalla 2022-12-08 a la(s) 6 11 54 p m" src="https://user-images.githubusercontent.com/56992179/206593233-d4d62855-d5a6-425d-82be-fe186ad3d0f2.png">
 
@@ -163,14 +168,77 @@ Dificultad o incertidumbre experimentada por una o más personas, como resultado
 
 *Ya entendimos que es necesario definir un proceso que asegure un buen desarrollo del producto, que los estándares o herramientas implementadas deben ayudar a cubrir las métricas definidas para entonces evaluar si el producto tiene el porcentaje o grado de calidad esperado.*
 
-## Principios del testing moderno
+## Principios del testing moderno (o ágil)
 ### 7 Principios del testing moderno
 *Los testers podemos comenzar a pasar de ser los dueños de las pruebas o la calidad, a ser los embajadores de la calidad del producto.*
 ### 1. Nuestro prioridad es mejorar el negocio
+- Lo que se está haciendo es mejorar el negocio. El producto es lo que permite funcionar al negocio. Si el producto no se vende o el cliente no lo acepta, se cierra el proyecto, se cierra la empresa o uno es despedido. *No por el mal trabajo, sino porque no hay presupuesto para que se lleve a cabo*
 
 ### 2. Nosotros aceleramos al equipo, usamos modelos como Lean Thinking y Teoría de las Restricciones para ayudar a identificar, priorizar y mitigar cuellos de botella en el sistema.
+- Regularmente cuando queremos hacer algo lo queremos hacer perfecto, pero perfecto significa hacer mucho, incluso se cree que en el desarrollo de software se van a liberar diferentes versiones, con un proceso de iteraciones, se debe tener pensamientos, ideas, construir a través de procesos cortos, que permitan encontrar de forma más rápida los defectos, y en lugar de construir un software enorme, mejor empecemos a construir módulos de manera ágil y de esa forma, en lugar de que con el tiempo ya se tenga un producto terminado, y en ese punto se hagan las pruebas, pues simplemente errores de diseño, de arquitectura, cosas que no se habían considerado, los equipos deben ser lo suficientemente modulares, para que puedan trabajar, y hacer las pruebas de la manera más pequeña, a la parte más integral.
 
-### 3. Somos la fuerza para la mejora continua, ayudando al equipo a adaptarse y optimizar para tener éxito, en lugar de proporcionar una red de seguridad para detectar fallas.
-- Tener una distribución que nos permita manejar el riesgo del software
+### 3. Somos la fuerza para la mejora continua, ayudando al equipo a **adaptarse y optimizar** para tener éxito, en lugar de proporcionar una red de seguridad para detectar fallas.
+- Tener una distribución que nos permita manejar el riesgo del software.
+- Enfocar las pruebas por cada una de las fases.
+- Sin dejar todo al inicio o todo al final, sino hay que tener una distribución que nos permita manejar el riesgo del software.
+
+### 4. Nos preocupamos profundamente acerca de la cultura de calidad en el equipo, y asesoramos, lideramos y nutrimos el equipo para llevarlos a una cultura de calidad más madura.
+- Desde el inicio la calidad es la prioridad número uno, tener en cada una de sus aréas de trabajo, conceptos y mejores prácticas para que no se les olvide hacer un buen producto, de tener cuestiones muy técnicas, a tener una visión general de toda la empresa, y además dominar temas asociados a cada una de las aréas, no sólo desarrollo, sino también diseño, documentación, análisis de requerimientos, documentación técnica que se entrega al final al usuario (como guías de ayuda), el rol del tester es acompañar en todo el proceso y la política la calidad del producto.
+
+### 5. Nosotros creemos que el cliente es el único capaz de **juzgar y evaluar** la calidad de nuestro producto
+- La calidad del producto la determina el cliente, contractualmente entregando versiones funcionando, para la siguiente entrega entregar las partes que complementan el software, y en cada una de esas etapas el cliente se siente satisfecho.
+
+### 6. Nosotros usamos datos de manera extensa y profunda para entender los casos de uso del cliente y entonces cerrar huecos entre hipótesis del producto e impacto del negocio.
+- Muchos de esos errores se pueden empezar a ver solamente cuando los datos de prueba varían en todos los rangos de datos que pueden ser usados.
+
+### 7. Expandimos las habilidades de testing y el conocimiento en **todo el equipo**; entendemos que esto reduce o elimina la necesidad de un especialista dedicado al testing.
+- Tener toda la visión del negocio y del producto que nosotros queremos entregar.
+- Saber de herramientas que aceleren el trabajo tanto internamente, como la hora de la entrega hacia el cliente.
+
+## Siete principios
+- Debe haber alguien que liderié y haga el coatching, y que haga toda la política de calidad, no sólo uno como individuo es reesponsable, **todos son responsables**.
+
+<img width="690" alt="Captura de Pantalla 2023-01-04 a la(s) 3 27 43 p m" src="https://user-images.githubusercontent.com/56992179/210655850-ccda553b-d961-4614-9d91-812a38a591c4.png">
+
+## Especialidades del testing
+
+<img width="688" alt="Captura de Pantalla 2023-01-04 a la(s) 3 58 26 p m" src="https://user-images.githubusercontent.com/56992179/210657995-650bfa38-c443-4fbf-b8c2-42ca67dc99c0.png">
+
+Hay muchas especialidades a la hora de hablar de testing y cada una de ellas tiene diferentes funciones y perspectivas que se incluyen en diferentes fases del proceso.
+
+**Manual tester**: Nos ayuda a definir los casos de pruebas, establecer estrategias (planear y organizar). También ejecuta, pero lleva lo necesario para que **todos** sepan qué hacer.
+
+- Pensamiento lateral, piensa fuera de la caja con una nueva perspectiva, agrega nuevos casos de usos y entiende muy bien al usuario.
+
+**Automation tester**: Se encarga de agilizar, acelerar el trabajo y actividades que nos quitan la oportunidad de encontrar más casos de usos.
+
+- Conoce de programación, no solo de forma básica, debe conocer como crear diseños de frameworks y soluciones. El código crece y las pruebas también, darle ese mantenimiento a las pruebas es un problema común.
+- Organiza mejor sus planes, ideas, y estrategias.
+- Debe conocer herramientas que le permiten hacer mejor su trabajo (sin caer en tareas repetitivas).
+
+**Security tester**: Encargado para el área de seguridad. Debe ser alguien que aporte valor desde la perspectiva de la seguridad.
+
+- Protocolos, estándares, legalizaciones dependiendo de cada país y marca. Esta enfocado en prever ataques, virus, problemas de seguridad, acceso no autorizado. Profundizar en las técnicas y prácticas de seguridad.
+
+**Data science tester**: Con la manera en que crecen los datos en un proyecto, se necesita a alguien que los analice, agrupe y limpie estos datos.
+
+- Análisis y Limpieza de datos, no omite tener un set de pruebas amplio donde la variedad va a permitir detectar defectos inesperados. Esto puede ser clave para que los resultados no sean falsos positivos
+
+**SDET**: Es la combinacion de un desarrollador que ya sabe hacer pruebas. Con la diferencia de **automatiza y hace uso de herramientas que organizan la operación de la entrega de las pruebas**. Esta persona se asegura de que las pruebas se ejecuten antes de liberar el código.
+
+- El programador ahora sabe hacer pruebas y conoce de herramientas que le permite entregarlas de una manera automatizada.
+
+**DevOps**: Conoce todo lo anterior y domina el conocimiento de automatizar el proceso, se asegura de una entrega continua.
+
+- Una automatización de la operación, Entrega Continua. Donde se entregan de forma más rápida las nuevas versiones.
+
+**QA Engineer**: Quality Assurance. Esta enfocado en el producto y en el proceso.
+
+- Procesos de Calidad
+
+**QE**: Quality Engineer. Es como un coach, acompaña en las politicas de calidad en la empresa o equipo.
+
+- Soluciones de estrategias de calidad.
+- Todos son testers, por que el tester enfocado a ello se encarga de las políticas de calidad.
 
 
