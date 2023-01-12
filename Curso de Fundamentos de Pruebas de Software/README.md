@@ -241,4 +241,63 @@ Hay muchas especialidades a la hora de hablar de testing y cada una de ellas tie
 - Soluciones de estrategias de calidad.
 - Todos son testers, por que el tester enfocado a ello se encarga de las políticas de calidad.
 
+## Presupuesto, Recursos, Tiempo y Actividades Clave
 
+### Testing durante ciclo de vida del desarrollo de software
+
+#### Construcción del Software
+
+- Presupuesto
+ - Equipo
+ - Infraoestructura
+ - Recursos humanos
+
+Una mala planeación de todo lo que cubre el proyecto puede hacer que los costos se incrementen, que decidan cerrar el proyecto o simplemente se tarde más y el cliente decida no terminar de pagar o no llevar el proyecto con el equipo, y siempre buscar alguién más
+
+#### Actividades Clave de pruebas
+- Recursos
+- Tiempo
+
+
+#### Análisis
+- Suelen ser requerimientos muy generales
+- Ejemplo:
+ - El usuario puede iniciar sesión
+  1. ¿Qué debería hacer?
+   - Si se cumple -> mensaje
+   - No se cumple -> mensaje
+- Tratar de que no se vallan detalles que no están descritas o que almenos se están creyendo de manera implicíta   
+<img width="1278" alt="Análisis" src="https://user-images.githubusercontent.com/56992179/211951503-1e3aae46-67f1-4629-8f7d-344c79e24c14.png">
+
+#### Diseño
+
+Lo que buscamos establecer son los criterios visuales de lo que espera ver el cliente.
+ - Que hagan un match entre lo que se describió en los requerimientos y entre lo que se espera ver.
+ - Ejemplo:
+  - El usuario puede iniciar sesión
+   - Pantalla móvil
+    - Nombre -> ¿Cuántos carácteres?
+     - Si pone el nombre correcto. -> mensaje
+     - Si pone el nombre incorrecto. -> Número de veces -> mensajes
+     - ¿Además de letras puede aceptar simbólos?
+    - Apellido
+    - Botón enviar
+
+Deberíamos tratar visualizar cómo va lucir al final nuestro producto para que todos estemos deacuerdo, y trabajar codo a codo con el equipo, para que juntos podamos tener una mayor cantidad de ideas de que situaciones pueden pasar cuando el usuario está utilizando una aplicación, una página web o cualquier interfaz con las que interactua con el sistema.   
+
+<img width="1274" alt="Diseño" src="https://user-images.githubusercontent.com/56992179/211951519-88ec210f-d7b5-4e8b-a3b5-7e9caddeefd6.png">
+
+#### Código
+- Las pruebas pueden estar enfocadas a lo que se está construyendo.
+
+<img width="1280" alt="Captura de Pantalla 2023-01-11 a la(s) 7 44 47 p m" src="https://user-images.githubusercontent.com/56992179/211956168-918ceedb-3e84-46e4-9990-888abcfee4c8.png">
+
+#### Pruebas
+- Requerimientos.
+- Mockups.
+- Código.
+- Con esto reducimos de un 70% - 80% los errores que podrían ocurrir.
+
+Hacer pruebas de aceptación: Es el usuario final
+
+<img width="1280" alt="Pruebas" src="https://user-images.githubusercontent.com/56992179/211951536-37ad54eb-c6e3-4933-b2ab-ef7e35eba308.png">
