@@ -301,3 +301,5 @@ Deberíamos tratar visualizar cómo va lucir al final nuestro producto para que 
 Hacer pruebas de aceptación: Es el usuario final
 
 <img width="1280" alt="Pruebas" src="https://user-images.githubusercontent.com/56992179/211951536-37ad54eb-c6e3-4933-b2ab-ef7e35eba308.png">
+
+## Estrategia de pruebas
