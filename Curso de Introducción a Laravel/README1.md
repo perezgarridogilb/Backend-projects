@@ -26,7 +26,7 @@ xdebug.remote_autostart = 1
 ```
 
 ## Visual Studio Code
-
+These three files are the most important to modify (with nano, vim, etc.)
 ### settings.json
 
 ```

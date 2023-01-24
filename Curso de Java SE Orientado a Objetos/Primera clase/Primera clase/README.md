@@ -71,15 +71,19 @@ Analizar Objetos para crear Clases (Para abstraer su composición, y entonces ge
 **Famosa clase persona (Open CamelCase)**
 <img width="668" alt="Captura de Pantalla 2023-01-16 a la(s) 1 50 16 a m" src="https://user-images.githubusercontent.com/56992179/212624999-7528a062-cb28-4671-8618-bf8165ec4319.png">
 
-The workspace contains two folders by default, where:
+## Método constructor
+- Crea nuevas instancias de una clase.
+- Tiene el mismo nombre que la clase que inicializa.
+- Usa la palabra reservada new para invocarlo.
+- Usa cero o más argumentos contenidos dentro de los paréntesis que siguen al nombre.
+- No regresa un valor.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Static: Variables y Métodos Estáticos
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### Métodos static
+Utilizamos static para llamar una varible sin utilizar un objeto. En el otro caso utilizaremos los objetos para llamar métodos.
+- Se pueden usar en toda la clase.
+- Está definido por la palabra reservada **static**.
+- Puede ser accesado indicando el nombre de la clase, la notación punto, y el nombre del método.
+- Se invoca en una clase que no tiene instancias de la clase.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
