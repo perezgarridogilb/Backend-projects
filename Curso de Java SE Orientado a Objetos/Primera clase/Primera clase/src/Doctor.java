@@ -1,5 +1,6 @@
 public class Doctor {
-    int id;
+    //Atributos
+    static int id; //Autoincrement
     String name;
     String speciality;
 
