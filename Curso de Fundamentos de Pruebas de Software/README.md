@@ -303,3 +303,8 @@ Hacer pruebas de aceptación: Es el usuario final
 <img width="1280" alt="Pruebas" src="https://user-images.githubusercontent.com/56992179/211951536-37ad54eb-c6e3-4933-b2ab-ef7e35eba308.png">
 
 ## Estrategia de pruebas
+
+Las estrategias de prueba son aquellas que nos permiten conocer por donde comenzar. Por donde vamos a hacer las pruebas, planearlas, identificarlas. Para saber por donde comenzar podemos hacernos dos preguntas.
+
+- ¿Qué problemas tenemos actualmente?
+- ¿Qué problemas debemos evitar?
