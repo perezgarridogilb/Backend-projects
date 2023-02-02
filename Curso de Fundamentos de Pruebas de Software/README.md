@@ -303,8 +303,23 @@ Hacer pruebas de aceptación: Es el usuario final
 <img width="1280" alt="Pruebas" src="https://user-images.githubusercontent.com/56992179/211951536-37ad54eb-c6e3-4933-b2ab-ef7e35eba308.png">
 
 ## Estrategia de pruebas
+- Son aquellas que nos permiten donde comenzar, por donde vamos a hacer las pruebas, planearlas, identificarlas. No tener una buena cobertura pudiera acarrearnos problemas con nuestro prestigio.
+- Todos los testers, normalmente todo lo que piden, y necesitan saber es "por donde comenzar"
 
 Las estrategias de prueba son aquellas que nos permiten conocer por donde comenzar. Por donde vamos a hacer las pruebas, planearlas, identificarlas. Para saber por donde comenzar podemos hacernos dos preguntas.
 
 - ¿Qué problemas tenemos actualmente?
 - ¿Qué problemas debemos evitar?
+
+El software tiene muchos módulos, podíamos probar desde documentación, código, resultados de las pruebas, efectos, etcétera, pero cuando necesitamos resolver un problema de pruebas necesitamos resolver las anteriores preguntas.
+
+Definir la cantidad de pruebas que puede llegar a tener un plan.
+
+Escenarios y Contextos
+- Seguridad
+- Arquitectura
+- Perfomance
+- Usabilidad
+- Escalabilidad
+
+Ejemplo acerca de que vamos a resolver, qué estamos buscando encontrar:
