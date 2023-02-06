@@ -311,15 +311,81 @@ Las estrategias de prueba son aquellas que nos permiten conocer por donde comenz
 - ¿Qué problemas tenemos actualmente?
 - ¿Qué problemas debemos evitar?
 
-El software tiene muchos módulos, podíamos probar desde documentación, código, resultados de las pruebas, efectos, etcétera, pero cuando necesitamos resolver un problema de pruebas necesitamos resolver las anteriores preguntas.
+El software tiene muchos módulos, podíamos probar desde documentación, código, resultados de las pruebas, defectos, etcétera, pero cuando necesitamos resolver un problema de pruebas necesitamos resolver las anteriores preguntas.
 
 Definir la cantidad de pruebas que puede llegar a tener un plan.
 
-Escenarios y Contextos
+### Escenarios y Contextos
+Definición de la estrategia de pruebas (escenarios y variables), qué tan complejo es, si se está tratando de migrar, si se está tratando de preveer costos, si lo que queremos hacer es un modelo de trabajo para mejorar el producto, etcétera.
+
 - Seguridad
 - Arquitectura
 - Perfomance
 - Usabilidad
 - Escalabilidad
 
-Ejemplo acerca de que vamos a resolver, qué estamos buscando encontrar:
+Enlace: app.mindmup.com []para organizar ideas)
+
+Ejemplos para que podamos trabajar y definir una estructura lógica, y que nos muestre la variedad de pruebas que puede llegar a tener un plan
+
+Primer escenario
+Estrategia para pruebas de seguridad
+- ¿Dónde se nos ocurre que deberíamos hacer pruebas de seguridad?
+Antes de entrar en los casos de uso, vamos a entrar en los elementos que conforman esta estrategia
+- Plataformas
+- Sistemas Operativos
+- Accesos
+- Datos 
+- Reportes
+
+Las pruebas deberían de cubrir los cinco elementos anteriores
+
+Pruebas de seguridad a hacer:
+
+**Plataformas**:
+- Dispositivo móvil - Android
+- Reloj inteligente
+
+**Dispositivo móvil - Android**
+- Internet / sin internet
+
+**Reloj inteligente**
+- Conectado / sin conectar
+
+**Accesos**:
+- Administrador
+- Usuario final
+  - Premium
+  - Standard
+
+**Reportes (no accesados por todos)**:
+- A
+- B
+- C
+
+Establecer casos de uso o casos de negocio:
+- ¿Qué vamos a resolver, qué estamos buscando encontrar?
+  - Estableciendo casos de uso y casos de negocio.
+  - En la seguridad estamos tomando en cuenta los valores que son más importantes.
+
+<img width="719" alt="Captura de Pantalla 2023-02-06 a la(s) 2 19 18 a m" src="https://user-images.githubusercontent.com/56992179/216920973-f651880b-9526-46d0-a345-ed7da3e9bb16.png">
+
+- ¿Qué problema tenemos? (migración)
+  - Vamos a revisar los mismos casos de prueba anteriores, pero en circunstancias diferentes (en este caso mejorar el volumen).
+  - Mejorar el volumen, mejorar la velocidad.
+  - Nuestras pruebas estan enfocadas al objetivo del negocio.
+
+**Volumen**
+Si hicimos nuestra migración y lo que buscamos es que más usuarios, en este caso diez mil usuarios puedan hacer uso de nuestro software, estas son las pruebas principales, sin embargo, estas mismas características deben ser ejecutadas en todos los procesos que lleva el software.
+Por que es en este caso, el mismo usuario, se debe poder loggear en diferentes plataformas, pero a la misma cantidad de personas, en este caso van de 500 usuarios a 10,000 usuarios (todos deben tener la misma respuesta del servidor).
+- Estrategia, forma de organizar las ideas, lo importante es que funciones, para uno, y para el equipo
+
+<img width="709" alt="Captura de Pantalla 2023-02-06 a la(s) 2 23 20 a m" src="https://user-images.githubusercontent.com/56992179/216921063-e3fd0014-fcc6-4077-89ee-0f396bf1f215.png">
+
+## Testing en desarrollo de software
+**Testing**: Es la exploración de una idea, aprender como sucede el flujo, se generan datos, se llenan formularios. Esto y la exploración de pruebas nunca terminan, siempre hay nuevas formas de conocer cómo el usuario está usando el software
+
+Checking: Es cuando sabes qué esta pasando y te verificas que siga pasando. Como verificar una maleta antes de viajar para asegurarnos que guardamos todo.
+- Sólo se ejecutan si sucede algo.
+- Se ejecutan cada que... libero nuevo código o software.
+- Se ejecutan de manera programada.
