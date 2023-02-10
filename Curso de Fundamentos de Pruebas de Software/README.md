@@ -383,9 +383,68 @@ Por que es en este caso, el mismo usuario, se debe poder loggear en diferentes p
 <img width="709" alt="Captura de Pantalla 2023-02-06 a la(s) 2 23 20 a m" src="https://user-images.githubusercontent.com/56992179/216921063-e3fd0014-fcc6-4077-89ee-0f396bf1f215.png">
 
 ## Testing en desarrollo de software
-**Testing**: Es la exploración de una idea, aprender como sucede el flujo, se generan datos, se llenan formularios. Esto y la exploración de pruebas nunca terminan, siempre hay nuevas formas de conocer cómo el usuario está usando el software
+**Testing**: Es la exploración de una idea, aprender como sucede el flujo, se generan datos, se llenan formularios. Esto genera nuevos resultados. Esto y la exploración de pruebas nunca terminan, siempre hay nuevas formas de conocer cómo el usuario está usando el software
+- La primera vez que se empaca es como si estuvieramos haciendo testing, por que es la primera vez que exploramos los objetos que vamos a meter en la maleta.
 
-Checking: Es cuando sabes qué esta pasando y te verificas que siga pasando. Como verificar una maleta antes de viajar para asegurarnos que guardamos todo.
-- Sólo se ejecutan si sucede algo.
-- Se ejecutan cada que... libero nuevo código o software.
+**Checking**: Es cuando sabes qué esta pasando y te verificas que siga pasando. Como verificar una maleta antes de viajar para asegurarnos que guardamos todo.
+- Antes de salir de viaje revisamos un estado de cosas que queremos asegurarnos que siempre vallan ahí, que no se nos haya pasado ninguno de los objetos.
+- Nos ayuda a permitirnos organizar, asegurarnos que siempre sucedan las cosas, podemos asegurar está técnica en tres diferentes ocasiones.
+
+## 
+
+- **Sólo se ejecutan si sucede algo**.
+  - Cuando se libere nuevo código.
+  - O cada vez que libere software.
+  - Invariablemente qué libere quiero que se ejecuten todas las pruebas relacionadas al checking.
+
+- Se ejecutan cada que...
+  - Se ejecutan cada que... libero nuevo código o software (sería un checking programado).
+
 - Se ejecutan de manera programada.
+  - Cuando no se pueden ejecutar todas ellas por disponibilidad de hardware o recursos, no podemos ejecutar permanentemente todas las pruebas, así que algunas de ellas quedan programadas, sería un checking programado.
+
+### Errores comunes que hacemos durante la ejecución
+
+<img width="691" alt="Captura de Pantalla 2023-02-06 a la(s) 10 38 48 p m" src="https://user-images.githubusercontent.com/56992179/217180096-207f0a4d-022d-402c-ae30-d4041e2616b3.png">
+
+- Pruebas duplicadas.
+  - No sería lo más eficiente a la hora de estar creando un producto por que consume tiempo.
+  - En vez de comunicar al equipo que se está haciendo, muchas veces las pruebas son duplicadas, ya que se está invirtiendo el tiempo que ya alguien más lo está llevando a cabo.
+
+- Pruebas similares.
+  - Queremos estar creando pruebas que tienen que ver con el mismo flujo, queremos probrar que se quiere loggear, que se quiere loggear cuando es de otro país, loggear cuando el usuario está usando un correo erróneo, al final de cuenta son las mismas actividades, pero con una finalización diferente.
+  - No bien estructuradas, aprobechando el mismo código o scripting, genera, otra vez, más trabajo de ejecución.
+
+- Sin valor agregado
+  - Aquellas no asociadas al negocio, al menos no en ese momento (debe hacerse pensando en el negocio), se debe comenzar priorizando y eso va en base al negocio.
+
+- Pruebas caducadas.
+  - Parte de la naturaleza del software es que se van aumentando las capacidades, van cambiando de versión, lo mismo pasa cuando se implementa en otras plataformas, las pruebas pudieran estar caducando respecto a la tecnología que es empleada.
+
+Distinguir entre el testing y el checking, nos lleva a distingir entre la correcta automatización, uno de los principales problemas en relación con la automatización es que no hubo un buen plan de pruebas, una buena estrategia, por lo tanto, el código no estuvo correctamente optimizado.
+
+El testing automatizado es un testing repetitivo y automatizado.
+
+- Si se quiere buscar nuevos defectos o mejorar el software tiene que ser através de la exploración de las pruebas manuales, a menos que se tengan otra técnicas de automatización que se pueden ver en otros cursos.
+
+La automatización de pruebas consiste en el uso de software especial para controlar la ejecución de pruebas y la comparación entre los resultados obtenidos y los resultados esperados. Sin embargo, se trata de un **checking repetitivo y automatizado**.
+
+### Desventajas del checking mal empleado
+Finalmente las empresas deciden ir a la automatización de las pruebas cuando ellos creen que eso va a resolver las pruebas de acumulación de defectos, pero lo que de verdad sucede, es que las pruebas desde el incio tuvieron una pobre cobertura. 
+Por ejemplo se pueden crear 50 casos de uso y automatizarlos, pero, automatizarlos sólo es un checking repetitivo, se tendría que incrementar la cobertura de pruebas siempre que se quiere estar intuyendo nuevos escenarios.
+
+- Pobre cobertura de pruebas.
+- Falta de actualización.
+  - Conforme se van acumulando más y más pruebas, el labor del tester ya no es estar pruebas a automatización, si no que ya hay que darle mantenimiento a esos scripts que ha creado, por lo tanto, o el equipo crece o las pruebas se ven en riesgo por que ya no se está dedicando el mismo tiempo a la seguridad de la calidad
+- Mal manejo de versiones.
+  - Herramientas suficientes, esto es clave, (recursos, metodologías y herramientas), cuando no se sabe usar las herramientas o cuando no se sabe bien cómo está el proceso que eligieron para el desarrollo del software, todo el mundo comienza a crear sus propias versiones como de desarrollo como de pruebas.
+
+### Ventajas checking bien empleado.
+- Correr pruebas en paralelo o en múltiples plataformas.
+  - Si se tiene un software estable con pruebas estables, entonces se tiene la ventaja de probar de manera paralela en múltiples plataformas.
+- Reducción de error humano.
+  - Por que si ya se está ejecutando y si por alguna razón se omite alguna prueba, con la cobertura automatizada ya no sucede eso, aveces en equipos por omisión, vuelven a tener defectos, en puntos cruciales o en puntos que ya estaban probados.
+- Probar grandes cantidades de datos.
+  - Probar con un monton de datos es más fácil por medio de la automatización o del checking, por que finalmente sólo se va a cubrir un par de flujos del negocio, pero se necesita hacer con esta cantidad de datos y así reducimos el error humano y así lo podemos probar en múltiples plataformas.
+
+Por otro lado, cuando ya queremos hablar de **Integración continua y Liberación Continua**, entonces la **automatización** es la solución definitiva para la eficacia del equipo de desarrollo digital y equipos DevOps
