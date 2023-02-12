@@ -427,7 +427,7 @@ El testing automatizado es un testing repetitivo y automatizado.
 
 - Si se quiere buscar nuevos defectos o mejorar el software tiene que ser através de la exploración de las pruebas manuales, a menos que se tengan otra técnicas de automatización que se pueden ver en otros cursos.
 
-La automatización de pruebas consiste en el uso de software especial para controlar la ejecución de pruebas y la comparación entre los resultados obtenidos y los resultados esperados. Sin embargo, se trata de un **checking repetitivo y automatizado**.
+La automatización de pruebas consiste en el uso de **software especial** para controlar la ejecución de pruebas y la comparación entre los resultados obtenidos y los resultados esperados. Sin embargo, se trata de un **checking repetitivo y automatizado**.
 
 ### Desventajas del checking mal empleado
 Finalmente las empresas deciden ir a la automatización de las pruebas cuando ellos creen que eso va a resolver las pruebas de acumulación de defectos, pero lo que de verdad sucede, es que las pruebas desde el incio tuvieron una pobre cobertura. 
@@ -435,7 +435,7 @@ Por ejemplo se pueden crear 50 casos de uso y automatizarlos, pero, automatizarl
 
 - Pobre cobertura de pruebas.
 - Falta de actualización.
-  - Conforme se van acumulando más y más pruebas, el labor del tester ya no es estar pruebas a automatización, si no que ya hay que darle mantenimiento a esos scripts que ha creado, por lo tanto, o el equipo crece o las pruebas se ven en riesgo por que ya no se está dedicando el mismo tiempo a la seguridad de la calidad
+  - Conforme se van acumulando más y más pruebas, el labor del tester ya no es estar pruebas a automatización, si no que ya hay que darle mantenimiento a esos scripts que ha creado, por lo tanto, o el equipo crece o las pruebas se ven en riesgo por que ya no se está dedicando el mismo tiempo a la seguridad de la calidad.
 - Mal manejo de versiones.
   - Herramientas suficientes, esto es clave, (recursos, metodologías y herramientas), cuando no se sabe usar las herramientas o cuando no se sabe bien cómo está el proceso que eligieron para el desarrollo del software, todo el mundo comienza a crear sus propias versiones como de desarrollo como de pruebas.
 
@@ -447,4 +447,34 @@ Por ejemplo se pueden crear 50 casos de uso y automatizarlos, pero, automatizarl
 - Probar grandes cantidades de datos.
   - Probar con un monton de datos es más fácil por medio de la automatización o del checking, por que finalmente sólo se va a cubrir un par de flujos del negocio, pero se necesita hacer con esta cantidad de datos y así reducimos el error humano y así lo podemos probar en múltiples plataformas.
 
-Por otro lado, cuando ya queremos hablar de **Integración continua y Liberación Continua**, entonces la **automatización** es la solución definitiva para la eficacia del equipo de desarrollo digital y equipos DevOps
+Por otro lado, cuando ya queremos hablar de **Integración continua y Liberación Continua**, entonces la **automatización** es la solución definitiva para la eficacia del equipo de desarrollo digital y equipos DevOps.
+- Tareas que no cambian.
+
+## Testing ágil
+Involucra a todos, no solo en al tester, todos en el equipo son tester. La persona con este rol se asegura de la mayor cobertura de pruebas tomando en cuenta todas las necesidades que cada uno de los miembros del equipo también esta intentando hacer que funcione. El tester tiene que definir si se esta cumpliendo con los requerimientos funciones y los del equipo.
+
+Ejemplo: El diseñador está pensando en la distribución de los elementos, el tester en sus pruebas también debería incluir un testing visual que cubra todos esos requerimientos, por que finalmente, si el diseñador, no alcanza a ver cómo sucedió el diseño final, y el programador no observa esos cambios que pidió o estableció el diseñador, el último en la fase de pruebas es el tester, es el que tiene que definir si está cumpliendo, no sólo con los requerimientos funcionales, con los de cada uno del equipo. 
+
+### Estrategias Ágiles:
+Abarcaría no sólo la forma de trabajar, sino la estrategia de llevar el proceso, de documentar, cómo queremos que este proceso valla entregando de manera efectiva al cliente.
+- El testing es de ““todo el equipo””.
+  - Esto forma parte de los principios del testing moderno.
+- El testing puede ser independiente.
+  - Todos son testers, pero también podemos tener un tester asignado para hacer pruebas adicionales.
+- Integración continua.
+  - Cada vez que alguien haga un cambio, este intentando agregar un nuevo servicio, un nuevo módulo, una nueva función, todas las pruebas que corresponden al código ya liberado también se ejecuten de manera automatizada.
+Estrategias o frameworks que van en función de cómo van desarrollándose las pruebas respecto al código (como tester se va a probar el código hasta que todas las pruebas pasen, empezamos a definir el producto en base a las pruebas que deberían ser cubiertas con el código):  
+- Testing guiado por pruebas (Test Driven Development).
+- Desarrollo guiado por comportamiento (Behaviour Driven Development).
+- Desarrollo guiado por las pruebas de aceptación (Acceptance Test Driven Development).
+
+### Ejemplo (Aplicación Web)
+
+- Sesión de Usuario
+  - Nueva característica: El usuario puede agregar foto a su perfil.
+
+- Testing agil: Las pruebas parten de escuchar a todo el equipo y entender los requerimientos de cada uno.
+- El tester tiene que aportar su visión y ver cómo va a trabajar para proponer desde el inicio cuáles son las pruebas que el desarrollador y el product manager van a aceptar como criterio de salida para saber que ese código ha sido finalizado y puede ser integrado con las demás partes del software.
+
+Como estrategia de pruebas se usó componentes e integraciones.
+
