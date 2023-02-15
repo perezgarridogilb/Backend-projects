@@ -478,3 +478,19 @@ Estrategias o frameworks que van en función de cómo van desarrollándose las p
 
 Como estrategia de pruebas se usó componentes e integraciones.
 
+![Captura de Pantalla 2023-02-11 a la(s) 11 23 57 p m](https://user-images.githubusercontent.com/56992179/218295278-8ec3d35c-84ad-4e18-8989-5a55868b6a46.jpg)
+
+## Niveles de pruebas
+- Pruebas de Componentes
+Son aquellas cosas pequeñas que se pueden ver, ya sea cuando se está viendo un video, el botón de siga, de continuar, de pausa o cuando se está en una red social (darle like), sólo con estas acciones ya son componentes.
+También hay componentes que son de formularios, formularios como poner el nombre, darle click a un botón, ver una lista, un combo box, todos esos son componentes, por que las pruebas que podemos hacer ahí no tienen que ver con todo el flujo (un nombre que puede contener como mucho 30 carácteres, que sólo se pueden insertar carácteres, que no se puede ir vacío el campo, que no se puede ir vacío el campo siendo que es obligatorio, que no se pueden ingresar números).
+  - Sólo este componente tiene varias especificaciones, más adelante se entra a las pruebas dependiendo a la aréa en la que se está.
+  - En este caso para entender la dimensión de las pruebas, estamos hablando del componente.
+- Pruebas de Integración
+Una página, un sistema o una aplicación tiene una serie de componentes que trabajando juntos son un pequeño sistema, cuando tenemos varios sistemas juntos, necesitamos que se integren, un componente podría ser el botón con el que se clickea **comprar**, un sistema sería el **catálogo** de productos que se ofrecen en esa página web, otro sistema puede ser cómo **loggear** el usuario y tener una sesión para que todos los cambios y compras que se hagan se queden **almacenados**.
+  - Las pruebas de integración lo que hacen es como del inicio hasta el final de un flujo de negocio todos los componentes se comunican, se integran, cómo entran los datos y salen los datos.
+- Pruebas de Sistema
+Incluye que se está tomando en cuenta el contexto, no es lo mismo, tener estas mismas pruebas de inicio a final para distintos dispositivos.
+
+- Pruebas de Aceptación
+Asegurarnos (con o sin el cliente) que el cliente está teniendo todas las necesidades que solicitó, que debe ser cubierto en ese software, siempre puede existir el error humano incluso desde el análisis de requerimiento
