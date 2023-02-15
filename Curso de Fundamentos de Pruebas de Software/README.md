@@ -494,3 +494,20 @@ Incluye que se está tomando en cuenta el contexto, no es lo mismo, tener estas 
 
 - Pruebas de Aceptación
 Asegurarnos (con o sin el cliente) que el cliente está teniendo todas las necesidades que solicitó, que debe ser cubierto en ese software, siempre puede existir el error humano incluso desde el análisis de requerimiento
+
+## Tipos de Pruebas
+Son las técnicas que vamos a emplear para tratar de encontrar los defectos.
+Grupo de actividades específicas que vamos a realizar, esto basado en objetivos.
+
+**Pruebas funcionales**: Es lo que distinguimos de cómo funciona un sistema, qué debe estar haciendo, cómo interactua el usuario con él. El usuario debe poder ingresar datos, verlos, darle click a los botones, ya sea de un formulario, darle siguiente, darle volver, si tiene checkboxes, que pueda funcionar...
+- Sen entiende como las Funcionalidades del Sistema como "lo que el sistema hace". 
+
+**Pruebas no-funcionales**: También puede estar experimentando otro tipo de actividades como no ver, o no leer, todas estas características de usabilidad, de accesibilidad, la parte visual y de perfomance están asociadas a las pruebas no funcionales.
+- El objetivo de esta es probar "cómo funciona el sistema".
+
+**Pruebas Estructurales (o de caja blanca)**: Ya se tiene definido cómo se va a usar la aplicación, que ya se tiene ese diseño, pero también se necesita asegurar que funcione bien la Base de Datos, que el servidor donde se tiene hospedado el software funcione adecuadamente a las necesidades. Estamos viendo qué hay dentro del software, qué se está armando, las funcionales y no funcionales eran más de caja negra, pudieras no conocer su arquitectura y aún así se pueden probar y tener la experiencia de uso.
+- Para poder llevar a cabo estas pruebas, normalmente el tester debe tener conocimientos acerca de la tecnología y el stack que se está empleando.
+
+**Pruebas de manejo de cambios**: Vamos a verificar un software en diferentes **capas**, pero también en diferentes **situaciones**, tal vez después de que se arregló un defecto sea necesario revisar nuevamente el software, ya sea corriendo pruebas de regresión o simplemente se ha implementado un nuevo cambio y es necesario que todo el sistema funciona acorde a lo que se ha cambiado, estas pruebas son de diferentes técnicas, por ejemplo, si estamos haciendo pruebas de regresión e impacta no sólo un componente, sino todo un flujo, tendríamos la combinación de que el nivel de pruebas es de nivel de componente, nivel de sistema, nivel de integración.
+- Es probar nuevamente un componente ya probado para verificar que no ha sido impactado por actualizaciones.
+**- Pruebas estáticas y dinámicas.**
