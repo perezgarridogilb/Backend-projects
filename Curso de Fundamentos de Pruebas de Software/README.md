@@ -510,4 +510,66 @@ Grupo de actividades específicas que vamos a realizar, esto basado en objetivos
 
 **Pruebas de manejo de cambios**: Vamos a verificar un software en diferentes **capas**, pero también en diferentes **situaciones**, tal vez después de que se arregló un defecto sea necesario revisar nuevamente el software, ya sea corriendo pruebas de regresión o simplemente se ha implementado un nuevo cambio y es necesario que todo el sistema funciona acorde a lo que se ha cambiado, estas pruebas son de diferentes técnicas, por ejemplo, si estamos haciendo pruebas de regresión e impacta no sólo un componente, sino todo un flujo, tendríamos la combinación de que el nivel de pruebas es de nivel de componente, nivel de sistema, nivel de integración.
 - Es probar nuevamente un componente ya probado para verificar que no ha sido impactado por actualizaciones.
-**- Pruebas estáticas y dinámicas.**
+
+## Pruebas estáticas y dinámicas
+Se espera que el tester siempre esté ejecutando pruebas, pero muchas veces las **pruebas estáticas** no son consideradas durante el desarrollo porque las pruebas estáticas incluyen que se esté leyendo documentación, analizando el software, comparando, haciendo un planteamiento o incluso diseñando el plan de pruebas.
+- **Pruebas dinámicas**: **Las pruebas dinámicas se enfocan** principalmente en comportamientos externos visibles durante la ejecución del software.
+- Demuestran en la parte de ejecución cómo está funcionando el software.
+
+- Pruebas estáticas: **Las pruebas estáticas** se basan en la examinación manual de los elementos que conforman la construcción del software.
+- Examinación manual de documentación, de guías y de todo aquel material que no necesariamente es de ejecución del sotfware.
+
+### ¿Qué son los elementos?
+- Contratos, planes, calendario del proyecto, así como su presupuesto.
+- El análisis de requerimientos.
+- Especificaciones o reglas de negocio
+  - Técnicos
+  - Seguridad (participa otro tester regularmente)
+
+El tester siempre debe estar cuestionando cada vez que encuentre información con la que el desarrollador está construyendo.
+
+El desarrollador asume que toda la información que le proporcionan es la correcta y es la que debe de hacer.
+
+La visión del tester debe portar un análisis crítico entre lo que pide el cliente, entre lo que se puede contruir y entre lo que se está construyendo si todo está siendo desarrollado de manera armoniosa y al final es lo que al final se va a poder entregar a un cliente.
+
+**Lo importante es que se tenga la cobertura**:
+En las pruebas estáticas y dinámicas muchas veces tenemos información que todavía está en papel, aún no la es.
+
+### ¿Qué son los elementos?
+- Las definiciones de 
+  - Historias del usuario
+  - Criterios de Aceptación
+  - Mockups
+- El diseño de la arquitectura
+  - Versiones e iteraciones dentro de las actualizaciones y especificaciones que recibe un software.
+- Las pruebas (Testware), puntos de verificación CI
+  - Guardar pruebas que se van acumulando, identificadas para reducir el tiempo de donde enfocar el esfuerzo y donde encontrar nuevos defectos (por que ya se tiene el conocimiento de la prioridad o pruebas clave)
+- Guías de usuario
+  - Conforme va cambiando la versión del software no está actualizada
+  - La guia de usuario al entregarla al usuario es la promesa de venta 
+  - Se espera que exactamente eso suceda en el software
+  - Las guías de usuario deben ser revisadas con regularidad, para estar seguros de que, entre lo que percibe el usuario, entre lo que ve la guía y dentro de lo que se está desarrollando valla todo alineado
+- Evaluación/revisión del código
+  - Cuando se tiene tiempo, se pueden tener las mejores prácticas
+  - Los errores aparecen por no dar continua evaluación por la facilidad conforme el tiempo
+
+### Beneficios (pruebas estáticas ya que la mayoría de errores se da en el análisis / diseño del software)
+- Detectar y corregir defectos de manera más eficiente
+- Identificar y priorizar la ejecución de pruebas en etapas posteriores
+- Prevenir defectos
+  - Que no son fácilmente detectables durante las pruebas dinámicas
+  - Durante la etapa de análisis y diseño   
+
+### Beneficios
+- Cubrir aspectos como:
+  - Insconsistencias, ambiguedades, contradicciones, definiciones inexactas, requerimientos redundantes (muchas veces la obviedad es la razón por que se están introducciendo defectos)
+
+- Reducir el retrabajo e incrementar la productividad (todos van a pasar por una fase de análisis, de entendimiento, si no compartimos la información estamos provocando retrabajo, al compartir la información reducimos tiempo, costos, se deja enfocar a producir un producto con mejor calidad, lo importante es comunicarse para que todos estén trabajando en sintonía)
+- Reducir el costo y el tiempo
+- Mejorando la comunicación entre todos los miembros del equipo    
+
+
+**Pruebas estáticas**:
+
+- Leyendo documentación, analizando el software, comparando.
+
