@@ -516,7 +516,7 @@ Se espera que el tester siempre esté ejecutando pruebas, pero muchas veces las 
 - **Pruebas dinámicas**: **Las pruebas dinámicas se enfocan** principalmente en comportamientos externos visibles durante la ejecución del software.
 - Demuestran en la parte de ejecución cómo está funcionando el software.
 
-- Pruebas estáticas: **Las pruebas estáticas** se basan en la examinación manual de los elementos que conforman la construcción del software.
+- **Pruebas estáticas**: **Las pruebas estáticas** se basan en la examinación manual de los elementos que conforman la construcción del software.
 - Examinación manual de documentación, de guías y de todo aquel material que no necesariamente es de ejecución del sotfware.
 
 ### ¿Qué son los elementos?
@@ -526,14 +526,19 @@ Se espera que el tester siempre esté ejecutando pruebas, pero muchas veces las 
   - Técnicos
   - Seguridad (participa otro tester regularmente)
 
+##
+
 El tester siempre debe estar cuestionando cada vez que encuentre información con la que el desarrollador está construyendo.
 
 El desarrollador asume que toda la información que le proporcionan es la correcta y es la que debe de hacer.
 
 La visión del tester debe portar un análisis crítico entre lo que pide el cliente, entre lo que se puede contruir y entre lo que se está construyendo si todo está siendo desarrollado de manera armoniosa y al final es lo que al final se va a poder entregar a un cliente.
 
+##
+
 **Lo importante es que se tenga la cobertura**:
-En las pruebas estáticas y dinámicas muchas veces tenemos información que todavía está en papel, aún no la es.
+En las pruebas estáticas y dinámicas muchas veces tenemos información que todavía está en papel, aún no la estamos ejecutando.
+  - Ejemplo: Estamos en una junta de equipo discutiendo el nuevo elemento que se va a construir y apenas estamos en la definición...
 
 ### ¿Qué son los elementos?
 - Las definiciones de 
@@ -541,7 +546,7 @@ En las pruebas estáticas y dinámicas muchas veces tenemos información que tod
   - Criterios de Aceptación
   - Mockups
 - El diseño de la arquitectura
-  - Versiones e iteraciones dentro de las actualizaciones y especificaciones que recibe un software.
+  - Versiones e iteraciones dentro de las actualizaciones y especificaciones que recibe un software
 - Las pruebas (Testware), puntos de verificación CI
   - Guardar pruebas que se van acumulando, identificadas para reducir el tiempo de donde enfocar el esfuerzo y donde encontrar nuevos defectos (por que ya se tiene el conocimiento de la prioridad o pruebas clave)
 - Guías de usuario
@@ -553,7 +558,7 @@ En las pruebas estáticas y dinámicas muchas veces tenemos información que tod
   - Cuando se tiene tiempo, se pueden tener las mejores prácticas
   - Los errores aparecen por no dar continua evaluación por la facilidad conforme el tiempo
 
-### Beneficios (pruebas estáticas ya que la mayoría de errores se da en el análisis / diseño del software)
+### Beneficios (pruebas estáticas ya que el 68% o la mayoría de errores se da en el análisis / diseño del software)
 - Detectar y corregir defectos de manera más eficiente
 - Identificar y priorizar la ejecución de pruebas en etapas posteriores
 - Prevenir defectos
@@ -573,3 +578,48 @@ En las pruebas estáticas y dinámicas muchas veces tenemos información que tod
 
 - Leyendo documentación, analizando el software, comparando.
 
+## Definición y diseño de pruebas
+
+Esto es algo básico para cada tester. Hay varias cosas necesarias que debemos comprender y estar seguros de para qué lo hacemos.
+
+Tu obligación y por lo que vas a brillar es porque sabes Encontrar Problemas, Documentarlos y Comunicarlos. 
+
+**¿Qué hace un tester?**
+1. Encontrar problemas
+2. Documentar problemas
+3. Comunicar problemas
+
+**Aplicación con GPS**
+Con internet, en una ciudad con todos los servicios funciona correctamente.
+
+Si no encuentra problemas antes de que el producto sea entregado el cliente, enconces su testing es ineficiente.
+- Aplicar en otros casos
+
+Si cuando encuentra problemas no sabe documentar y producir los pasos correctos, su testing genera retrabajo y sube el costo.
+
+Si como representante de la calidad del producto no sabe argumentar y proteger los intereses del negocio o clientes, entonces su testing no agrega valor
+- Por qué algo se convierte en un defecto, cuando hablamos de la planeación de pruebas, necesitamos saber por qué esa ejecución de pruebas sea clara para todos, que pueda llegar cualquiera del equipo y lea el trabajo y sepa que lo que se está haciendo cubre el plan de pruebas, la matriz de pruebas y/o las expectativas del cliente.
+
+Es crucial documentar, diseñar y nuestros casos de prueba contengan la información necesaria para que se entienda el trabajo.
+
+## Caja Blanca, Gris y Negra
+
+Cuando no estamos refiriendo a una caja es la manera de observar el contenido de software.
+
+Negra: No podemos observar cómo fue construida, no vemos el código, no sabemos su arquitectura, no tenemos nociones más que la interfaz que estamos interactuando.
+
+- Partición de equivalencia
+- Valores límite
+- Tabla de decisiones
+- Transición de estados
+- Casos de usos
+
+Blanca: Es como una caja de cristal, puedo ver todo lo que hay adentro e incluso puedo ser parte del equipo que desarrolla el software.
+
+Cobertura de declaración
+Cobertura de decisiones
+Gris: Pueden ser la integraciones, cómo fluye el código y puedo ver como se transmiten los datos a través de las redes.
+
+Casos de negocios
+Pruebas End-to-End
+Pruebas de integración
