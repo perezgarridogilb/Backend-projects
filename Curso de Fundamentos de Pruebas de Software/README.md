@@ -604,22 +604,27 @@ Es crucial documentar, diseñar y nuestros casos de prueba contengan la informac
 
 ## Caja Blanca, Gris y Negra
 
-Cuando no estamos refiriendo a una caja es la manera de observar el contenido de software.
+Cuando no estamos refiriendo a una caja **es la manera de observar el contenido de software**.
 
-Negra: No podemos observar cómo fue construida, no vemos el código, no sabemos su arquitectura, no tenemos nociones más que la interfaz que estamos interactuando.
+**Negra**: No podemos observar cómo fue construida, no vemos el código, no sabemos su arquitectura, no tenemos nociones **más que la interfaz que estamos interactuando**.
 
-- Partición de equivalencia
-- Valores límite
-- Tabla de decisiones
-- Transición de estados
-- Casos de usos
+- Partición de equivalencia (Primer conjunto de datos para datos exitosos y datos no exitosos)
+- Valores límite (límite de dígitos)
+- Tabla de decisiones (checkboxes, listas)
+- Transición de estados (cómo el componente se comporta, si el video está en pausa, si está en play, si está detenido, adelantando, regresando)
+- Casos de usos (probar en la interfaz que el usuario pueda enviar el formulario y enviarlo, que el usuario pueda llenar el formulario y que todos los campos son obligatorios, no puede pasar a la siguiente parte si no completa)
 
-Blanca: Es como una caja de cristal, puedo ver todo lo que hay adentro e incluso puedo ser parte del equipo que desarrolla el software.
+**Blanca**: Es como una caja de cristal, **puedo ver todo lo que hay adentro e incluso puedo ser parte del equipo que desarrolla el software**.
+  - Aveces las pruebas de caja negra se decide que las haga una tercera parte u otra empresa que no esté involucrada y que no conozca el software ya que cuando uno está muy involucrado desarrollando algo comienza a tener cegera de taller (ya no ve esos defectos, ya no ve esos detalles, se empiezan a omitir actividades por lo que es más fácil que llegue alguien adicional al equipo que está desarrollando el software y tenga una nueva perspectiva de que pueda encontrar ahí) 
 
-Cobertura de declaración
-Cobertura de decisiones
-Gris: Pueden ser la integraciones, cómo fluye el código y puedo ver como se transmiten los datos a través de las redes.
+- Cobertura de declaración
+  - Todo lo que se tiene dentro del código y lo que se está asumiendo que se pide que se haga y al decir cobertura es, dependiendo el tipo del software, los requerimientos, el objetivo, se establece un porcentaje de cobertura, significa que cada línea de código debe ser ejecutada al menos una vez, cada 
+- Cobertura de decisiones
 
-Casos de negocios
-Pruebas End-to-End
-Pruebas de integración
+**Gris**: Pueden ser la integraciones, cómo fluye el código y puedo ver como se transmiten los datos a través de las redes.
+  - Los datos como fluyen de un lugar a otro
+  - No se conoce el código, no hay una interfaz, pero se está viendo cómo se trasmiten los datos a través de las redes
+
+- Casos de negocios
+- Pruebas End-to-End
+- Pruebas de integración
