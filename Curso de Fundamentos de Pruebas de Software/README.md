@@ -618,13 +618,21 @@ Cuando no estamos refiriendo a una caja **es la manera de observar el contenido 
   - Aveces las pruebas de caja negra se decide que las haga una tercera parte u otra empresa que no esté involucrada y que no conozca el software ya que cuando uno está muy involucrado desarrollando algo comienza a tener cegera de taller (ya no ve esos defectos, ya no ve esos detalles, se empiezan a omitir actividades por lo que es más fácil que llegue alguien adicional al equipo que está desarrollando el software y tenga una nueva perspectiva de que pueda encontrar ahí) 
 
 - Cobertura de declaración
-  - Todo lo que se tiene dentro del código y lo que se está asumiendo que se pide que se haga y al decir cobertura es, dependiendo el tipo del software, los requerimientos, el objetivo, se establece un porcentaje de cobertura, significa que cada línea de código debe ser ejecutada al menos una vez, cada 
-- Cobertura de decisiones
+  - Todo lo que se tiene dentro del código y lo que se está asumiendo que se pide que se haga y al decir cobertura es, dependiendo el tipo del software, los requerimientos, el objetivo, se establece un porcentaje de cobertura, significa que cada línea de código debe ser ejecutada al menos una vez, cada sentencia debería de ejecutarse alguna vez y entonces para decir que se va a liberar el código o se va a pasar de pruebas a producción, es por que hay una cobertura de cierto porcentaje
+
+- Cobertura de código
+  - Sentencias
+  - Desiciones
+  - Condiciones
 
 **Gris**: Pueden ser la integraciones, cómo fluye el código y puedo ver como se transmiten los datos a través de las redes.
   - Los datos como fluyen de un lugar a otro
   - No se conoce el código, no hay una interfaz, pero se está viendo cómo se trasmiten los datos a través de las redes
 
-- Casos de negocios
-- Pruebas End-to-End
-- Pruebas de integración
+- Casos de negocios: Datos entrada y salida
+- Pruebas End-to-End: Dato de entrada que se visualiza en otro lado y no necesariamente es un caso de negocio
+  - Caso de negocio es que el usuario final pueda hacer uso de la herramienta, mientras que eso pueda ser parte del administrador del sitio
+- Pruebas de integración: Cómo viajan esos datos
+
+En medio estan datos, servicios, microservicios, en las pruebas de caja gris están implicando que vamos a ver los casos de negocio
+<img width="1280" alt="Captura de Pantalla 2023-03-01 a la(s) 11 44 57 p m" src="https://user-images.githubusercontent.com/56992179/222342002-aecb6038-56bb-4f0a-a2c4-5e2aa4088d24.png">
