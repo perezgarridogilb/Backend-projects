@@ -636,3 +636,87 @@ Cuando no estamos refiriendo a una caja **es la manera de observar el contenido 
 
 En medio estan datos, servicios, microservicios, en las pruebas de caja gris están implicando que vamos a ver los casos de negocio
 <img width="1280" alt="Captura de Pantalla 2023-03-01 a la(s) 11 44 57 p m" src="https://user-images.githubusercontent.com/56992179/222342002-aecb6038-56bb-4f0a-a2c4-5e2aa4088d24.png">
+
+## Gestión de Pruebas:
+
+Aunque parezca obvio que es necesario **gestionar nuestro trabajo y darle seguimiento a las pruebas y ejecución**, hay estudios que demuestran que el 30% de las empresas no logran hacer esto exitosamente.
+
+**Planeación de pruebas**: Definir los objetivos de las pruebas es muy importante, al no tener una estrategia clara termina causando una pobre cobertura de pruebas. **Los elementos a considerar para una buena planeación son la estimación, recursos, el alcance y objetivo**.
+
+## 
+
+Definición de Objetivos de las pruebas, alcance de las mismas, las técnicas de pruebas que se llevarán, junto con la estimación y definición de fechas de entrega, así como los criterios de salida.
+
+Cuando no se tiene una buena cobertura de pruebas de cómo se va a planear o cómo se va a hacer, esto termina siendo en una muy pobre cobertura de pruebas, **es ahí donde la planeación toma importancia**.
+
+**Monitoreo y Control**: Durante el monitoreo lo que estamos buscando son esas métricas que nos digan si estamos llevando avances o tenemos retrasos. Son nuestras alertas cuando nuestro plan no se esta ejecutando.
+
+## 
+
+Durante el Monitoreo se va midiendo y comparando los resultados de las métricas, y entonces durante el CONTROL se toman acciones para alcanzar el objetivo del plan y los criterios de salida.
+
+Estamos buscando esas métricas que nos revelen que estamos llevando **avances**, o que tenemos un **retraso**, es la forma que nos va a **alertar** cuando nuestro plan no está sucediendo a cabo.
+
+- Ejemplo: Llega el punto donde estamos por terminar nuestro trabajo, no han terminado los demás y somos el lider de pruebas resulta riesgoso para el negocio, para el negocio, para el negocio, que los demás no adviertan, que no más recursos, sino otras manos para trabajar, que no se va a cumplir el objetivo, quedando esto, mal ante el cliente. Cuando se hace el monitoreo de pruebas es mejor colocar metricas o banderas que nos indiquen cuando algo se está saliendo dentro del tiempo indicado dada la planeación.
+
+**Análisis**: **Incluye decidir cuáles son esas prioridades** que nos ayudará a definir qué debemos probar.
+
+## 
+
+Cuando estamos analizando las pruebas para nuestro proyecto, necesitamos determinar qué debemos probar, obviamente basados en las prioridades de cobertura.
+
+- Ejemplo: Cuando se esté enfocado sino en pruebas de seguridad o pruebas funcionales, quizás alguien nos puede decir que quiere que probemos un sitio donde quiere que incrementemos el volumen de tráfico de usuarios, entonces las pruebas deben ser diferentes y enfocadas a resolver esa situación.
+
+**Diseño**: Normalmente cuándo estas iniciando las pruebas es necesario crear un mapa de ideas. Después de esto, puedes realizar el diseño a detalle de qué va a incluir cada caso de uso. Casos de alto nivel, diseñar y priorizar pruebas, identificar el entorno de pruebas, hacer una trazabilidad entre pruebas y sus
+condiciones.
+
+## 
+
+- Diseño de casos de alto nivel
+- Diseñar y priorizar las pruebas
+- Identificar el entorno de pruebas - infraestructura y herramientas
+- Hacer una trazabilidad entre pruebas y sus condiciones
+  - Hacer una trazabilidad entre los casos de uso, los requerimientos tanto funcionales, técnicos o de diseño. Entre los requerimientos de un catálogo en un ecommerce, el cliente solicita el catálogo de X productos, entonces se tienen cuestionamientos para las pruebas como: ¿Cuántos de estos productos se pueden vender al mismo tiempo en una página? o si todos los productos deben de caber dentro de la página, ¿Cuántas veces podemos pasar entre una página y otra?, volver, regresar, si va haber botones, si va haber una flechita que sea como un enlace, etcétera. 
+  - También, entre los requerimientos que debemos tener en nuestro diseño de pruebas son referentes a **especificaciones**, ya sea de negocio, funcionales, de sistema, historias del usuario, casos de uso, así como tener información referente al diseño, su implementación, arquitectura, plataformas, así como el stack de desarrollo, como lo puede ser el código, Base de Datos, metadata, querys, en general todo lo que implique información que nos ayude a tener una cobertura exitosa.
+
+- Ejemplo: Validar la edad, lo que se hace es poner rangos desde la edad cero hasta el límite de edad. O donde hay una condición donde debe ser mayor de 18 años, también es otra forma de validar, uno esperaría que si el cliente es el valor 17, 16, cero, uno, decimales, no debería ser un caso válido, **de aquí se derivan varios casos de uso** con el mismo tipo de descripción, simplemente estamos usando diferentes valores.
+
+**Implementación**: También nos aseguramos de contar con la estructura necesaria para realizar las pruebas, con un ambiente, datos y dónde documentar o realizar las pruebas.
+
+##
+
+Para poder prepararnos para hacer las pruebas, primero tenemos que asegurarnos que tenemos todo lo necesario para ello.
+
+Si no se tiene ambiente de pruebas, datos de pruebas, donde documentar las pruebas, inclusive darle seguimiento a los datos que se puedan encontrar de las pruebas puede ser más complicado poderlo resolver, también se pueden usar otras técnicas como lo pueden ser las matrices de pruebas, lo que hace es agilizar visualmente qué pruebas se han ejecutado o no, sin embargo, para otros clientes es importante saber exactamente, a detalle, con pasos, qué es lo que se ha ejecutado  
+
+**Ejecución**: En esta etapa los suites de pruebas se ejecutan de acuerdo al programa o el plan diseñado con anterioridad. Se suelen agrupar los casos de pruebas para que no estén desorganizado y podemos hacerles un buen seguimiento.
+
+## 
+
+Durante esta etapa, las suites de pruebas se ejecutan de acuerdo cone le programa de ejecución de las pruebas.
+
+- Normalmente lo que se hace es agrupar los casos de prueba para que no estén desordenados y le podamos dar seguimiento, y cuando le podamos dar pruebas de regresión también los localicemos y miremos el impacto si hay cambios en el software
+
+**Finalización**: Cuando queremos cerrar el ciclo de las pruebas, necesitamos saber qué porcentaje se cubrió, ejecutó, cuántos defectos se derivaron, aprender lecciones sobre el proceso.
+
+## 
+
+- Defectos con el estatus correcto.
+- Reporte para comunicar los resultados de las pruebas.
+- Finalizar y archivar ambiente de pruebas y sus datos
+- Entregar el Testware al equipo de mantenimiento de pruebas.
+- Analizar lecciones aprendidas para futuras versiones. 
+- Recopilar información para ayudar a mejorar la madurez del proceso de prueba. 
+
+Entre los defectos pueden hacer situaciones tanto técnicas como del mismo proceso, ya sea que faltó documentación, ya que no se explicó bien los requerimientos que el cliente estaba teniendo o simplemente el sistema ya tenía fallos y había que corregirlos, ya que la arquitectura la arquitectura y el diseño no se hicieron bien.
+
+¿Cuántas pruebas hay que hacer para tener un buen monitoreo de pruebas?
+
+## Roles y Responsabilidades
+
+- Especialista en pruebas manuales
+  - Pensamiento lateral, debería ser el especialista en entender cuáles son los casos de uso que se van a llevar a cabo para cada aréa
+  - Debe poder organizarse y asignar trabajo para si mismo dependiendo las prioridades del negocio, el riesgo o el impacto.
+- Especialista en pruebas técnicas
+- Líder del equipo de pruebas
+- Ingeniero de calidad
