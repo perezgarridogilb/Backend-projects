@@ -715,8 +715,101 @@ Entre los defectos pueden hacer situaciones tanto técnicas como del mismo proce
 ## Roles y Responsabilidades
 
 - Especialista en pruebas manuales
-  - Pensamiento lateral, debería ser el especialista en entender cuáles son los casos de uso que se van a llevar a cabo para cada aréa
-  - Debe poder organizarse y asignar trabajo para si mismo dependiendo las prioridades del negocio, el riesgo o el impacto.
-- Especialista en pruebas técnicas
+  - Pensamiento lateral, debería ser el especialista en entender cuáles son los casos de uso que se van a llevar a cabo para cada aréa.
+  - Debe poder organizarse y asignar trabajo para si mismo dependiendo las prioridades del negocio, los riesgos o el impacto.
+- Especialista en pruebas técnicas (o autimatizadas)
+  - Esta persona se tiene que encargar de estar siempre actualizada en las herramientas que le permitan precisamente acelerar el trabajo, que le permitan mejorar el trabajo, busqueda, continúo entrenamiento, ser autodidacta son valores fundamentales.
 - Líder del equipo de pruebas
+  - Lider manual o de automatización o el lider que pueda llevar ambos equipos, auque tenga los conocimientos de ambos, además gestiona el equipo, se vuelve un falicitador de todas las actividades que tienen que hacer, ya sea el requerimiento de un ambiente de pruebas, ya sea darle seguimiento a los defectos y continuidad, pero sobre todo que se sigan los lineamientos de calidad para que se puedan cumplir en cada etapa.
 - Ingeniero de calidad
+  - Se encarga de la cultura, a la parte del **proceso**, establecer las políticas, ver que se cumplan, que todos los equipos estén **enterados**, **involucrados** y además escucharlos. Muchas veces los procesos no son estrictos, tampoco son inflexibles, lo importante es que estén **alineados** a lo que es el negocio, a lo que son las prioridades y a la forma de entregar al cliente.
+  - Hay clientes que están dispuestos a recibir el producto hasta que cumplan ciertas condiciones (para no poner en riesgo el negocio). Hay sistemas que se pueden entregar parcialmente, pueden ser diferentes modelos de trabajo dependiendo la industria, dependiendo la empresa / las necesidades
+
+**El compromiso de todos es que la calidad se alcance conforme lo que espera el usuario**
+
+Apuntes:
+
+Roles y Responsabilidades
+
+• Especialista en pruebas manuales. Entre las habilidades que debería de tener, es el pensamiento lateral, en la parte de organización, diseño y documentación, debería de ser el especialista en entender cuáles son los casos de uso que se van a llevar para cada área, debe de poder organizarse y asignar trabajo para sí mismo dependiendo las prioridades del negocio, los riesgos o el impacto.
+• Especialista en pruebas técnicas. Esta persona se tiene que encargar de estar siempre actualizada en las herramientas que le permitan acelerar el trabajo, mejorar el trabajo, búsqueda, continuo entrenamiento, ser autodidacta.
+• Líder del equipo de pruebas. Gestiona el equipo y es un facilitador para las actividades a realizar, como apoyar con ambiente de pruebas, darle seguimiento a los defectos, revisar que los lineamientos se sigan.
+• Ingeniero de calidad. Se dedica a la parte del proceso, es quien se encarga de establecer las políticas, mantener involucrados a los equipos, alineados a las prioridades del negocio; además que verifica que todo esto se cumpla sobre todo para la entrega del cliente.
+
+## Roles
+
+Independientemente del rol, un tester participa de todas las etapas del proceso de desarrollo de software, colaborando para asegurar la máxima calidad del producto. Su perfil conjuga un conjunto de habilidades con el conocimiento del negocio, de la aplicación bajo prueba y de cómo planificar, diseñar, ejecutar y administrar las pruebas.
+
+*“Un tester investiga un producto de software con el objetivo de obtener información acerca de su calidad y del valor que representa para quienes lo utilizan”*
+
+![Pruebas-Habilidades-82252b7c-5456-456a-8cb6-e949df67f1c7](https://user-images.githubusercontent.com/56992179/223530544-f463f433-4325-45fd-bc14-391062a8f74e.jpeg)
+
+Cuando el esfuerzo en la calidad se enfoca y se distribuye en roles y responsabilidades podemos encontrar que la mayoría de las empresas manejan los siguientes roles:
+
+**El tester manual**, se enfoca en la estrategia, definición, ejecución y cobertura de pruebas para cumplir los requerimientos, echando mano de cualquier técnica para obtener información suficiente y así cumplir con las asignaciones correspondientes.
+
+**El tester técnico**, trabaja muy de cerca con el tester manual, mientras que el tester manual define las pruebas, el tester técnico acelera la capacidad de ejecución de las pruebas. Esto lo hace implementando herramientas que permitan la automatización de pruebas, o la correcta selección de datos de pruebas, o el monitoreo de la ejecución de las pruebas.
+
+**El líder de pruebas**, generalmente dentro de sus responsabilidad es volverse un facilitador de servicios, información y herramientas para el equipo de pruebas, para poder estimar presupuestos, recursos y tiempos respecto al plan de desarrollo de software.
+
+**El Ingeniero de calidad**, ya no solamente está al pendiente del producto y los procesos, comienza a involucrarse más con el negocio, ayudando tanto a testers como cualquier otro miembro del equipo a llevar cabo pruebas que reduzcan, en todas las etapas del ciclo de vida del software, el error humano.
+
+## Retrabajo
+
+*Es necesario identificar cada uno de los roles y responsabilidades para después evaluar si se esta haciendo o no re trabajo, es decir estamos utilizando tiempo que podría ser utilizado en otras actividades o sencillamente que no debería hacerse.*
+
+*También es necesario medir el rendimiento de nuestro trabajo y herramientas que nos permitan conocer paso a paso cómo vamos avanzado en el proceso de manera individual o en equipo.*
+
+Ahora que conocemos los roles y las responsabilidades que están llevando estos roles, necesitamos herramientas para conocer cómo medirlos, hacer uso de métricas o herramientas que nos permitan conocer paso a paso cómo vamos avanzado en el proceso de manera individual o en equipo.
+
+Las empresas, los proyectos o los individuos deciden tener no sólo un monitoreo visual, sino también a través de herramientas, comunicación, pueden ser por correo, por minutas, por juntas de trabajo, lo importante es que todos puedan tener de manera clara qué se está haciendo, qué se terminó de hacer y qué se va a hacer después.
+- **El dashboard puede ser una herramienta útil que mantiene informado a todo el equipo acerca del estatus de las pruebas**.
+
+Lo ignoran, para eso son las:
+
+### Acciones de control
+
+- Si identificamos un riesgo
+  - Es importante que este tipo de monitoreo resalte si estamos enfrentando un riesgo, un riesgo para el negocio, por que si estamos aquí como responsable, lo más importante o lo que se espera de nosotros es que podamos decir **cuándo hay un riesgo**, cuándo algo se está saliendo de control cuando las tareas no van a ser terminadas en tiempo o existe algún elemento o parte del proceso que esté bloqueando que nosotros terminemos.
+- Si identificamos falta de ambientes
+  - Es común que el ambiente de pruebas no siempre esté configurado para comenzar a hacer el trabajo o que requiera estarse actualizando o que se requieran nuevas versiones, se están generando parches, se están corrigiendo defectos.
+  - Para tomar en cuenta que nuestro ambiente están listos (que el ambiente no esté actualizado) debe formar parte de nuestras métricas de monitoreo y de avance del trabajo.
+- Si el criterio de salida no se cumple
+  - Volver a hacer una planeación que ajuste a todo para la entrega del trabajo.
+
+Con esto podemos ver dos cosas:
+
+**Resultado de las pruebas**
+  - ¿Cuántas pruebas se han ejecutado?
+  - ¿Cuántas de ellas han pasado o no han pasado? (o si han pasado)
+  - ¿Cuántas de ellas se derivaron defectos?, tal vez no hay defecto, simplemente hay un bloque que no le permite continuar el trabajo 
+
+**Desempeño del equipo de testing**
+  - ¿Qué pasa si en el equipo un día alguien no asiste al trabajo? o no tiene el equipo adecuado, no hubo internet, el cliente no entrega el material necesario o alguna otra razón (muchas circunstancias de poder hacer bien nuestro trabajo también forman parte de estar midiendo el proceso y las tareas que se les asigna a todas las personas).
+
+### Retrabajo 
+
+*Esfuerzo adicional necesario para la corrección de una inconformidad en algún producto. El problema que surge con el retrabajo es obvio: es un esfuerzo adicional que no puede ser cobrado al cliente, pero que es necesario para que este quede conforme con lo que hemos hecho para él.*
+
+## 
+
+*"El retrabajo es la principal causa del retraso, de que la estimación de tiempos falle, de que los costos se suban"*, cuando está sucediendo el retrabajo, estamos llevando hasta siete veces más el esfuerzo de todos. Cuando puede ser tan simple de: *"documenté bien y entrego"* y la siguiente persona puede hacer bien su trabajo, esto se puede volver una cadena de: *entrego mi trabajo y me lo rechazan por que está mal documentado, está mal hecho, o el resultado no es el esperado y hay que volver a iniciar y el volver iniciar*, puede involucrar más personas atrás para revisar en qué momento falló el trabajo y no necesariamente el producto. **Las acciones, las actividades y los hábitos de cómo gestionar las pruebas, son las que producen retrabajo**.
+
+- Falta o mala documentación
+- Falta de capacitación o dominio en las herramientas utilizadas
+  - Cuando a una persona se le asignan responsabilidades, se espera que tenga un completo dominio de ellas, pero **también se sabe que es necesario mantener actualizado** al equipo. El costo no es el costo de invertirles para que se capaciten, sino el costo de que se queden en el equipo y no estén capacitados y entonces comiencen a tener demasiado retrabajo y  los proyectos se salgan de estimación o de recursos o de alcance. 
+- Falta de capacitación o dominio en el software a desarrollar
+  - Producto en sí que se está desarrollando, no entenderlo, no darle tiempo al equipo para que vea de qué se trata el negocio, del producto que se está desarrollando. También hace que muchas personas comiencen a omitir o a creer que las cosas son de una forma y no se trata de creer, se trata de estar seguros, trabajar en base a requerimientos o líneamientos a estar de acuerdo a que todos deberían desarrollar un producto de esa forma.
+- Falta de comunicación
+
+Aplicación para gestionar proyectos ágiles o de cascada:
+
+https://www.easyredmine.com/
+
+
+
+
+
+Retrabajo: Es la principal causa del retraso, de que la estimación de tiempo falle, de que costos suban. Cuando estos suceden aumentamos exponencialmente el trabajo de todos
+
+
