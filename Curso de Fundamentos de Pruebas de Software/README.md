@@ -812,4 +812,94 @@ https://www.easyredmine.com/
 
 Retrabajo: Es la principal causa del retraso, de que la estimación de tiempo falle, de que costos suban. Cuando estos suceden aumentamos exponencialmente el trabajo de todos
 
+## Defectos y sugerencias
 
+Dependiendo del objetivo del proyecto podemos encontrar que no todos quieren que des sugerencias, solo encuentres defectos. Cosas que pongan en riesgo por costo, prestigio o calidad del producto.
+
+- Ese tipo de condiciones no son indicadas al inicio del trabajo provocando retrabajo.
+  - En ese momento las prioridades no están indicadas para comenzar a implementar nuevas características
+
+**Defectos**: Es aquello que no cumple los requerimientos funciones, de diseño, de arquitectura y **es la consecuencia de un error humano** en el código o la interpretación de la información.
+
+**Sugerencias**: Es cómo la experiencia del usuario se ve afectado. La lentitud del proyecto, la legibilidad, combinación de colores, la forma de navegar no es adecuada.
+
+### Ejemplos de sugerencias
+- Hay programas, aplicaciones, que comienzan a escalar a otros países y a implementar el uso de diferentes lenguajes y en lugar de hacer una traducción correcta la hacen una traducción literal, dejando a un lado al usuario que está experimentando con un nuevo lenguaje su aplicación, la sensación de lo que dice "no es lo correcto".
+- El sitio no falla, pero uno como usuario no entiende cómo usar el producto que interesa y que puede resolver un problema.
+**Ejemplo #1**; el mensaje de error no comunica adecuadamente.
+**Ejemplo #2**; el color de la pantalla, no contrasta bien con el texto.
+- Puede ser ilegal que el software no pueda ser usado por cualquiera, por cuestiones de inclusividad, de personas que no pueden ver, de personas que no pueden escribir bien en teclado, personas que no escuchan.
+- O que ya no se pueda hacer uso de la manera "normal" como lo venía haciendo, eso se presta para demandas, multas, cierre de la empresa, etcétera.
+- Puede ser un defecto (no lo savemos), pero si puede ser una sugerencia dado que en los requerimientos no se estaba considerando quién lo iba a usar al final.
+**Ejemplo #3**; no recibí un correo adicional de confirmación.
+- Durante la experiencia es normal que te de un mensaje desupués de una acción confirmación/error/advertencia/muestre lo que se estuvo gestionando
+
+### 
+
+**Si la calidad la define el usuario final... sus sugerencias se vuelven defectos?**
+- Quizás no sea un defecto, pero son nuevas opciones para mejorar el producto
+
+### Sugerencias convertidas en defectos / actualizaciones de software
+
+- Hace lenta la operación
+- Detiene parcial o totalmente el proceso
+- El contenido o el flujo confunde al usuario
+- Deja cometer muchos errores al usuario
+- La traducción o el lenguaje empleado no es correcto
+- No funciona sin internet
+
+### ¿Cómo documentar un defecto? (diseño de defecto/sugerencia)
+
+<img width="1280" alt="Captura de Pantalla 2023-03-10 a la(s) 11 05 38 a m" src="https://user-images.githubusercontent.com/56992179/224389428-4edf1d03-4fce-491f-a35e-9da40b68328a.png">
+
+Defecto asociado a cada paso en la columna defecto:
+<img width="1280" alt="Captura de Pantalla 2023-03-09 a la(s) 6 51 45 p m" src="https://user-images.githubusercontent.com/56992179/224389464-1c826c68-180c-42c6-a9ea-41b4aa928343.png">
+
+- Después de que ya se documentó el defecto y ha sido arreglado, se vuelve a la documentación del defecto y siguiendo los mismos pasos ya no se debería obtener el resultado actual donde el error estaba presente
+- Cerrar el defecto sería que se tiene el resultado esperado, en este caso el mensaje de error es diferente y quizás dice, esta cuenta está duplicada y no puedes volverla a usar para registrarte.
+
+<img width="685" alt="Seguimiento y cierre" src="https://user-images.githubusercontent.com/56992179/224390095-e9a89b29-f9ef-4a27-8553-9e14e982e81b.png">
+
+## ¿Qué es la depuración?
+
+El depurador (debugger)
+permite:
+- Ejecutar línea a línea
+- Detener la ejecución temporalmente
+  - Es una línea de código concreta
+  - Bajo determinadas condiciones
+- Visualizar el contenido de las variables
+- Cambiar el valor del entorno de ejecución para poder ver el efecto de una corrección en el programa.
+
+**Algunos elementos no se acomodan correctamente en tu página web**
+- Elementos que manda a llamar
+**Que se ejecuta alguna acción pero no se recibe mensaje ni de error ni de confirmación**
+**O al contrario, se recibe mensajes de confirmación, pero los datos no se actualizan**
+
+### Tipos de herramientas
+- Debugger
+  - Software debugger
+- Manual
+  - Capturar pantalla
+- Local / Remota
+  - Observar frente a frente al servidor cómo empezar a hacer el debugging, encontrarlo y resolverlo
+  - De manera remota, es utilizar los comandos correctos
+
+### Herramientas
+- Mensajes de advertencia
+  - Dejar de ignorarlos
+- Estándares de compilación
+  - Sintaxis correcta
+- Verificación sintáctica y lógica
+  - El orden de los comandos puede ser crucial, ser presiso para lo que queremos lograr
+
+Hacer testing o depuración son dos actividades diferentes. Mientras el testing sirven para encontrar defectos, la depuración nos permitirá entender por qué esta sucediendo este defecto y que actividades están implicadas en el. Ambas pueden ir de la mano y son muy importantes.
+
+Debugger: Es una herramienta que nos ayuda a encontrar todos estos errores ya sea de sintaxis, advertencias de seguridad, etc. Nos permite ejecutar línea por línea, detener la ejecución temporalmente, visualizar el contenido de las variables, cambiar el valor del entorno de ejecución para poder ver el efecto de una corrección en el programa.
+
+Beneficiados
+
+Programador: Requiere cada vez que programa ir depurando lo que ejecuta y escriba para que cumpla con su objetivo
+Tester: Le ayuda a reducir el tiempo de análisis que después puede ser asignado para el desarrollador
+Analista: Puede ser para analisis de encontrar información de un historial sobre cómo se comporta un sistema.
+Objetivo: Vamos a analizar cómo se comporta el sistema, cómo se transfieren los datos, cómo se procesa la información. Tenemos la capacidad de tener nuestro código en cualquier momento para conocer cómo funciona.
