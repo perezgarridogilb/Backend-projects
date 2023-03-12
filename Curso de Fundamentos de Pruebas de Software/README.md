@@ -754,6 +754,10 @@ Cuando el esfuerzo en la calidad se enfoca y se distribuye en roles y responsabi
 
 **El Ingeniero de calidad**, ya no solamente está al pendiente del producto y los procesos, comienza a involucrarse más con el negocio, ayudando tanto a testers como cualquier otro miembro del equipo a llevar cabo pruebas que reduzcan, en todas las etapas del ciclo de vida del software, el error humano.
 
+## Ejercicios
+
+![mini_20Quiz_20pruebas-9af079f0-c642-4f8c-80cf-7c287bb201b0](https://user-images.githubusercontent.com/56992179/224495076-f72f8eeb-8e75-474d-8047-36ad1a4919a4.jpg)
+
 ## Retrabajo
 
 *Es necesario identificar cada uno de los roles y responsabilidades para después evaluar si se esta haciendo o no re trabajo, es decir estamos utilizando tiempo que podría ser utilizado en otras actividades o sencillamente que no debería hacerse.*
@@ -805,10 +809,6 @@ Con esto podemos ver dos cosas:
 Aplicación para gestionar proyectos ágiles o de cascada:
 
 https://www.easyredmine.com/
-
-
-
-
 
 Retrabajo: Es la principal causa del retraso, de que la estimación de tiempo falle, de que costos suban. Cuando estos suceden aumentamos exponencialmente el trabajo de todos
 
@@ -895,11 +895,121 @@ permite:
 
 Hacer testing o depuración son dos actividades diferentes. Mientras el testing sirven para encontrar defectos, la depuración nos permitirá entender por qué esta sucediendo este defecto y que actividades están implicadas en el. Ambas pueden ir de la mano y son muy importantes.
 
-Debugger: Es una herramienta que nos ayuda a encontrar todos estos errores ya sea de sintaxis, advertencias de seguridad, etc. Nos permite ejecutar línea por línea, detener la ejecución temporalmente, visualizar el contenido de las variables, cambiar el valor del entorno de ejecución para poder ver el efecto de una corrección en el programa.
+**Debugger**: Es una herramienta que nos ayuda a encontrar todos estos errores ya sea de sintaxis, advertencias de seguridad, etc. Nos permite ejecutar línea por línea, detener la ejecución temporalmente, visualizar el contenido de las variables, cambiar el valor del entorno de ejecución para poder ver el efecto de una corrección en el programa.
 
-Beneficiados
+### Beneficiados
 
-Programador: Requiere cada vez que programa ir depurando lo que ejecuta y escriba para que cumpla con su objetivo
-Tester: Le ayuda a reducir el tiempo de análisis que después puede ser asignado para el desarrollador
-Analista: Puede ser para analisis de encontrar información de un historial sobre cómo se comporta un sistema.
-Objetivo: Vamos a analizar cómo se comporta el sistema, cómo se transfieren los datos, cómo se procesa la información. Tenemos la capacidad de tener nuestro código en cualquier momento para conocer cómo funciona.
+- **Programador**: Requiere cada vez que programa ir depurando lo que ejecuta y escriba para que cumpla con su objetivo
+- **Tester**: Le ayuda a reducir el tiempo de análisis que después puede ser asignado para el desarrollador
+- **Analista**: Puede ser para analisis de encontrar información de un historial sobre cómo se comporta un sistema.
+
+**Objetivo**: Vamos a analizar cómo se comporta el sistema, cómo se transfieren los datos, cómo se procesa la información. Tenemos la capacidad de tener nuestro código en cualquier momento para conocer cómo funciona.
+
+
+## Pruebas de verificación
+Sirven para confirmar que un cambio se haya hecho o un defecto se haya corregido. Queremos verificar que lo que estamos buscando funcione a lo que está en los requerimientos o ya sea a lo que está documentado
+
+- Tratan de reproducir el escenario fallido con los datos usados
+  - Sería un error usar los mismos datos de prueba, ya sea en la parte de desarrollo durante el debugging o del lado del testing, ya buscando que la funcionalidad cumpla con muchas más cosas, no sólo con el contexto de programación.
+  - Otros contextos
+- Se buscan nuevos escenarios donde se utilicen valores relativos siguientes flujos adicionales (a largo plazo en nuestro software van creciendo las pruebas en ese sentido)
+  - Otras plataformas
+  - Otros Sistemas Operativos
+  - Otros exploradores
+  - Otros dispositivos
+
+**Pruebas de verificación**: Para asegurarnos que lo que ya funcionaba siga funcionando o que lo que ha sido corregido ahora funcione como se espera.  
+
+### Pruebas de regresion
+- La matriz de pruebas durante el debugging nos permite identificar módulos impactados que requieren regresión
+  - Se siguen teniendo en cuenta todos estos puntos de verificación (los anteriores) para que no reciban un impacto.
+  - Puntos de verificación al actualizar un formulario: Tiene puntos de verificación que son las entradas de datos, que después de ingresar los datos se envíen correctamente, que se reciba un mensaje, etcétera (establecer diferentes acorde a los requerimientos)
+  - Diferentes dipositivos como ejemplo, hace crecer la matriz, pero de esa forma tampoco se olvida cuáles son los puntos de verificación
+  - Todo lo que sirva siga funcionando y nos identifica los casos de prueba clave que más tarde pueden ser automatizados y de esa manera se mantiene clara la cobertura que se tiene y no se olvida lo que puede fallar más adelante cuando haya cambios.
+- Las pruebas de regresión ya fallaron la primera vez al no tener suficiente cobertura, debemos incorporar los nuevos datos de prueba
+- Y si se puede otros más
+
+### Documentación
+Forma parte de estar verificando que nada haya cambiado (anteriormente pruebas estáticas), ya sean los comentarios del código, la documentación técnica, pruebas unitarias, pruebas especifícas (performance, seguridad, etc.).
+
+
+Se procura analizar documentación:
+- Comentarios en el código
+- Documentación técnica
+- Pruebas unitarias
+- Pruebas específicas
+- Matrices de pruebas
+  - Hay que darles mantenimiento, ya que pueden cambiar y  alguien puede omitir actualizarlas
+
+## Técnicas de depuración
+Deben ir cambiando de ser reactivas a ser preventivas
+
+### Desventajas de no usar logs
+- Visibilidad nula de errores
+- Metodología de trabajo no estandarizada
+- Accesos e información descentralizada
+- Incremento del tiempo de respuesta
+
+Tener una forma no estandarizada puede provocar que cada miembro del equipo esté resolviendo de forma distinta y observe cosas distintas.
+Ocurre por no tener de forma centralizada un log para que todos puedan ver lo que pasa y saber quién está atendiendo los defectos y aún así seguir arrastrando problemas
+Si se prepara en revisar la información de una manera más organizada se puede empezar a usar técnicas de machine learning
+  - Comenzar a proyectar otro comportamiento no esperado, detectar que si pasa algo, puede que el defecto o el comportamiento del software sea exponencial o demás problemas
+    - Puede comenzar a detectar amenazas de red o de virus
+      - Este historial o tipo de técnicas sobre todo se da en los routers donde se está visualizando la entrada y salida de datos, ¿Cómo viaja la información?, no necesariamente es un software, pero son puntos de verificación que permiten advertir cómo se va a comportar un programa
+
+### Fase 1: Pasos para depurar
+
+1. Ir al módulo que falla
+2. Establecer breakpoints
+  a. En asignación de valores
+  b. Procesamiento de valores
+  c. Cambio de estados
+3. Diseñar una matriz de pruebas
+4. Establecer los datos de prueba
+5. Comenzar a depurar  
+
+### Automatización de pruebas
+
+### ¿Cuándo estamos listos para automatizar?
+- Tenemos pruebas repetitivas (podemos hacer scripts)
+  - Pero no están identificadad
+- Buscamos optimizar la ejecución de pruebas (sin error humano, la omisión, etc. Hay que comenzar a agrupar las pruebas para manejarlas, darles mantenimiento)
+  - Sólo escribimos scripts sin agrupar
+- Hemos definido un framework (como las hacemos, cómo los ejecutamos, cómo las vamos a llamar según de manera masiva, en paralelo o bajo demanda de un proceso de trabajo)
+  - No se estandarizan las pruebas    
+
+## 
+
+Bases para la automatización de pruebas y los tipos de pruebas que podemos automatizar:
+
+**Pruebas unitarias**: Tienen que ver con un pedazo de código que el desarrollador esta codificando, pero no tienen que ver con todo el flujo de negocio y proceso del software.
+
+**Pruebas de integración**: Cómo hacemos que el conjunto del equipo que libera pedacitos de software funcionen juntos y no hagan defectos adicionales.
+
+**Pruebas funcionales o de aceptación**: Estas pruebas no necesariamente forman parte de los requerimientos especificados por el cliente, una recomendación para automatizar estas pruebas es que deban cumplir con los requerimientos dados por el cliente.
+  - Ejemplo de dígitos y su manera de captura
+
+**Test Driven Development**: El desarrollo va a estar enfocado haciendo primero las pruebas y después el código. Haciendo que el desarollo sea muy específico con la mayor cobertura y no pongamos líneas de código que no van a funcionar o no se usan.
+
+1. Escribimos una prueba
+2. Ejecutamos la prueba: Falla
+3. Se escribe el código
+4. Ejecutamos la prueba: Pasa
+
+### BDD (Behavior Driven Development)
+
+BDD es el desarrollo guiado por el comportamiento. Es un proceso que proviene de la evolución del TDD
+
+En BDD también se escriben pruebas antes del código, pero en vez de ser pruebas unitarias son pruebas que van a verificar que el comportamiento del código es correcto desde el punto de vista de negocio.
+
+- Comunicación simple
+- Pruebas simples con una mayor cobertura
+- Tener a los dos frameworks de manera independiente va a ser un mix de los dos, que permite que las pruebas, el código y en tiempo que se invierte en ambos sea bastante optimizado
+
+*"Entre más claros los casos de prueba, más eficiente la cobertura de pruebas. Entre menos errores o ambigüedad tengan los casos de pruebas, son más fácil de ejecutar o automatizar"*
+
+<img width="1280" alt="Captura de Pantalla 2023-03-11 a la(s) 10 35 15 p m" src="https://user-images.githubusercontent.com/56992179/224524609-cd8686aa-5f13-44f6-9120-e07873beacc2.png">
+
+*Behavior Driven Development*: Si primeros vamos a escribir las pruebas, debemos hacerlo bien y usando un lenguaje sencillo, simple para que la sirva al equipo para entender qué es lo que queremos hacer.
+
+
