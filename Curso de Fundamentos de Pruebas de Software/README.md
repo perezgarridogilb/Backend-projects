@@ -1000,7 +1000,7 @@ Bases para la automatización de pruebas y los tipos de pruebas que podemos auto
 
 BDD es el desarrollo guiado por el comportamiento. Es un proceso que proviene de la evolución del TDD
 
-En BDD también se escriben pruebas antes del código, pero en vez de ser pruebas unitarias son pruebas que van a verificar que el comportamiento del código es correcto desde el punto de vista de negocio.
+**En BDD también se escriben pruebas antes del código, pero en vez de ser pruebas unitarias son pruebas que van a verificar que el comportamiento del código es correcto desde el punto de vista de negocio.**
 
 - Comunicación simple
 - Pruebas simples con una mayor cobertura
@@ -1010,6 +1010,31 @@ En BDD también se escriben pruebas antes del código, pero en vez de ser prueba
 
 <img width="1280" alt="Captura de Pantalla 2023-03-11 a la(s) 10 35 15 p m" src="https://user-images.githubusercontent.com/56992179/224524609-cd8686aa-5f13-44f6-9120-e07873beacc2.png">
 
-*Behavior Driven Development*: Si primeros vamos a escribir las pruebas, debemos hacerlo bien y usando un lenguaje sencillo, simple para que la sirva al equipo para entender qué es lo que queremos hacer.
+*Behavior Driven Development*: Si primeros vamos a escribir las pruebas, debemos hacerlo bien y usando un lenguaje sencillo, simple para que la sirva al equipo para entender qué es lo que queremos hacer. **Son el plan de pruebas en base al negocio**.
 
+## Gherkin
 
+"Gherkin es un lenguaje de texto plano con estructura. Esta diseñado para ser fácil de aprender y ser entendido por todos".
+Ayuda a todo el equipo a entender estas pruebas que se quieren llevar a cabo.
+
+Ventajas
+
+- Simple
+- Palabras claves o keywords
+- Estandariza los casos de uso
+- Reduce el tiempo de diseño
+
+###  
+
+Principales keywords usados en Gherkin (reduce todo el contenido que puede tener un caso de prueba)
+- Feature
+- Scenario
+- Given. When, Then, And, But (Steps)
+- Background
+- Scenario outline
+- Examples
+
+Ejemplo:
+<img width="686" alt="Captura de Pantalla 2023-03-12 a la(s) 9 19 24 p m" src="https://user-images.githubusercontent.com/56992179/224600625-fb799dc3-55e2-4087-9b0d-102e56ecf343.png">
+
+Fin
