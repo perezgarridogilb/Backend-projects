@@ -1,5 +1,6 @@
 # Curso de Fundamentos de Pruebas de Software
 ## ¿Qué son las pruebas y por qué deberíamos hacerlas?
+Definición de pruebas: Es el proceso de evaluar un producto, aprendiendo través de la exploración y experimentación, lo cual incluye: Cuestionar, estudiar, modelar, observar e inferir, checar salidas de datos, etc.
 
 - No son parte de la solución.
 - No siempre se entrega evidencia al cliente.
@@ -1036,5 +1037,9 @@ Principales keywords usados en Gherkin (reduce todo el contenido que puede tener
 
 Ejemplo:
 <img width="686" alt="Captura de Pantalla 2023-03-12 a la(s) 9 19 24 p m" src="https://user-images.githubusercontent.com/56992179/224600625-fb799dc3-55e2-4087-9b0d-102e56ecf343.png">
+
+## Examen
+
+![Examen](https://user-images.githubusercontent.com/56992179/227811646-da504544-0ff5-44fa-9639-f1c6d85c3ef7.png)
 
 Fin
