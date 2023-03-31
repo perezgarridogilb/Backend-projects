@@ -65,9 +65,30 @@ Aporte de la comunidad:
 El buble de eventos es un patrón de diseño que espera y distribuye eventos o mensajes en un programa.
 
 ### Memory Heap
-Los objetos son asignados a un montículo (espacio grande en memoria no organizado).
+Los objetos (funciones, variables, elementos) son asignados a un montículo (espacio grande en memoria no organizado).
+
+<img width="616" alt="Captura de Pantalla 2023-03-28 a la(s) 11 05 49 p m" src="https://user-images.githubusercontent.com/56992179/228701125-e1b93219-646e-43a5-aac1-4f8906491b36.png">
 
 ### Call Stack (pila)
 Apila de forma organizada las instrucciones de nuestro programa.
 
+<img width="617" alt="Captura de Pantalla 2023-03-29 a la(s) 7 02 30 p m" src="https://user-images.githubusercontent.com/56992179/228701275-4bb0a6c9-7dbe-41fc-bc0c-bb5bb192c0fd.png">
 
+#### Task queue
+Cola de tareas, se maneja la concurrencia, se agregan las tareas que ya están listas para pasar al Stack (pila).
+- Donde se maneja directamente la concurrencia.
+- El stack debe estar vacío (nunca lo debemos de bloquear para continuar con esta lógica).
+
+#### MicroTask Queue
+Las promesas tienen otra forma de ejecutarse y una prioridad superior (ya que queremos trabajar con el asíncronismo).
+
+#### Web APIs
+JavaScript del lado del cliente: **setTimeout, XMLHttpRequest, File Reader, DOM**.
+Node: **fs, https**.
+
+#### Event Loop
+Tarea asignada para mover del Task Queue al Stack sólo si el Stack está vacío.
+
+<img width="616" alt="Captura de Pantalla 2023-03-29 a la(s) 6 58 08 p m" src="https://user-images.githubusercontent.com/56992179/228700844-bf8bfc1c-e938-4e95-97af-398d77773cb3.png">
+
+Referencias: http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
