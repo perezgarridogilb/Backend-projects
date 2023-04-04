@@ -92,3 +92,14 @@ Tarea asignada para mover del Task Queue al Stack sólo si el Stack está vacío
 <img width="616" alt="Captura de Pantalla 2023-03-29 a la(s) 6 58 08 p m" src="https://user-images.githubusercontent.com/56992179/228700844-bf8bfc1c-e938-4e95-97af-398d77773cb3.png">
 
 Referencias: http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
+
+## XMLHTTPRequest
+
+Fuente: https://fakeapi.platzi.com/
+
+```
+npm i xmlhttprequest
+```
+
+## Fetch data
+
