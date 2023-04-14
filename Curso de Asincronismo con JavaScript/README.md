@@ -103,3 +103,8 @@ npm i xmlhttprequest
 
 ## Fetch data
 
+## Generators
+El objeto Generator es retornado por una *función generator* y es conformado tanto el protocolo iterable como el protocolo iterador
+
+### Constructor
+Este objeto no puede ser instanciado directamente. En su lugar, una instancia del objeto Generador puede ser devuelta por una *función generator*:
