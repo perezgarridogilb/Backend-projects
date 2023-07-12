@@ -813,6 +813,29 @@ https://www.easyredmine.com/
 
 Retrabajo: Es la principal causa del retraso, de que la estimación de tiempo falle, de que costos suban. Cuando estos suceden aumentamos exponencialmente el trabajo de todos
 
+## Sistema de seguimiento de bugs
+### Razones por las que aparecen defectos
+- Hay presión de tiempo en la entrega de software
+- Descuidos en el diseño
+- Inexperiencia o falta de conocimiento
+- Falta de comunicación en los requerimientos
+- Diseño complejo de código
+- Desconocimiento de las tecnologías usadas
+
+### ¿Cómo crear un proceso de gestión de bugs?
+- ¿Qué debe hacer la persona que encuentre un defecto?
+- ¿En qué herramienta debe documentar el defecto?
+- ¿Cómo vamos a almacenar la información?
+- ¿Qué información requiere el equipo de desarrollo para poder resolver un defecto?
+- ¿Cuáles son los estatus que se manejan para que fluya la resolución del defecto?
+- ¿Cuáles son los criterios de aceptación de cierre del defecto?
+
+### Ciclo de gestión
+<img width="930" alt="Captura de Pantalla 2023-07-11 a la(s) 8 14 42 p m" src="https://github.com/perezgarridogilb/Backend-projects/assets/56992179/f1d09d26-0234-4a3e-9915-e65f7842d94d">
+
+### Repositorio y monitoreo de defectos
+Una vez instaurado el proceso de gestión de bugs, también se debe precisar quién tiene acceso a los bugs y cuáles son los permisos que tiene, por cuánto tiempo se almacenan, etc.
+
 ## Defectos y sugerencias
 
 Dependiendo del objetivo del proyecto podemos encontrar que no todos quieren que des sugerencias, solo encuentres defectos. Cosas que pongan en riesgo por costo, prestigio o calidad del producto.
